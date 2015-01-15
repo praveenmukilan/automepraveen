@@ -198,11 +198,11 @@ wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/txt
 
 
 //driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[1]")).sendKeys("praveenmukilan");
-driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("praveenmukilan");
+driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("username");
 //driver.findElementsByAndroidUIAutomator("com.projectgoth:id/txt_username");
 
 //driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
-driver.findElement(By.id("com.projectgoth:id/txt_password")).sendKeys("60se!inMS");
+driver.findElement(By.id("com.projectgoth:id/txt_password")).sendKeys("password");
 
 //driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
 driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
