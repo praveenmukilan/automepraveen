@@ -27,11 +27,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.migme.util.Constants;
+import java.util.Base64;
 
 public class SetupAndroidAppium{
 
 	public static AndroidDriver driver;
 	public static Process appium;
+	public static Properties appProp;
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
@@ -39,12 +41,16 @@ public class SetupAndroidAppium{
 	
 	public static void setUp() throws Exception {
 		Properties prop = new Properties();
+		appProp = new Properties();
 		
 		//From the build, the apkFile.properties will reside in $WORSPACE/android
 		
 		FileInputStream fis = new FileInputStream("apkFile.properties");
+		System.out.println(System.getProperty("user.dir"));
+		 FileInputStream apFis = new FileInputStream(System.getProperty("user.dir")+"//src//resources//"+"androidauto.properties");
 		
 		prop.load(fis);
+		appProp.load(apFis);
 		
 		System.out.println("****************$$$ setUP Starts****************");
 		
@@ -132,27 +138,7 @@ public class SetupAndroidAppium{
 		System.out.println("****************setUp Ends****************");
 }
 	
-	public static void main(String args[]){
-		
-		
-		try{
-			
-			System.out.println("****************main Starts****************");
-			killNodeAdbPlayer();
-		launchEmulator();
-//		Thread.sleep(20000);
-		setUp();
-		test01();
-		tearDown();
-		stopAppium();
-		System.out.println("****************main Ends****************");
-		}
-		catch(Exception e){
-			
-			System.out.println(e);
-		}
-		
-	}
+
 	
 	@Test
 	public static void main(){
@@ -195,14 +181,19 @@ System.out.println("****************test01 Starts****************");
 
 WebDriverWait wait = new WebDriverWait(driver, 30); 
 wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/txt_username")));
+ 
+String username = new String(Base64.getDecoder().decode(appProp.getProperty("username")));
+String password = new String(Base64.getDecoder().decode(appProp.getProperty("password")));
+
+//System.out.println("un : "+username + "pw  : "+password);
 
 
-//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[1]")).sendKeys("praveenmukilan");
-driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("praveenmukilan");
+
+driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys(username);
 //driver.findElementsByAndroidUIAutomator("com.projectgoth:id/txt_username");
 
 //driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
-driver.findElement(By.id("com.projectgoth:id/txt_password")).sendKeys("60se!inMS");
+driver.findElement(By.id("com.projectgoth:id/txt_password")).sendKeys(password);
 
 //driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
 driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
@@ -210,9 +201,13 @@ driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
 //driver.findElement(By.id("com.projectgoth:id/txt_username"));
 //driver.findElement(MobileBy.ByAndroidUIAutomator.)
 
+Thread.sleep(5000);
+
 //Steps to sign out
 
 //Button Icon: com.projectgoth:id/button_icon
+
+
 
 driver.findElement(By.id("com.projectgoth:id/button_icon")).click();
 
