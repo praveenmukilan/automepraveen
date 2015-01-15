@@ -2,11 +2,15 @@ package com.migme.android;
 
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.exec.CommandLine;
@@ -14,14 +18,15 @@ import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
-
-
+import com.migme.util.Constants;
 
 public class SetupAndroidAppium{
 
@@ -30,9 +35,17 @@ public class SetupAndroidAppium{
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
+
 	
 	public static void setUp() throws Exception {
-		 
+		Properties prop = new Properties();
+		
+		//From the build, the apkFile.properties will reside in $WORSPACE/android
+		
+		FileInputStream fis = new FileInputStream("apkFile.properties");
+		
+		prop.load(fis);
+		
 		System.out.println("****************$$$ setUP Starts****************");
 		
 //		System.out.println("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
@@ -71,9 +84,8 @@ public class SetupAndroidAppium{
 		Thread.sleep(15000);
 		*/
 		
-
+		String androidApkPath = prop.getProperty("APKPATH");
 		
-		String androidApkPath = System.getenv("APKPATH");
 		System.out.println("androidApkPath : "+androidApkPath);
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -89,6 +101,7 @@ public class SetupAndroidAppium{
 //		https://tools.projectgoth.com/jenkins/view/3.%20Mobile/job/QA-CI%20androidV5/ws/target/
 //		capabilities.setCapability("app", "/Users/Praveen/APPIUM/mig33Droidv5.00.020.apk");
 		capabilities.setCapability("app", androidApkPath);
+	
 //		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "device");		
 		
 
@@ -106,6 +119,7 @@ public class SetupAndroidAppium{
 
 		System.out.println("****");
 	
+	
 		
 		
 	//	driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
@@ -113,6 +127,7 @@ public class SetupAndroidAppium{
 	
 	
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		
 
 		System.out.println("****************setUp Ends****************");
 }
@@ -178,9 +193,19 @@ System.out.println("Jesus");
 //AndroidDriver andy = (AndroidDriver)driver;
 System.out.println("****************test01 Starts****************");
 
-driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[1]")).sendKeys("praveenmukilan");
-driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
-driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
+WebDriverWait wait = new WebDriverWait(driver, 30); 
+wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/txt_username")));
+
+
+//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[1]")).sendKeys("praveenmukilan");
+driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("praveenmukilan");
+//driver.findElementsByAndroidUIAutomator("com.projectgoth:id/txt_username");
+
+//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
+driver.findElement(By.id("com.projectgoth:id/txt_password")).sendKeys("60se!inMS");
+
+//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
+driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
 
 //driver.findElement(By.id("com.projectgoth:id/txt_username"));
 //driver.findElement(MobileBy.ByAndroidUIAutomator.)
@@ -217,7 +242,7 @@ System.out.println("****************test01 Ends****************");
  * Method to launch the emulator programmatically
  * */
 
-public static void launchEmulator() throws ExecuteException, IOException{
+public static void launchEmulator() throws ExecuteException, IOException, InterruptedException{
 	
 	
 	System.out.println("****************launchEmulator Starts****************");
@@ -226,8 +251,7 @@ public static void launchEmulator() throws ExecuteException, IOException{
 
 	
 
-//	command.addArgument("--address", false);
-//	command.addArgument("127.0.0.1");
+
 	launchEmul.addArgument("--vm-name", false);
 	launchEmul.addArgument("SamsungGalaxyS4");
 	
@@ -236,6 +260,8 @@ public static void launchEmulator() throws ExecuteException, IOException{
 	executor.setExitValue(1);
 	
 	executor.execute(launchEmul, resultHandler);
+	Thread.sleep(20000);
+	
 	System.out.println("****************launchEmulator Ends****************");
 }
 
