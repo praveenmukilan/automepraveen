@@ -189,6 +189,7 @@ String password = new String(Base64.getDecoder().decode(appProp.getProperty("pas
 
 
 
+
 driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys(username);
 //driver.findElementsByAndroidUIAutomator("com.projectgoth:id/txt_username");
 
