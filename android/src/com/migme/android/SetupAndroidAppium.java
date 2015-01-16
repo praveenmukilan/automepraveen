@@ -47,7 +47,7 @@ public class SetupAndroidAppium{
 		
 		FileInputStream fis = new FileInputStream("apkFile.properties");
 		System.out.println(System.getProperty("user.dir"));
-		 FileInputStream apFis = new FileInputStream(System.getProperty("user.dir")+"//src//resources//"+"androidauto.properties");
+		FileInputStream apFis = new FileInputStream(System.getProperty("user.dir")+"//src//resources//"+"androidauto.properties");
 		
 		prop.load(fis);
 		appProp.load(apFis);
