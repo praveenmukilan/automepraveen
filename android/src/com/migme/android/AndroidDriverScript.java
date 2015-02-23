@@ -564,7 +564,7 @@ public static void chatToFeedPage() throws InterruptedException{
 	Thread.sleep(5000);
 
 }
-public static void startNewChat(){
+public static void startNewChat() throws InterruptedException{
 	
 	try{
 	System.out.println("*****************startNewChat*********************");
