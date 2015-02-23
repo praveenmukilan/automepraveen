@@ -1,0 +1,1 @@
+export APKPATH="$HOME/APPIUM/APK/$APK"
