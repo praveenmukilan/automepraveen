@@ -367,7 +367,7 @@ public class AndroidDriverScript{
         try{
         	
             WebDriverWait wait = new WebDriverWait(driver, 80); 
-            element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
+            element = wait.until(ExpectedConditions.elementToBeClickable(by));
 
             driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS); //reset implicitlyWait
             return element; //return the element
@@ -569,8 +569,8 @@ public static void startNewChat() throws InterruptedException{
 	try{
 	System.out.println("*****************startNewChat*********************");
 	
-//	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 20).click();
-	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 20).click();
+//	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("searchBtn")), 5) )){
 		System.out.print("**inwhile -navigation button");
@@ -584,7 +584,7 @@ public static void startNewChat() throws InterruptedException{
 		
 	//main button click to view the new private group chat icon
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
-	while(!(isElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 5))){
+	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 5))){
 		System.out.print("**inwhile- ad chatadd white ");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		}
