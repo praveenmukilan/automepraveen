@@ -492,7 +492,8 @@ public static void postImage(){
     	//==this code makes the driver come out of the migme app. need to fix. infinite loop
     	
     	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
-        	driver.launchApp();  		
+//        	driver.launchApp(); 
+        	goBack();
     	}
     	
 
