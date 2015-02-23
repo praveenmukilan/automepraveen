@@ -319,7 +319,7 @@ public class AndroidDriverScript{
 		
 //		signIn();
 		
-		while(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
+		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 		Thread.sleep(5000);
 		}
 		retry=0;
