@@ -318,6 +318,10 @@ public class AndroidDriverScript{
 		System.out.println("****************setUp Ends****************");
 		
 //		signIn();
+		
+		while(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
+		Thread.sleep(5000);
+		}
 		retry=0;
 		
 	}catch(UnreachableBrowserException unbe){
