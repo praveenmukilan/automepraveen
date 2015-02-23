@@ -243,8 +243,8 @@ public class AndroidDriverScript{
 //		executor.execute(killNode,resultHandler);
 //		executor.execute(killPlayerEmulator,resultHandler);
 //		executor.execute(killADB,resultHandler);
-		
 	//	CommandLine command = new CommandLine("/bin/sh -c");
+		
 	//	command.addArgument("/Applications/Appium.app/Contents/Resources/node/bin/node",false);
 		
 		CommandLine command = new CommandLine("/Applications/Appium.app/Contents/Resources/node/bin/node");
@@ -315,14 +315,16 @@ public class AndroidDriverScript{
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		
 
-		System.out.println("****************setUp Ends****************");
+
 		
 //		signIn();
-		
+		System.out.println("waiting for app to be lauched");
 		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
+			System.out.print("***");
 		Thread.sleep(5000);
 		}
 		retry=0;
+		System.out.println("****************setUp Ends****************");
 		
 	}catch(UnreachableBrowserException unbe){
 //		
@@ -635,6 +637,7 @@ public static void privateChat() throws InterruptedException{
 	 postEmoticonInChat();
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
+	Thread.sleep(10000);
 
 	chatToFeedPage();
 	System.out.println("*****privateChat ends*********************");
