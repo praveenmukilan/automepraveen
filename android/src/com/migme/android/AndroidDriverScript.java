@@ -554,6 +554,7 @@ public static void postEmoticons(){
 
 public static void chatToFeedPage() throws InterruptedException{
 	System.out.println("*****************chatToFeedPage*********************");
+	Thread.sleep(10000);
 	//to navigate back from chat window
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 5);
 	//if the current page is recent chats, then the chatBackBtn is not available.
@@ -637,7 +638,7 @@ public static void privateChat() throws InterruptedException{
 	 postEmoticonInChat();
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
-	Thread.sleep(10000);
+	
 
 	chatToFeedPage();
 	System.out.println("*****privateChat ends*********************");
