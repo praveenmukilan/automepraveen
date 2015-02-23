@@ -548,7 +548,7 @@ public static void postEmoticons(){
 public static void chatToFeedPage() throws InterruptedException{
 	System.out.println("*****************chatToFeedPage*********************");
 	//to navigate back from chat window
-	
+	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 5);
 	//if the current page is recent chats, then the chatBackBtn is not available.
 	if(isElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 10))
 	      driver.findElementByAccessibilityId(OR.getProperty("chatBackBtn")).click();
@@ -628,8 +628,9 @@ public static void privateChat() throws InterruptedException{
 
 	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ "+getCurrentTimeStamp());
 	 postEmoticonInChat();
-	driver.findElementByAccessibilityId(OR.getProperty("chatSend")).click();
+	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
+
 	chatToFeedPage();
 	System.out.println("*****privateChat ends*********************");
 
