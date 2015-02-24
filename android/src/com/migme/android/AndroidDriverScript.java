@@ -106,7 +106,7 @@ public class AndroidDriverScript{
 		
 
 		//The below code is not working in API level <19
-		waitForElementPresent( MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")"), 10).sendKeys(username);
+//		waitForElementPresent( MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")"), 10).sendKeys(username);
 //		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")")).sendKeys(username);
 //		driver.findElement(MobileBy.AndroidUIAutomator("new UiObject(new UiSelector().resourceId(\"com.projectgoth:id/txt_username\"))")).sendKeys(username);
 	
@@ -119,13 +119,14 @@ public class AndroidDriverScript{
 		//(MobileElement)driver.findElementById(OR.getProperty("username_id")).
 //		driver.findElementById(OR.getProperty("username_id")).sendKeys(username);
 
-		//driver.findElementByAccessibilityId("txt_username").sendKeys(username);
+		waitForElementPresent(MobileBy.AccessibilityId("txt_username"),5).sendKeys(username);
 
 		//driver.executeScript("try{var el = document.getElementById('com.projectgoth:id/txt_username');el.value = 'praveenmukilan';return 0;}catch{return 1;}");
 //		driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("praveenmukilan");
 //		driver.findElementByXPath(OR.getProperty("username_xpath")).sendKeys(username);
 		//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
-		driver.findElementById(OR.getProperty("password_id")).sendKeys(password);
+//		driver.findElementById(OR.getProperty("password_id")).sendKeys(password);
+		waitForElementPresent(MobileBy.AccessibilityId("txt_password"),5).sendKeys(password);
 //		driver.findElementByXPath(OR.getProperty("password_xpath")).sendKeys(password);
 
 		//The below code is not working in API level <19  -- added 16Feb2015
@@ -161,7 +162,8 @@ public class AndroidDriverScript{
 		password.setValue("60se!inMS");
 		*/
 		//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
-		driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
+//		driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
+		driver.findElement(By.xpath(OR.getProperty("signinBtn_xpath"))).click();
 		takeScreenShot();
 		//driver.findElement(By.id("com.projectgoth:id/txt_username"));
 		//driver.findElement(MobileBy.ByAndroidUIAutomator.)
@@ -434,7 +436,7 @@ public static void postText(){
 	System.out.println("*****postText()****************");
 			
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
-	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
+	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 	}
 	
@@ -450,7 +452,7 @@ public static void postImage(){
 	System.out.println("*****postImage()****************");
 	
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
-	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
+	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 	}
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
@@ -533,7 +535,7 @@ public static void postEmoticons(){
 	System.out.println("*****postEmoticons()****************");
 
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
-	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
+	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 	}
 	
@@ -599,7 +601,11 @@ public static void startNewChat() throws InterruptedException{
 	
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
-	
+	System.out.println("waiting for chat user names to appear");
+	while(!isElementClickable(MobileBy.id(OR.getProperty("chatUserNamesList")),5)){
+		System.out.println("****");
+		Thread.sleep(5000);
+	}
 	 retry=0;
 	 System.out.println("*****************startNewChat ends*********************");
 	//driver.findElementByAccessibilityId("chat_list_tab").click();
