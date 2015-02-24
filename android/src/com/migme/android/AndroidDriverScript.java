@@ -604,7 +604,7 @@ System.out.println("waiting for post text field to appear..");
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 		Thread.sleep(2000);
 	}
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys(RandomStringUtils.randomAlphabetic(200));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("postTextEmoticons @ "+getCurrentTimeStamp()+" with some random text"+RandomStringUtils.randomAlphabetic(150));
 	driver.findElementByAccessibilityId(OR.getProperty("emoticonBtn")).click();	
 	
 	driver.findElementByXPath(OR.getProperty("emoticonItem")).click();
