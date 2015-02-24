@@ -346,7 +346,7 @@ System.out.println("****");
 		
 		
        //wait for app to be lauched
-		Thread.sleep(20000);
+		Thread.sleep(40000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 //		signIn();
@@ -635,8 +635,11 @@ System.out.println("*****************chatToFeedPage*********************");
 	//to navigate back from chat window
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 5);
 	//if the current page is recent chats, then the chatBackBtn is not available.
-	if(isElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 10))
+	if(isElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 10)){
 	      driver.findElementByAccessibilityId(OR.getProperty("chatBackBtn")).click();
+	}
+	
+	System.out.println("navigated from the chat window to recent chats");
 
 	//to navigate back to feed screen, click main button & click on feed button
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
@@ -1121,7 +1124,7 @@ public static void sendEmail(){
        BodyPart messageBodyPart = new MimeBodyPart();
 
        // Now set the actual message
-       messageBodyPart.setText("This is message body");
+       messageBodyPart.setText("Android automation execution status");
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();
