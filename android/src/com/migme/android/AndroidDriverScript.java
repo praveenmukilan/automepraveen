@@ -323,7 +323,8 @@ public class AndroidDriverScript{
 	
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		
-
+       //wait for app to be lauched
+		Thread.sleep(20000);
 
 		
 //		signIn();
