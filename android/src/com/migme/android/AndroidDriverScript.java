@@ -597,6 +597,7 @@ public static void startNewChat() throws InterruptedException{
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("searchBtn")), 5) )){
 		System.out.print("**inwhile -navigation button");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		Thread.sleep(2000);
 		}
 
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 15).click();
