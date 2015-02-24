@@ -598,8 +598,9 @@ public static void startNewChat() throws InterruptedException{
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("searchBtn")), 5) )){
 		System.out.print("**inwhile -navigation button");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		}
+	System.out.println("out of while -- -navigation button");
 
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
@@ -608,13 +609,15 @@ public static void startNewChat() throws InterruptedException{
 		
 	//main button click to view the new private group chat icon
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
-	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 5))){
+	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 10))){
 		System.out.print("**inwhile- ad chatadd white ");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		if(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5)){
 			driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
 			}
 		}
+	
+	System.out.println("out of while -- -ad_chatadd_white button");
 	
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
