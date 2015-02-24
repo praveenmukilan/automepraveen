@@ -346,7 +346,7 @@ System.out.println("****");
 		
 		
        //wait for app to be lauched
-		Thread.sleep(40000);
+		Thread.sleep(80000);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 //		signIn();
