@@ -5,6 +5,15 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 import com.migme.util.Constants;
 
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
@@ -31,6 +40,7 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
+import org.apache.log4j.xml.DOMConfigurator;
 import org.bouncycastle.asn1.cms.Time;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -49,7 +59,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
+import com.migme.util.Log;
 
 
 
@@ -95,7 +105,8 @@ public class AndroidDriverScript{
 		//pc.waitFor();
 
 
-		System.out.println("Done");
+		Log.info("Done");
+System.out.println("Done");
 		//***************************
 		//driver.findElementByAccessibilityId("txt_username").clear();
 
@@ -144,7 +155,8 @@ public class AndroidDriverScript{
 //		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_password\")")).click();
 //		sendKeysUsingADB(password);
 		//Process user = Runtime.getRuntime().exec("adb -s 192.168.56.101:5555 shell input text "+username);
-		//System.out.println("password : "+password);
+		//Log.info("password : "+password);
+        //System.out.println("password : "+password);
 		//ProcessBuilder pbPass = new ProcessBuilder("adb", "-s", "192.168.56.101:5555", "shell", "input","text", "60se!inMS");
 		//Process pcPass = pbPass.start();
 		//
@@ -152,7 +164,8 @@ public class AndroidDriverScript{
 		////pcPass.waitFor();
 
 
-		System.out.println("Done");
+		Log.info("Done");
+System.out.println("Done");
 		//***************************
 
    
@@ -189,9 +202,11 @@ public class AndroidDriverScript{
 	public static void test01()  {
 		
 		try{
-//		System.out.println("Jesus");
+//		Log.info("Jesus");
+//System.out.println("Jesus");
 		//AndroidDriver andy = (AndroidDriver)driver;
-		System.out.println("****************test01 Starts****************");
+		Log.info("****************test01 Starts****************");
+System.out.println("****************test01 Starts****************");
 //
 
 
@@ -207,7 +222,8 @@ public class AndroidDriverScript{
 		signOut();
 
 
-		System.out.println("****************test01 Ends****************");
+		Log.info("****************test01 Ends****************");
+System.out.println("****************test01 Ends****************");
 		}
 		catch(NoSuchElementException e){
 			e.printStackTrace();
@@ -235,15 +251,18 @@ public class AndroidDriverScript{
 		FileInputStream apk = new FileInputStream("apkFile.properties");
 		FileInputStream fis = new FileInputStream("src//config//androidauto.properties");
 		FileInputStream orFis = new FileInputStream("src//config//OR_Android.txt");
-		
+
 		apkFile.load(apk);
 		prop.load(fis);
 		OR.load(orFis);
 		
-		System.out.println("****************$$$ setUP Starts****************");
+		Log.info("****************$$$ setUP Starts****************");
+System.out.println("****************$$$ setUP Starts****************");
 		
-//		System.out.println("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
-//		System.out.println("PATH : "+System.getenv("PATH"));
+//		Log.info("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
+//System.out.println("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
+//		Log.info("PATH : "+System.getenv("PATH"));
+//System.out.println("PATH : "+System.getenv("PATH"));
 		
 /*
 		resultHandler = new DefaultExecuteResultHandler();
@@ -273,14 +292,16 @@ public class AndroidDriverScript{
 //		startAppium();
 	
 		/*
-	System.out.println("<<>>*********** Please wait for 15 seconds ***********");
+	Log.info("<<>>*********** Please wait for 15 seconds ***********");
+System.out.println("<<>>*********** Please wait for 15 seconds ***********");
 		
 		Thread.sleep(15000);
 		*/
 		
 		String androidApkPath = apkFile.getProperty("APKPATH");
 		
-		System.out.println("androidApkPath : "+androidApkPath);
+		Log.info("androidApkPath : "+androidApkPath);
+System.out.println("androidApkPath : "+androidApkPath);
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
 		capabilities.setCapability("platformName", "Android");		
@@ -312,7 +333,8 @@ public class AndroidDriverScript{
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		
-		System.out.println("****");
+		Log.info("****");
+System.out.println("****");
 	
 	
 		
@@ -325,16 +347,18 @@ public class AndroidDriverScript{
 		
        //wait for app to be lauched
 		Thread.sleep(20000);
-		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 //		signIn();
-		System.out.println("waiting for app to be lauched");
+		Log.info("waiting for app to be lauched");
+System.out.println("waiting for app to be lauched");
 		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 			System.out.print("***");
 		Thread.sleep(5000);
 		}
 		retry=0;
-		System.out.println("****************setUp Ends****************");
+		Log.info("****************setUp Ends****************");
+System.out.println("****************setUp Ends****************");
 		
 	}catch(UnreachableBrowserException unbe){
 //		
@@ -351,16 +375,21 @@ public class AndroidDriverScript{
 		
 		
 		try{
-			
-			System.out.println("****************main Starts****************");
+			DOMConfigurator.configure("log4j.xml");
+			Log.info("test run @ : "+getCurrentTimeStamp());
+	        Log.info("****************main Starts****************");
+			Log.info("****************main Starts****************");
+System.out.println("****************main Starts****************");
 //			killNodeAdbPlayer();
 //		launchEmulator();
 //		Thread.sleep(20000);
 		setUp();
 		test01();
+	    sendEmail();
 // As the server start through code is having issues, commenting stopAppium()
 //		stopAppium();
-		System.out.println("****************main Ends****************");
+		Log.info("****************main Ends****************");
+System.out.println("****************main Ends****************");
 		}
 
 		catch(SessionNotCreatedException e){
@@ -369,7 +398,8 @@ public class AndroidDriverScript{
 		}
 		catch(Exception e){
 			
-			System.out.println(e);
+			Log.info(e.toString());
+System.out.println(e);
 
 		}
 		
@@ -385,7 +415,7 @@ public class AndroidDriverScript{
             WebDriverWait wait = new WebDriverWait(driver, 80); 
             element = wait.until(ExpectedConditions.elementToBeClickable(by));
 
-            driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS); //reset implicitlyWait
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
             return element; //return the element
         } catch (Exception e) {
             e.printStackTrace();
@@ -403,7 +433,7 @@ public class AndroidDriverScript{
             element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
             
 
-            driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS); //reset implicitlyWait
+            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
             return true; //return the element
         } catch (Exception e) {
             return false;
@@ -421,7 +451,7 @@ public class AndroidDriverScript{
          element = wait.until(ExpectedConditions.elementToBeClickable(by));
          
 
-         driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS); //reset implicitlyWait
+         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
          return true; //return the element
      } catch (Exception e) {
          return false;
@@ -431,21 +461,25 @@ public class AndroidDriverScript{
 
 @AfterMethod
 public static void tearDown() throws Exception {
-	System.out.println("****************tearDown Starts****************");
+	Log.info("****************tearDown Starts****************");
+System.out.println("****************tearDown Starts****************");
 /*
 	if(!driver.equals(null))
 	       driver.quit();
 	killNodeAdbPlayer();
 	*/
-	System.out.println("****************tearDown Ends****************");
+	Log.info("****************tearDown Ends****************");
+System.out.println("****************tearDown Ends****************");
 }
 
 public static void postText(){
-	System.out.println("*****postText()****************");
+	Log.info("*****postText()****************");
+System.out.println("*****postText()****************");
 			
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
 	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+//		Thread.sleep(2000);
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
@@ -457,11 +491,13 @@ public static void postText(){
 public static void postImage(){
 	//camera button differs between emulator & real device
 	try{
-	System.out.println("*****postImage()****************");
+	Log.info("*****postImage()****************");
+System.out.println("*****postImage()****************");
 	
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
 	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		Thread.sleep(2000);
 	}
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
 	driver.findElementByAccessibilityId(OR.getProperty("photoBtn")).click();
@@ -473,22 +509,27 @@ public static void postImage(){
 		if(isElementPresent(MobileBy.id(OR.getProperty("doneBtn")), 10))
 		    driver.findElementById(OR.getProperty("doneBtn")).click();
 		else{
-			System.out.println("Camera is not working. Please check");
+			Log.info("Camera is not working. Please check");
+System.out.println("Camera is not working. Please check");
 		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
-		    System.out.println("image could not be taken using camera. pls check!");
+		    Log.info("image could not be taken using camera. pls check!");
+System.out.println("image could not be taken using camera. pls check!");
 			}
 	}
 	/*
 	else{
 		executeADBCommand("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
-		System.out.println("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
+		Log.info("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
+System.out.println("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
 		driver.findElementById("com.sec.android.app.camera:id/myButton").click();
 		if(isElementPresent(MobileBy.id(OR.getProperty("savePhotoRealDevice")), 10))
 		    driver.findElementById(OR.getProperty("savePhotoRealDevice")).click();
 		else{
-			System.out.println("Camera is not working. Please check");
+			Log.info("Camera is not working. Please check");
+System.out.println("Camera is not working. Please check");
 		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
-		    System.out.println("image could not be taken using camera. pls check!");
+		    Log.info("image could not be taken using camera. pls check!");
+System.out.println("image could not be taken using camera. pls check!");
 			}
 
 	}
@@ -518,12 +559,14 @@ public static void postImage(){
     	//add camera cancel button, so that the next function postemoticons can work
     	retry++;
     	if(retry<=2){
-    		System.out.println("Retrying Post Image..");
+    		Log.info("Retrying Post Image..");
+System.out.println("Retrying Post Image..");
     		postImage();
     	}
     	else
     	{
-    		System.out.println("Retried three times. Post Image has issues. Please check.!");
+    		Log.info("Retried three times. Post Image has issues. Please check.!");
+System.out.println("Retried three times. Post Image has issues. Please check.!");
     		
     		return;
     	}
@@ -535,23 +578,31 @@ public static void postImage(){
 }
 
 public static void goBack(){
-	System.out.println("****************go back()*************");
+	Log.info("****************go back()*************");
+System.out.println("****************go back()*************");
 	driver.navigate().back();
 }
 
 public static void postTextEmoticons(){
-	System.out.println("*****postEmoticons()****************");
+	
+	try{
+	Log.info("*****postTextEmoticons()****************");
+System.out.println("*****postTextEmoticons()****************");
 
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
 	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
+
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		Thread.sleep(2000);
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 	while(!isElementClickable(MobileBy.id(OR.getProperty("postTextField")), 5)){
-		System.out.println("waiting for post text field to appear..");
+		Log.info("waiting for post text field to appear..");
+System.out.println("waiting for post text field to appear..");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
+		Thread.sleep(2000);
 	}
 	driver.findElementById(OR.getProperty("postTextField")).sendKeys(RandomStringUtils.randomAlphabetic(200));
 	driver.findElementByAccessibilityId(OR.getProperty("emoticonBtn")).click();	
@@ -560,15 +611,26 @@ public static void postTextEmoticons(){
 	
 
 //	driver.findElementById(OR.getProperty("postTextField")).sendKeys(OR.getProperty("postTextLT300"));
-	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();		
+	
+	while(!isElementClickable(MobileBy.AccessibilityId("main_button"), 5)){
+		System.out.println("waiting for the post to be sent");
+	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
+	Thread.sleep(2000);
+	}
 	takeScreenShot();
+	
+	}catch(Exception e){
+		
+		sendEmail();
+	}
 }
 
 
 
 
 public static void chatToFeedPage() throws InterruptedException{
-	System.out.println("*****************chatToFeedPage*********************");
+	Log.info("*****************chatToFeedPage*********************");
+System.out.println("*****************chatToFeedPage*********************");
 	Thread.sleep(10000);
 	//to navigate back from chat window
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBackBtn")), 5);
@@ -581,6 +643,7 @@ public static void chatToFeedPage() throws InterruptedException{
 	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("feedBtn")), 10)){
 		System.out.print("**");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		Thread.sleep(2000);
 		}
 
 	driver.findElementByAccessibilityId(OR.getProperty("feedBtn")).click();
@@ -590,7 +653,8 @@ public static void chatToFeedPage() throws InterruptedException{
 public static void startNewChat() throws InterruptedException{
 	
 	try{
-	System.out.println("*****************startNewChat*********************");
+	Log.info("*****************startNewChat*********************");
+System.out.println("*****************startNewChat*********************");
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 20).click();
 //	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
@@ -600,11 +664,13 @@ public static void startNewChat() throws InterruptedException{
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		Thread.sleep(3000);
 		}
-	System.out.println("out of while -- -navigation button");
+	Log.info("out of while -- -navigation button");
+System.out.println("out of while -- -navigation button");
 
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
-	
+	System.out.println("clicked navigation button");
+	Log.info("clicked navigation button");
 	Thread.sleep(5000);
 		
 	//main button click to view the new private group chat icon
@@ -615,19 +681,27 @@ public static void startNewChat() throws InterruptedException{
 		if(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5)){
 			driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
 			}
+		Thread.sleep(2000);
 		}
 	
-	System.out.println("out of while -- -ad_chatadd_white button");
+	Log.info("out of while -- -ad_chatadd_white button");
+System.out.println("out of while -- -ad_chatadd_white button");
 	
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
-	System.out.println("waiting for chat user names to appear");
+	System.out.println("clicked ad_chatadd_white button");
+	Log.info("clicked ad_chatadd_white button");
+	
+	Log.info("waiting for chat user names to appear");
+System.out.println("waiting for chat user names to appear");
 	while(!isElementClickable(MobileBy.id(OR.getProperty("chatUserNamesList")),5)){
-		System.out.println("****");
+		Log.info("****");
+System.out.println("****");
 		Thread.sleep(5000);
 	}
 	 retry=0;
-	 System.out.println("*****************startNewChat ends*********************");
+	 Log.info("*****************startNewChat ends*********************");
+System.out.println("*****************startNewChat ends*********************");
 	//driver.findElementByAccessibilityId("chat_list_tab").click();
 	}catch(Exception e){
 		retry++;
@@ -648,7 +722,8 @@ public static void sleepDriver(int secs) throws InterruptedException{
 public static void privateChat() {
 	
 	try{
-	System.out.println("*****privateChat starts*********************");
+	Log.info("*****privateChat starts*********************");
+System.out.println("*****privateChat starts*********************");
 //    Thread.sleep(10000);
  startNewChat();
 
@@ -672,7 +747,8 @@ public static void privateChat() {
 
 	chatToFeedPage();
 	retry=0;
-	System.out.println("*****privateChat ends*********************");
+	Log.info("*****privateChat ends*********************");
+System.out.println("*****privateChat ends*********************");
 	
 	}catch(Exception e){
 		retry++;
@@ -745,7 +821,8 @@ public static void sendGiftInPrivateChat(){
 	}
 	catch(NoSuchElementException e){
 		
-		System.out.println("element could not be found :");
+		Log.info("element could not be found :");
+System.out.println("element could not be found :");
 		e.printStackTrace();
 		return;
 	}
@@ -763,7 +840,8 @@ public static void sendGiftInGroupChat(){
 	
 	catch(NoSuchElementException e){
 		
-		System.out.println("element could not be found :");
+		Log.info("element could not be found :");
+System.out.println("element could not be found :");
 		e.printStackTrace();
 		return;
 	}
@@ -776,7 +854,8 @@ public static void postEmoticonInChat(){
 }
 
 public static void newGroupChat() throws InterruptedException{
-	System.out.println("*****newGroupChat starts*********************");
+	Log.info("*****newGroupChat starts*********************");
+System.out.println("*****newGroupChat starts*********************");
 	startNewChat();
 	   // 1. Click Main Button
 	   // 2. Click the New Chat Icon
@@ -785,8 +864,10 @@ public static void newGroupChat() throws InterruptedException{
 //	List<WebElement> chatUsers= driver.findElementsById(OR.getProperty("chatUsersList"));
 	List<WebElement> chatUsers = driver.findElementsById(OR.getProperty("chatUserNamesList"));
 
-	if(chatUsers.size()<2)
-		System.out.println("The user is not having two friends to do a group chat");
+	if(chatUsers.size()<2){
+		Log.info("The user is not having two friends to do a group chat");
+System.out.println("The user is not having two friends to do a group chat");
+	}
 
 //	driver.findElementById(OR.getProperty("catName")).click();
 
@@ -811,7 +892,8 @@ public static void newGroupChat() throws InterruptedException{
 	driver.findElementByAccessibilityId(OR.getProperty("chatSend")).click();
 
 	chatToFeedPage();
-	System.out.println("*****newGroupChat ends*********************");
+	Log.info("*****newGroupChat ends*********************");
+System.out.println("*****newGroupChat ends*********************");
 }
 
 public static void waitForSecs(int seconds){
@@ -839,7 +921,9 @@ public static void takeScreenShot(){
 	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	// Now you can do whatever you need to do with it, for example copy somewhere
 	try {
-		FileUtils.copyFile(scrFile, new File(ssPath+"//"+screenShotIndx+".jpg"));
+		File newFile = new File(ssPath+"//"+screenShotIndx+".jpg");
+		Log.info("Screenshot at : "+newFile.getAbsolutePath());
+		FileUtils.copyFile(scrFile,newFile );
 //		FileUtils.copyFile(scrFile, new File(Constants.screenShotDir+"//"+DriverScript.sTestCaseID+"_"+DriverScript.sTestStepName+".jpg"));
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
@@ -852,7 +936,8 @@ public static void takeScreenShot(){
 public static void signOut(){
 	
 	
-	System.out.println("*****SignOut*********************");
+	Log.info("*****SignOut*********************");
+System.out.println("*****SignOut*********************");
 	// to navigate to menu settings window
 	driver.findElement(By.id("com.projectgoth:id/button_icon")).click();
 
@@ -886,7 +971,8 @@ public static void signOut(){
 public static String getCurrentTimeStamp(){
 	
 	 java.util.Date date= new java.util.Date();
-//	 System.out.println(new Timestamp(date.getTime()));
+//	 Log.info(new Timestamp(date.getTime()));
+//System.out.println(new Timestamp(date.getTime()));
 	 
 	 Timestamp ts = new Timestamp(date.getTime());
 	 return ts.toString();
@@ -896,8 +982,10 @@ public static String getCurrentTimeStamp(){
 
 
 public static void executeADBCommand(String command) throws ExecuteException, IOException, InterruptedException{
-	System.out.println("************execute adb command************");
-	System.out.println(command);
+	Log.info("************execute adb command************");
+System.out.println("************execute adb command************");
+	Log.info(command);
+System.out.println(command);
 //adb shell "am start -a android.media.action.STILL_IMAGE_CAMERA" && sleep 1 && adb shell "input keyevent 27"
 	
 	CommandLine enterpass = new CommandLine("$ANDROID_HOME/platform-tools/"+command  );
@@ -909,7 +997,8 @@ public static void executeADBCommand(String command) throws ExecuteException, IO
 }
 
 public static void sendKeysUsingADB(String textString) throws ExecuteException, IOException, InterruptedException{
-	System.out.println("************send keys using adb************");
+	Log.info("************send keys using adb************");
+System.out.println("************send keys using adb************");
 
 	char a[] = textString.toCharArray();
 	for(char b : a){
@@ -929,7 +1018,8 @@ public static void sendKeysUsingADB(String textString) throws ExecuteException, 
 public static void launchEmulator() throws ExecuteException, IOException, InterruptedException{
 	
 	
-	System.out.println("****************launchEmulator Starts****************");
+	Log.info("****************launchEmulator Starts****************");
+System.out.println("****************launchEmulator Starts****************");
 	
 	CommandLine launchEmul = new CommandLine("/Applications/Genymotion.app/Contents/MacOS/player");
 
@@ -946,11 +1036,13 @@ public static void launchEmulator() throws ExecuteException, IOException, Interr
 	executor.execute(launchEmul, resultHandler);
 	Thread.sleep(20000);
 	
-	System.out.println("****************launchEmulator Ends****************");
+	Log.info("****************launchEmulator Ends****************");
+System.out.println("****************launchEmulator Ends****************");
 }
 
 private static void killNodeAdbPlayer() throws ExecuteException, IOException, Exception{
-	System.out.println("****************kill Node Adb Player Starts****************");
+	Log.info("****************kill Node Adb Player Starts****************");
+System.out.println("****************kill Node Adb Player Starts****************");
 	
 	CommandLine killNode = new CommandLine("kill -9 $(lsof -i | grep 6723 | awk '{print $2}')");
 	CommandLine killPlayer = new CommandLine("kill -9 $(lsof -i | grep 6724 | awk '{print $2}')");
@@ -959,14 +1051,16 @@ private static void killNodeAdbPlayer() throws ExecuteException, IOException, Ex
 	executor.execute(killNode,resultHandler);
 	executor.execute(killPlayer,resultHandler);
 
-	System.out.println("****************kill Node Adb Player Ends****************");
+	Log.info("****************kill Node Adb Player Ends****************");
+System.out.println("****************kill Node Adb Player Ends****************");
 }
 
 
 public static void startAppium() {
     //start appium instance
     try {
-    	System.out.println("*************Start Appium*****************");
+    	Log.info("*************Start Appium*****************");
+System.out.println("*************Start Appium*****************");
         Thread.sleep((long)(Math.random() * 10000)); //wait from 0 to 10 sec for parallel process run
         ProcessBuilder builder = new ProcessBuilder(getCmd());
         
@@ -974,11 +1068,89 @@ public static void startAppium() {
 //        builder.redirectErrorStream(true);
         appium = builder.start();
         Thread.sleep(3000); //wait 3 sec until server started
-        System.out.println("Server Started");
+        Log.info("Server Started");
+System.out.println("Server Started");
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
+
+public static void sendEmail(){
+	
+	 // Recipient's email ID needs to be mentioned.
+    String to = "praveen.m@mig.me";
+
+    // Sender's email ID needs to be mentioned
+    String from = "praveen.m@mig.me";
+
+    final String username = "praveen.m@mig.me";//change accordingly
+    final String password = "Letmein01";//change accordingly
+
+    // Assuming you are sending email through relay.jangosmtp.net
+    String host = "smtp.gmail.com";
+
+    Properties props = new Properties();
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.port", "25");
+
+    // Get the Session object.
+    Session session = Session.getInstance(props,
+       new javax.mail.Authenticator() {
+          protected PasswordAuthentication getPasswordAuthentication() {
+             return new PasswordAuthentication(username, password);
+          }
+       });
+
+    try {
+       // Create a default MimeMessage object.
+       Message message = new MimeMessage(session);
+
+       // Set From: header field of the header.
+       message.setFrom(new InternetAddress(from));
+
+       // Set To: header field of the header.
+       message.setRecipients(Message.RecipientType.TO,
+          InternetAddress.parse(to));
+
+       // Set Subject: header field
+       message.setSubject("test execution status");
+
+       // Create the message part
+       BodyPart messageBodyPart = new MimeBodyPart();
+
+       // Now set the actual message
+       messageBodyPart.setText("This is message body");
+
+       // Create a multipar message
+       Multipart multipart = new MimeMultipart();
+
+       // Set text message part
+       multipart.addBodyPart(messageBodyPart);
+
+       // Part two is attachment
+       messageBodyPart = new MimeBodyPart();
+       String filename = "logfile.log";
+       DataSource source = new FileDataSource(filename);
+       messageBodyPart.setDataHandler(new DataHandler(source));
+       messageBodyPart.setFileName(filename);
+       multipart.addBodyPart(messageBodyPart);
+
+       // Send the complete message parts
+       message.setContent(multipart);
+
+       // Send message
+       Transport.send(message);
+
+       System.out.println("Sent message successfully....");
+
+    } catch (MessagingException e) {
+       throw new RuntimeException(e);
+    }
+  }
+
+
 private static List<String> getCmd(){
 //create cmd by adding each param
 List<String>  cmd = new ArrayList<String>();
@@ -1021,13 +1193,15 @@ sb.append(" /Users/Praveen/APPIUM/AppiumServer.log ");
 sb.append(" --log-timestamp ");
 sb.append(" --local-timezone ");
 
+Log.info("Command : "+sb.toString());
 System.out.println("Command : "+sb.toString());
 
 return cmd;
 }
 
 public static void stopAppium(){
-	System.out.println("****************Stop Appium****************");
+	Log.info("****************Stop Appium****************");
+System.out.println("****************Stop Appium****************");
 //stop appium instance
 appium.destroy();
 }
@@ -1039,7 +1213,8 @@ public static void main(String args[]){
 	
 	try{
 		
-		System.out.println("****************main Starts****************");
+		Log.info("****************main Starts****************");
+System.out.println("****************main Starts****************");
 		killNodeAdbPlayer();
 	launchEmulator();
 //	Thread.sleep(20000);
@@ -1047,11 +1222,13 @@ public static void main(String args[]){
 	test01();
 	tearDown();
 	stopAppium();
-	System.out.println("****************main Ends****************");
+	Log.info("****************main Ends****************");
+System.out.println("****************main Ends****************");
 	}
 	catch(Exception e){
 		
-		System.out.println(e);
+		Log.info(e);
+System.out.println(e);
 	}
 
 	
