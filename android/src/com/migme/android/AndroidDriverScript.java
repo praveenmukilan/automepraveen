@@ -609,7 +609,7 @@ System.out.println("waiting for post text field to appear..");
 	
 	driver.findElementByXPath(OR.getProperty("emoticonItem")).click();
 	
-
+	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
 //	driver.findElementById(OR.getProperty("postTextField")).sendKeys(OR.getProperty("postTextLT300"));
 	
 	while(!isElementClickable(MobileBy.AccessibilityId("main_button"), 5)){
@@ -742,7 +742,7 @@ System.out.println("*****privateChat starts*********************");
     
     postEmoticonInChat();
     driver.findElementById(OR.getProperty("chatTextField")).click();
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys(getCurrentTimeStamp());
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ :"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
@@ -887,13 +887,12 @@ System.out.println("The user is not having two friends to do a group chat");
 	
 //	sendGiftInGroupChat();
 
-	postEmoticonInChat();
+    postEmoticonInChat();
+    driver.findElementById(OR.getProperty("chatTextField")).click();
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("group chat - hi @ :"+getCurrentTimeStamp());
 	
+	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("groupchat hi @ "+getCurrentTimeStamp());
-
-	driver.findElementByAccessibilityId(OR.getProperty("chatSend")).click();
-
 	chatToFeedPage();
 	Log.info("*****newGroupChat ends*********************");
 System.out.println("*****newGroupChat ends*********************");
