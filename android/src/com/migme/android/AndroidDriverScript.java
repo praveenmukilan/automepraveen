@@ -186,7 +186,7 @@ public class AndroidDriverScript{
 		sendKeysUsingADB(password);
 	}
 	
-	public static void test01() throws InterruptedException, IOException {
+	public static void test01()  {
 		
 		try{
 //		System.out.println("Jesus");
@@ -214,6 +214,13 @@ public class AndroidDriverScript{
 //			retry++;
 //			if(retry<=3)
 //				test01();
+		}
+		
+		catch(Exception e){
+			retry++;
+			if(retry<=3)
+				test01();
+			
 		}
 		 }
 	
