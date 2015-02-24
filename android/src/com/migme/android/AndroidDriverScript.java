@@ -914,8 +914,9 @@ public static void takeScreenShot(){
   
    
   if(screenShotIndx==0) {
-  File ssDir= new File(Constants.screenShotDir+"//"+System.currentTimeMillis());
-  ssDir.mkdirs();
+	  
+  File ssDir= new File(Constants.screenShotDir+"//"+getFileName());
+    ssDir.mkdirs();
    ssPath = ssDir.getAbsolutePath();
   }
   screenShotIndx++;
@@ -923,7 +924,7 @@ public static void takeScreenShot(){
 	File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 	// Now you can do whatever you need to do with it, for example copy somewhere
 	try {
-		File newFile = new File(ssPath+"//"+screenShotIndx+".jpg");
+		File newFile = new File(ssPath+"//"+getFileName()+".jpg");
 		Log.info("Screenshot at : "+newFile.getAbsolutePath());
 		FileUtils.copyFile(scrFile,newFile );
 //		FileUtils.copyFile(scrFile, new File(Constants.screenShotDir+"//"+DriverScript.sTestCaseID+"_"+DriverScript.sTestStepName+".jpg"));
@@ -933,6 +934,13 @@ public static void takeScreenShot(){
 	}
 	
 	
+}
+
+public static String getFileName(){
+	
+	String filename=  getCurrentTimeStamp().replaceAll("[ .:-]", "_");
+	System.out.println(filename);
+	return filename;
 }
 
 public static void signOut(){
