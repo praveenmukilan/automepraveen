@@ -658,9 +658,10 @@ public static void privateChat() {
 
 
 // sendGiftInPrivateChat();
+    
     postEmoticonInChat();
-
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ "+getCurrentTimeStamp());
+    driver.findElementById(OR.getProperty("chatTextField")).click();
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys(getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
