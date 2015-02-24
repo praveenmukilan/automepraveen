@@ -388,7 +388,7 @@ public class AndroidDriverScript{
  public static Boolean isElementPresent(final By by, int timeOutInSeconds) {
 
         WebElement element; 
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
+//        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
         try{
         	
             WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds); 
@@ -406,7 +406,7 @@ public class AndroidDriverScript{
  public static Boolean isElementClickable(final By by, int timeOutInSeconds) {
 
      WebElement element; 
-     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
+//     driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
      try{
      	
          WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds); 
