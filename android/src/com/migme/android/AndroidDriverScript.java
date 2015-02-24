@@ -619,7 +619,9 @@ public static void sleepDriver(int secs) throws InterruptedException{
 }
 
 
-public static void privateChat() throws InterruptedException{
+public static void privateChat() {
+	
+	try{
 	System.out.println("*****privateChat starts*********************");
 //    Thread.sleep(10000);
  startNewChat();
@@ -641,8 +643,15 @@ public static void privateChat() throws InterruptedException{
 	
 
 	chatToFeedPage();
+	retry=0;
 	System.out.println("*****privateChat ends*********************");
-
+	
+	}catch(Exception e){
+		retry++;
+		if(retry<=2){
+		privateChat();
+		}
+	}
 }
 
 public static void chooseGiftInChat(){
