@@ -540,7 +540,7 @@ public static void postTextEmoticons(){
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
-	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postTextField")), 5)){
+	while(!isElementClickable(MobileBy.id(OR.getProperty("postTextField")), 5)){
 		System.out.println("waiting for post text field to appear..");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
