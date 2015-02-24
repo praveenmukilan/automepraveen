@@ -324,7 +324,7 @@ public class AndroidDriverScript{
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
 		
        //wait for app to be lauched
-		Thread.sleep(20000);
+		Thread.sleep(millis);
 
 		
 //		signIn();
@@ -658,9 +658,10 @@ public static void privateChat() {
 
 
 // sendGiftInPrivateChat();
+    postEmoticonInChat();
 
 	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ "+getCurrentTimeStamp());
-	 postEmoticonInChat();
+	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	
 	
