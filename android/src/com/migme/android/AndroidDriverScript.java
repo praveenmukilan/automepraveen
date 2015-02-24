@@ -317,7 +317,7 @@ public class AndroidDriverScript{
 
 
 		
-//		signIn();
+		signIn();
 		System.out.println("waiting for app to be lauched");
 		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 			System.out.print("***");
