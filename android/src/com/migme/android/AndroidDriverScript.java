@@ -199,9 +199,9 @@ public class AndroidDriverScript{
 
 		
 		privateChat();
-		postText();
+//		postText();
 		postImage();
-		postEmoticons();
+		postTextEmoticons();
 		newGroupChat();
 
 		signOut();
@@ -531,7 +531,7 @@ public static void goBack(){
 	driver.navigate().back();
 }
 
-public static void postEmoticons(){
+public static void postTextEmoticons(){
 	System.out.println("*****postEmoticons()****************");
 
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
@@ -540,6 +540,11 @@ public static void postEmoticons(){
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
+	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postTextField")), 5)){
+		System.out.println("waiting for post text field to appear..");
+		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
+	}
 	driver.findElementById(OR.getProperty("postTextField")).sendKeys(RandomStringUtils.randomAlphabetic(200));
 	driver.findElementByAccessibilityId(OR.getProperty("emoticonBtn")).click();	
 	
