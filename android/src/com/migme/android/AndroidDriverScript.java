@@ -301,13 +301,13 @@ System.out.println("****");
 //			System.out.println("session id :"+driver.getSessionId() );
 //		//"| title : "+driver.getTitle()+ +" | window handle : "+driver.getWindowHandle()
 //		}
-//		Thread.sleep(100000);
+		Thread.sleep(100000);
        //wait for app to be lauched
 		Log.info("waiting for app to be lauched");
 		System.out.println("waiting for app to be lauched");
 		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		
-//		signIn();
+		signIn();
 
 		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 			System.out.print("***");
@@ -347,7 +347,7 @@ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		postTextEmoticons();
 		newGroupChat();
 
-//		signOut();
+		signOut();
 
 
 		Log.info("****************test01 Ends****************");
