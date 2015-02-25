@@ -191,54 +191,6 @@ System.out.println("Done");
 			
 		}
 	
-	public static void populateUserCredentialsUsingADB() throws ExecuteException, IOException, InterruptedException{
-		
-		driver.findElementById("com.projectgoth:id/txt_username").click();
-		sendKeysUsingADB(username);
-		driver.findElementById("com.projectgoth:id/txt_password").click();
-		sendKeysUsingADB(password);
-	}
-	
-	public static void test01()  {
-		
-		try{
-//		Log.info("Jesus");
-//System.out.println("Jesus");
-		//AndroidDriver andy = (AndroidDriver)driver;
-		Log.info("****************test01 Starts****************");
-System.out.println("****************test01 Starts****************");
-//
-
-
-//		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/main_button")));
-
-		
-		privateChat();
-//		postText();
-		postImage();
-		postTextEmoticons();
-		newGroupChat();
-
-//		signOut();
-
-
-		Log.info("****************test01 Ends****************");
-System.out.println("****************test01 Ends****************");
-		}
-		catch(NoSuchElementException e){
-			e.printStackTrace();
-//			retry++;
-//			if(retry<=3)
-//				test01();
-		}
-		
-		catch(Exception e){
-			retry++;
-			if(retry<=3)
-				test01();
-			
-		}
-		 }
 	
 	public static void setUp() throws Exception {
 		
@@ -337,21 +289,26 @@ System.out.println("androidApkPath : "+androidApkPath);
 System.out.println("****");
 	
 	
-		
+	
 		
 	//	driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 		
-	
-	
-		
-		
+	 
+//	
+//		while(!driver.isAppInstalled(androidApkPath)){
+//			Thread.sleep(10000);
+//			
+//			System.out.println("session id :"+driver.getSessionId() );
+//		//"| title : "+driver.getTitle()+ +" | window handle : "+driver.getWindowHandle()
+//		}
+//		Thread.sleep(100000);
        //wait for app to be lauched
-		Thread.sleep(100000);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		Log.info("waiting for app to be lauched");
+		System.out.println("waiting for app to be lauched");
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 		
 //		signIn();
-		Log.info("waiting for app to be lauched");
-System.out.println("waiting for app to be lauched");
+
 		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 			System.out.print("***");
 		Thread.sleep(5000);
@@ -367,6 +324,50 @@ System.out.println("****************setUp Ends****************");
 //		setUp();
 	}
 }
+	
+
+	
+	public static void test01()  {
+		
+		try{
+//		Log.info("Jesus");
+//System.out.println("Jesus");
+		//AndroidDriver andy = (AndroidDriver)driver;
+		Log.info("****************test01 Starts****************");
+System.out.println("****************test01 Starts****************");
+//
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+//		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/main_button")));
+
+		
+		privateChat();
+//		postText();
+		postImage();
+		postTextEmoticons();
+		newGroupChat();
+
+//		signOut();
+
+
+		Log.info("****************test01 Ends****************");
+System.out.println("****************test01 Ends****************");
+		}
+		catch(NoSuchElementException e){
+			e.printStackTrace();
+//			retry++;
+//			if(retry<=3)
+//				test01();
+		}
+		
+		catch(Exception e){
+			retry++;
+			if(retry<=3)
+				test01();
+			
+		}
+		 }
+
 	
 
 	
@@ -1019,7 +1020,13 @@ System.out.println("************send keys using adb************");
 	}
 	Thread.sleep(10000);
 }
-
+public static void populateUserCredentialsUsingADB() throws ExecuteException, IOException, InterruptedException{
+	
+	driver.findElementById("com.projectgoth:id/txt_username").click();
+	sendKeysUsingADB(username);
+	driver.findElementById("com.projectgoth:id/txt_password").click();
+	sendKeysUsingADB(password);
+}
 
 /*
  * Method to launch the emulator programmatically
