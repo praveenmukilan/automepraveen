@@ -1,4 +1,4 @@
-package com.migme.android;
+ package com.migme.android;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -197,15 +197,15 @@ System.out.println("Done");
 		try{
 		
 		Properties prop = new Properties();
-		Properties apkFile = new Properties();
+		Properties andauto = new Properties();
 		OR = new Properties();
 		//From the build, the apkFile.properties will reside in $WORSPACE/android
-		FileInputStream apk = new FileInputStream("apkFile.properties");
-		FileInputStream fis = new FileInputStream("src//config//androidauto.properties");
+		FileInputStream andautoFis = new FileInputStream("androidauto.properties");
+//		FileInputStream fis = new FileInputStream("src//config//androidauto.properties");
 		FileInputStream orFis = new FileInputStream("src//config//OR_Android.txt");
 
-		apkFile.load(apk);
-		prop.load(fis);
+		andauto.load(andautoFis);
+//		prop.load(fis);
 		OR.load(orFis);
 		
 		Log.info("****************$$$ setUP Starts****************");
@@ -250,7 +250,7 @@ System.out.println("<<>>*********** Please wait for 15 seconds ***********");
 		Thread.sleep(15000);
 		*/
 		
-		String androidApkPath = apkFile.getProperty("APKPATH");
+		String androidApkPath = andauto.getProperty("APKPATH");
 		
 		Log.info("androidApkPath : "+androidApkPath);
 System.out.println("androidApkPath : "+androidApkPath);
@@ -282,6 +282,13 @@ System.out.println("androidApkPath : "+androidApkPath);
 		 * 
 		 * */
 		capabilities.setCapability("deviceName", "device");
+		capabilities.setCapability("udid", andauto.getProperty("udid"));
+		/*
+		#udid emulator
+		udid="192.168.56.101:5555"
+		#udid real device
+		#udid=a214daff
+		*/
 		
 		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
 		
