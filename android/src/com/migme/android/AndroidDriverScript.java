@@ -219,7 +219,7 @@ System.out.println("****************test01 Starts****************");
 		postTextEmoticons();
 		newGroupChat();
 
-		signOut();
+//		signOut();
 
 
 		Log.info("****************test01 Ends****************");
