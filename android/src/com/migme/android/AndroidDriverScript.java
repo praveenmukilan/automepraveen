@@ -66,6 +66,7 @@ public class AndroidDriverScript{
 	public static int screenShotIndx=0;
 	public static int retry=0;
 	public static String build_tag;
+	public static String job_url;
 	
 	public static long startTime;
 	public static long endTime;
@@ -188,8 +189,9 @@ public static void test01()  {
 		
 
 		build_tag=andauto.getProperty("BUILD_TAG");
+		job_url=andauto.getProperty("JOB_URL");
 		String androidApkPath = andauto.getProperty("APKPATH");
-		System.out.println("build_tag : "+build_tag);
+		System.out.println("build_tag : "+build_tag + "\n job url :"+job_url);
 		
 		Log.info("androidApkPath : "+androidApkPath);
 		System.out.println("androidApkPath : "+androidApkPath);
@@ -987,7 +989,7 @@ public static void sendMail(){
 
        // Now set the actual message
 
-       messageBodyPart.setText("Android automation execution status.\n The test "+build_tag+"run for "+runTimeInMinutes +" minutes");
+       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+job_url+ "\nThe test "+build_tag+"run for "+runTimeInMinutes +" minutes");
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();
