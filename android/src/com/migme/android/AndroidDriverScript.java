@@ -1,4 +1,4 @@
- package com.migme.android;
+package com.migme.android;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -16,17 +16,11 @@ import javax.mail.internet.MimeMultipart;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -41,22 +35,18 @@ import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteException;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.bouncycastle.asn1.cms.Time;
+import org.apache.poi.util.SystemOutLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.migme.util.Log;
@@ -69,281 +59,80 @@ public class AndroidDriverScript{
 	public static AppiumDriver driver;
 	public static Process appium;
 	public static Properties OR;
+	public static Properties andauto;
 	public static WebDriverWait wait;
 	public static String username;
 	public static String password;
 	public static int screenShotIndx=0;
 	public static int retry=0;
+	public static String build_tag;
+	
+	public static long startTime;
+	public static long endTime;
+	public static long runTimeInMinutes;
+
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
 	private static  String ssPath;
-	public static void signIn() throws Exception{
-		
-   try{
-		/*
-		WebDriverWait wait = new WebDriverWait(driver, 30); 
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/txt_username")));
-		*/
-
-		//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[1]")).sendKeys("praveenmukilan");
-		//driver.findElementById("com.projectgoth:id/txt_username").click();
-		 username = new String(Base64.getDecoder().decode(OR.getProperty("username")));
-		 password = new String(Base64.getDecoder().decode(OR.getProperty("password")));
-
-
-		//***************************
-
-		//alternative approach instead of sendkeys //192.168.56.101:5555
-//		((MobileElement)driver.findElementById(OR.getProperty("username_id"))).
-		//driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")")).click();
-//		sendKeysUsingADB(username);
-		//Process user = Runtime.getRuntime().exec("adb -s 192.168.56.101:5555 shell input text "+username);
-		//ProcessBuilder pb = new ProcessBuilder("adb", "-s", "192.168.56.101:5555", "shell","input", "text", username);
-		//Process pc = pb.start();
-		//Thread.sleep(15000);
-		//pc.waitFor();
-
-
-		Log.info("Done");
-System.out.println("Done");
-		//***************************
-		//driver.findElementByAccessibilityId("txt_username").clear();
-
-		//driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")")).clear();
-		
-		//wait for app to load & username field to appear
-		
-		
-
-		//The below code is not working in API level <19
-//		waitForElementPresent( MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")"), 10).sendKeys(username);
-//		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_username\")")).sendKeys(username);
-//		driver.findElement(MobileBy.AndroidUIAutomator("new UiObject(new UiSelector().resourceId(\"com.projectgoth:id/txt_username\"))")).sendKeys(username);
 	
-	
-		//The above code is not working in API level <19
-
-//		populateUserCredentialsUsingADB();
-//		driver.findElementById("com.projectgoth:id/txt_username").sendKeys(username);
-
-		//(MobileElement)driver.findElementById(OR.getProperty("username_id")).
-//		driver.findElementById(OR.getProperty("username_id")).sendKeys(username);
-
-		waitForElementPresent(MobileBy.AccessibilityId("txt_username"),5).sendKeys(username);
-
-		//driver.executeScript("try{var el = document.getElementById('com.projectgoth:id/txt_username');el.value = 'praveenmukilan';return 0;}catch{return 1;}");
-//		driver.findElement(By.id("com.projectgoth:id/txt_username")).sendKeys("praveenmukilan");
-//		driver.findElementByXPath(OR.getProperty("username_xpath")).sendKeys(username);
-		//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.EditText[2]")).sendKeys("60se!inMS");
-//		driver.findElementById(OR.getProperty("password_id")).sendKeys(password);
-		waitForElementPresent(MobileBy.AccessibilityId("txt_password"),5).sendKeys(password);
-//		driver.findElementByXPath(OR.getProperty("password_xpath")).sendKeys(password);
-
-		//The below code is not working in API level <19  -- added 16Feb2015
-		//driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_password\")")).sendKeys(password);
-		//The above code is not working in API level <19  -- added 16Feb2015
-
-//		driver.findElementById("com.projectgoth:id/txt_password").sendKeys(password);
-
-		//MobileElement me = (MobileElement)driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_password\")"));
-		//me.click();
-		//sendKeysUsingADB(password);
-		//***************************
-
-		//alternative approach instead of sendkeys //192.168.56.101:5555
-//		driver.findElement(MobileBy.AndroidUIAutomator("new UiSelector().resourceId(\"com.projectgoth:id/txt_password\")")).click();
-//		sendKeysUsingADB(password);
-		//Process user = Runtime.getRuntime().exec("adb -s 192.168.56.101:5555 shell input text "+username);
-		//Log.info("password : "+password);
-        //System.out.println("password : "+password);
-		//ProcessBuilder pbPass = new ProcessBuilder("adb", "-s", "192.168.56.101:5555", "shell", "input","text", "60se!inMS");
-		//Process pcPass = pbPass.start();
-		//
-		//Thread.sleep(15000);
-		////pcPass.waitFor();
-
-
-		Log.info("Done");
-System.out.println("Done");
-		//***************************
-
-   
-
-		/*
-		MobileElement password = (MobileElement)driver.findElement(By.id("com.projectgoth:id/txt_password"));
-		password.setValue("60se!inMS");
-		*/
-		//driver.findElement(By.xpath("//android.view.View[1]/android.widget.FrameLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.LinearLayout[1]/android.widget.Button[2]")).click();
-//		driver.findElement(By.id("com.projectgoth:id/btn_signin")).click();
-		driver.findElement(By.xpath(OR.getProperty("signinBtn_xpath"))).click();
-		takeScreenShot();
-		//driver.findElement(By.id("com.projectgoth:id/txt_username"));
-		//driver.findElement(MobileBy.ByAndroidUIAutomator.)
-		//WebDriverWait wait = new WebDriverWait(driver, 180);
-		Thread.sleep(Long.parseLong(OR.getProperty("mainBtnWaitSecs")));
-	
-   }
-   catch(NoSuchElementException e){
-  
-	   
-   }
+	@Test
+	public static void main(){
+		
+		
+		try{
+			
+			startTime=System.currentTimeMillis();
+			
+			DOMConfigurator.configure("log4j.xml");
+			Log.info("test run @ : "+getCurrentTimeStamp());
+			System.out.println("test run @ : "+getCurrentTimeStamp());
+	        Log.info("****************main Starts****************");
+			System.out.println("****************main Starts****************");
+	//			killNodeAdbPlayer();
+	//		launchEmulator();
+	//		Thread.sleep(20000);
+			setUp();
+			test01();
+			endTime = System.currentTimeMillis();
+			
+		     runTimeInMinutes = (endTime-startTime)/(1000*60);
+			
+			System.out.println("The tests run for "+ runTimeInMinutes + " minutes");
+		    sendMail();
+	// As the server start through code is having issues, commenting stopAppium()
+	//		stopAppium();
+		    
+			Log.info("****************main Ends****************");
+			System.out.println("****************main Ends****************");
 			
 		}
-	
-	
-	public static void setUp() throws Exception {
-		
-		try{
-		
-		Properties prop = new Properties();
-		Properties andauto = new Properties();
-		OR = new Properties();
-		//From the build, the apkFile.properties will reside in $WORSPACE/android
-		FileInputStream andautoFis = new FileInputStream("androidauto.properties");
-//		FileInputStream fis = new FileInputStream("src//config//androidauto.properties");
-		FileInputStream orFis = new FileInputStream("src//config//OR_Android.txt");
 
-		andauto.load(andautoFis);
-//		prop.load(fis);
-		OR.load(orFis);
-		
-		Log.info("****************$$$ setUP Starts****************");
-System.out.println("****************$$$ setUP Starts****************");
-		
-//		Log.info("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
-//System.out.println("ANDROID_HOME : "+System.getenv("ANDROID_HOME"));
-//		Log.info("PATH : "+System.getenv("PATH"));
-//System.out.println("PATH : "+System.getenv("PATH"));
-		
-/*
-		resultHandler = new DefaultExecuteResultHandler();
-		executor = new DefaultExecutor();
-		executor.setExitValue(1);
-//		executor.execute(killNode,resultHandler);
-//		executor.execute(killPlayerEmulator,resultHandler);
-//		executor.execute(killADB,resultHandler);
-	//	CommandLine command = new CommandLine("/bin/sh -c");
-		
-	//	command.addArgument("/Applications/Appium.app/Contents/Resources/node/bin/node",false);
-		
-		CommandLine command = new CommandLine("/Applications/Appium.app/Contents/Resources/node/bin/node");
-
-		
-		command.addArgument("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js", false);
-		command.addArgument("--address", false);
-		command.addArgument("127.0.0.1");
-		command.addArgument("--port", false);
-		command.addArgument("6723");
-		command.addArgument("--bootstrap-port", false);
-		command.addArgument("6724");
-//		command.addArgument("--no-reset", false);
-
-		executor.execute(command, resultHandler);
-*/
-//		startAppium();
-	
-		/*
-	Log.info("<<>>*********** Please wait for 15 seconds ***********");
-System.out.println("<<>>*********** Please wait for 15 seconds ***********");
-		
-		Thread.sleep(15000);
-		*/
-		
-		String androidApkPath = andauto.getProperty("APKPATH");
-		
-		Log.info("androidApkPath : "+androidApkPath);
-System.out.println("androidApkPath : "+androidApkPath);
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-
-		capabilities.setCapability("platformName", "Android");		
-//		capabilities.setCapability("platformVersion", "4.4.2");
-//		capabilities.setCapability("browserName", "android");
-//    	capabilities.setCapability("automationName", "Selendroid");
-		
-		/* appPackage & appActivity is not mandatory as the Appium will inspect the .apk file for the default package and the activity
-		 * Issues if any, please set it explicitly.
-		 * */
-//		capabilities.setCapability("appPackage", "com.migmeplayground");
-//		capabilities.setCapability("appActivity", "com.projectgoth.activity.MainActivity");
-//		https://tools.projectgoth.com/jenkins/view/3.%20Mobile/job/QA-CI%20androidV5/ws/target/
-//		capabilities.setCapability("app", "/Users/Praveen/APPIUM/mig33Droidv5.00.020.apk");
-		capabilities.setCapability("app", androidApkPath);
-	
-//		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "device");		
-		
-
-//      The device name could be found by running the command adb in the terminal window.
-		/*
-		 * 
-		 * android-sdk-macosx$ adb devices
-							   List of devices attached 
-							   192.168.56.101:5555	device
-		 * 
-		 * */
-		capabilities.setCapability("deviceName", "device");
-		capabilities.setCapability("udid", andauto.getProperty("udid"));
-		/*
-		#udid emulator
-		udid="192.168.56.101:5555"
-		#udid real device
-		#udid=a214daff
-		*/
-		
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
-		
-		Log.info("****");
-System.out.println("****");
-	
-	
-	
-		
-	//	driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-		
-	 
-//	
-//		while(!driver.isAppInstalled(androidApkPath)){
-//			Thread.sleep(10000);
-//			
-//			System.out.println("session id :"+driver.getSessionId() );
-//		//"| title : "+driver.getTitle()+ +" | window handle : "+driver.getWindowHandle()
-//		}
-		Thread.sleep(100000);
-       //wait for app to be lauched
-		Log.info("waiting for app to be lauched");
-		System.out.println("waiting for app to be lauched");
-		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-		
-		signIn();
-
-		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
-			System.out.print("***");
-		Thread.sleep(5000);
+		catch(SessionNotCreatedException e){
+			//rerun the tests again. probably the server is not started.
+			System.out.println("Session not yet created..!!");
+			main();
 		}
-		retry=0;
-		Log.info("****************setUp Ends****************");
-System.out.println("****************setUp Ends****************");
-		
-	}catch(UnreachableBrowserException unbe){
-//		
-//		retry++;
-//		if(retry<=3)
-//		setUp();
-	}
-}
-	
+		catch(Exception e){
+			
+			Log.info(e.toString());
+            System.out.println(e);
 
+		}
+		
+		
+	}
 	
-	public static void test01()  {
+	
+	
+public static void test01()  {
 		
 		try{
-//		Log.info("Jesus");
-//System.out.println("Jesus");
-		//AndroidDriver andy = (AndroidDriver)driver;
+
 		Log.info("****************test01 Starts****************");
-System.out.println("****************test01 Starts****************");
+		System.out.println("****************test01 Starts****************");
 //
-driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
 //		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/main_button")));
 
@@ -358,7 +147,7 @@ driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
 
 		Log.info("****************test01 Ends****************");
-System.out.println("****************test01 Ends****************");
+		System.out.println("****************test01 Ends****************");
 		}
 		catch(NoSuchElementException e){
 			e.printStackTrace();
@@ -376,44 +165,113 @@ System.out.println("****************test01 Ends****************");
 		 }
 
 	
-
-	
-	@Test
-	public static void main(){
-		
+	public static void setUp() throws Exception {
 		
 		try{
-			DOMConfigurator.configure("log4j.xml");
-			Log.info("test run @ : "+getCurrentTimeStamp());
-	        Log.info("****************main Starts****************");
-			Log.info("****************main Starts****************");
-System.out.println("****************main Starts****************");
-//			killNodeAdbPlayer();
-//		launchEmulator();
-//		Thread.sleep(20000);
-		setUp();
-		test01();
-	    sendEmail();
-// As the server start through code is having issues, commenting stopAppium()
-//		stopAppium();
-		Log.info("****************main Ends****************");
-System.out.println("****************main Ends****************");
-		}
-
-		catch(SessionNotCreatedException e){
-			//rerun the tests again. probably the server is not started.
-			main();
-		}
-		catch(Exception e){
-			
-			Log.info(e.toString());
-System.out.println(e);
-
-		}
 		
+		Properties prop = new Properties();
+		 andauto = new Properties();
+		OR = new Properties();
+		//From the build, the apkFile.properties will reside in $WORSPACE/android
+		FileInputStream andautoFis = new FileInputStream("androidauto.properties");
+//		FileInputStream fis = new FileInputStream("src//config//androidauto.properties");
+		FileInputStream orFis = new FileInputStream("src//config//OR_Android.txt");
+ 
+      
+		andauto.load(andautoFis);
+//		prop.load(fis);
+		OR.load(orFis);
+	       
 		
-	}
+		Log.info("****************$$$ setUP Starts****************");
+		System.out.println("****************$$$ setUP Starts****************");
+		
+
+		build_tag=andauto.getProperty("BUILD_TAG");
+		String androidApkPath = andauto.getProperty("APKPATH");
+		System.out.println("build_tag : "+build_tag);
+		
+		Log.info("androidApkPath : "+androidApkPath);
+		System.out.println("androidApkPath : "+androidApkPath);
+		DesiredCapabilities capabilities = new DesiredCapabilities();
+
+		capabilities.setCapability("platformName", "Android");		
+		capabilities.setCapability("app", androidApkPath);
+		capabilities.setCapability("deviceName", "device");
+		capabilities.setCapability("udid", andauto.getProperty("udid"));
+		/*
+		#udid emulator
+		udid="192.168.56.101:5555"
+		#udid real device
+		#udid=a214daff
+		*/
 	
+		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+		
+		Log.info("****");
+		System.out.println("****");
+		Log.info("waiting for app to be lauched");
+		System.out.println("waiting for app to be lauched");
+		if(!(driver!=null)){
+		Thread.sleep(80000);
+		}
+       //wait for app to be lauched
+
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+		
+		signIn();
+
+		while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
+			System.out.print("***");
+		Thread.sleep(5000);
+		}
+		retry=0;
+	
+		Log.info("****************setUp Ends****************");
+		System.out.println("****************setUp Ends****************");
+		
+	}catch(UnreachableBrowserException unbe){
+//		
+//		retry++;
+//		if(retry<=3)
+//		setUp();
+	}
+
+}
+	public static void signIn() throws Exception{
+		
+		System.out.println("****************signIn starts****************");
+		
+		   try{
+
+				 username = new String(Base64.getDecoder().decode(OR.getProperty("username")));
+				 password = new String(Base64.getDecoder().decode(OR.getProperty("password")));
+
+
+				waitForElementPresent(MobileBy.AccessibilityId("txt_username"),5).sendKeys(username);
+				waitForElementPresent(MobileBy.AccessibilityId("txt_password"),5).sendKeys(password);
+
+
+				
+				driver.findElement(By.xpath(OR.getProperty("signinBtn_xpath"))).click();
+				takeScreenShot();
+				
+				Thread.sleep(Long.parseLong(OR.getProperty("mainBtnWaitSecs")));
+			
+		   }
+		   catch(NoSuchElementException e){
+		  
+			   
+		   }
+					
+				}
+
+	
+	
+	
+
+	
+
 	public static WebElement waitForElementPresent(final By by, int timeOutInSeconds) {
 
         WebElement element; 
@@ -423,7 +281,7 @@ System.out.println(e);
             WebDriverWait wait = new WebDriverWait(driver, 80); 
             element = wait.until(ExpectedConditions.elementToBeClickable(by));
 
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); //reset implicitlyWait
             return element; //return the element
         } catch (Exception e) {
             e.printStackTrace();
@@ -441,7 +299,7 @@ System.out.println(e);
             element = wait.until(ExpectedConditions.presenceOfElementLocated(by));
             
 
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); //reset implicitlyWait
             return true; //return the element
         } catch (Exception e) {
             return false;
@@ -459,7 +317,7 @@ System.out.println(e);
          element = wait.until(ExpectedConditions.elementToBeClickable(by));
          
 
-         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //reset implicitlyWait
+         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS); //reset implicitlyWait
          return true; //return the element
      } catch (Exception e) {
          return false;
@@ -524,29 +382,6 @@ System.out.println("Camera is not working. Please check");
 System.out.println("image could not be taken using camera. pls check!");
 			}
 	}
-	/*
-	else{
-		executeADBCommand("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
-		Log.info("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
-System.out.println("adb shell \"am start -a android.media.action.STILL_IMAGE_CAMERA\" && sleep 1 && adb shell \"input keyevent 27\"");
-		driver.findElementById("com.sec.android.app.camera:id/myButton").click();
-		if(isElementPresent(MobileBy.id(OR.getProperty("savePhotoRealDevice")), 10))
-		    driver.findElementById(OR.getProperty("savePhotoRealDevice")).click();
-		else{
-			Log.info("Camera is not working. Please check");
-System.out.println("Camera is not working. Please check");
-		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
-		    Log.info("image could not be taken using camera. pls check!");
-System.out.println("image could not be taken using camera. pls check!");
-			}
-
-	}
-	*/
-	
-	
-	
-	
-
 	
 	driver.findElementById(OR.getProperty("postTextField")).sendKeys(RandomStringUtils.randomAlphabetic(100));
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
@@ -566,15 +401,15 @@ System.out.println("image could not be taken using camera. pls check!");
     
     	//add camera cancel button, so that the next function postemoticons can work
     	retry++;
-    	if(retry<=2){
+    	if(retry<=1){
     		Log.info("Retrying Post Image..");
-System.out.println("Retrying Post Image..");
+    		System.out.println("Retrying Post Image..");
     		postImage();
     	}
     	else
     	{
-    		Log.info("Retried three times. Post Image has issues. Please check.!");
-System.out.println("Retried three times. Post Image has issues. Please check.!");
+    		Log.info("Retried two times. Post Image has issues. Please check.!");
+    		System.out.println("Retried two times. Post Image has issues. Please check.!");
     		
     		return;
     	}
@@ -587,7 +422,7 @@ System.out.println("Retried three times. Post Image has issues. Please check.!")
 
 public static void goBack(){
 	Log.info("****************go back()*************");
-System.out.println("****************go back()*************");
+	System.out.println("****************go back()*************");
 	driver.navigate().back();
 }
 
@@ -595,7 +430,7 @@ public static void postTextEmoticons(){
 	
 	try{
 	Log.info("*****postTextEmoticons()****************");
-System.out.println("*****postTextEmoticons()****************");
+	System.out.println("*****postTextEmoticons()****************");
 
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();	
 	while(!isElementClickable(MobileBy.AccessibilityId(OR.getProperty("postBtn")), 5)){
@@ -607,7 +442,7 @@ System.out.println("*****postTextEmoticons()****************");
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 	while(!isElementClickable(MobileBy.id(OR.getProperty("postTextField")), 5)){
 		Log.info("waiting for post text field to appear..");
-System.out.println("waiting for post text field to appear..");
+    System.out.println("waiting for post text field to appear..");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 		Thread.sleep(2000);
@@ -629,7 +464,7 @@ System.out.println("waiting for post text field to appear..");
 	
 	}catch(Exception e){
 		
-		sendEmail();
+		sendMail();
 	}
 }
 
@@ -689,32 +524,38 @@ System.out.println("out of while -- -navigation button");
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 10))){
 		System.out.print("**inwhile- ad chatadd white ");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		Thread.sleep(2000);
 		if(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5)){
 			driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
 			}
-		Thread.sleep(2000);
+		
 		}
 	
 	Log.info("out of while -- -ad_chatadd_white button");
 System.out.println("out of while -- -ad_chatadd_white button");
 	
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 15).click();
-	driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
+
 	System.out.println("clicked ad_chatadd_white button");
 	Log.info("clicked ad_chatadd_white button");
 	
-	Log.info("waiting for chat user names to appear");
-System.out.println("waiting for chat user names to appear");
+	driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
 	while(!isElementClickable(MobileBy.id(OR.getProperty("chatUserNamesList")),5)){
 		Log.info("****");
-System.out.println("****");
+		System.out.println("****");
 		Thread.sleep(5000);
+		
+		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
+		driver.findElementByAccessibilityId(OR.getProperty("newChatBtn")).click();
+		Log.info("waiting for chat user names to appear");
+		System.out.println("waiting for chat user names to appear");
 	}
 	 retry=0;
 	 Log.info("*****************startNewChat ends*********************");
 System.out.println("*****************startNewChat ends*********************");
 	//driver.findElementByAccessibilityId("chat_list_tab").click();
 	}catch(Exception e){
+		System.out.println("StartNewChat not working. Retrying..!!");
 		retry++;
 		if(retry<=3){
 			chatToFeedPage();
@@ -859,14 +700,14 @@ System.out.println("element could not be found :");
 }
 
 public static void postEmoticonInChat(){
-	
+	driver.findElementById(OR.getProperty("chatTextField")).click();
 	driver.findElementByAccessibilityId(OR.getProperty("chatEmoticon")).click();
 	driver.findElementByAccessibilityId(OR.getProperty("chatEmoteItem")).click();
 }
 
 public static void newGroupChat() throws InterruptedException{
 	Log.info("*****newGroupChat starts*********************");
-System.out.println("*****newGroupChat starts*********************");
+	System.out.println("*****newGroupChat starts*********************");
 	startNewChat();
 	   // 1. Click Main Button
 	   // 2. Click the New Chat Icon
@@ -877,7 +718,7 @@ System.out.println("*****newGroupChat starts*********************");
 
 	if(chatUsers.size()<2){
 		Log.info("The user is not having two friends to do a group chat");
-System.out.println("The user is not having two friends to do a group chat");
+	System.out.println("The user is not having two friends to do a group chat");
 	}
 
 //	driver.findElementById(OR.getProperty("catName")).click();
@@ -903,7 +744,7 @@ System.out.println("The user is not having two friends to do a group chat");
 	
 	chatToFeedPage();
 	Log.info("*****newGroupChat ends*********************");
-System.out.println("*****newGroupChat ends*********************");
+	System.out.println("*****newGroupChat ends*********************");
 }
 
 public static void waitForSecs(int seconds){
@@ -947,7 +788,7 @@ public static void takeScreenShot(){
 public static String getFileName(){
 	
 	String filename=  getCurrentTimeStamp().replaceAll("[ .:-]", "_");
-	System.out.println(filename);
+//	System.out.println(filename);
 	return filename;
 }
 
@@ -955,7 +796,7 @@ public static void signOut(){
 	
 	
 	Log.info("*****SignOut*********************");
-System.out.println("*****SignOut*********************");
+	System.out.println("*****SignOut*********************");
 	// to navigate to menu settings window
 	driver.findElement(By.id("com.projectgoth:id/button_icon")).click();
 
@@ -1001,9 +842,9 @@ public static String getCurrentTimeStamp(){
 
 public static void executeADBCommand(String command) throws ExecuteException, IOException, InterruptedException{
 	Log.info("************execute adb command************");
-System.out.println("************execute adb command************");
+	System.out.println("************execute adb command************");
 	Log.info(command);
-System.out.println(command);
+	System.out.println(command);
 //adb shell "am start -a android.media.action.STILL_IMAGE_CAMERA" && sleep 1 && adb shell "input keyevent 27"
 	
 	CommandLine enterpass = new CommandLine("$ANDROID_HOME/platform-tools/"+command  );
@@ -1016,7 +857,7 @@ System.out.println(command);
 
 public static void sendKeysUsingADB(String textString) throws ExecuteException, IOException, InterruptedException{
 	Log.info("************send keys using adb************");
-System.out.println("************send keys using adb************");
+	System.out.println("************send keys using adb************");
 
 	char a[] = textString.toCharArray();
 	for(char b : a){
@@ -1043,7 +884,7 @@ public static void launchEmulator() throws ExecuteException, IOException, Interr
 	
 	
 	Log.info("****************launchEmulator Starts****************");
-System.out.println("****************launchEmulator Starts****************");
+	System.out.println("****************launchEmulator Starts****************");
 	
 	CommandLine launchEmul = new CommandLine("/Applications/Genymotion.app/Contents/MacOS/player");
 
@@ -1061,12 +902,12 @@ System.out.println("****************launchEmulator Starts****************");
 	Thread.sleep(20000);
 	
 	Log.info("****************launchEmulator Ends****************");
-System.out.println("****************launchEmulator Ends****************");
+	System.out.println("****************launchEmulator Ends****************");
 }
 
 private static void killNodeAdbPlayer() throws ExecuteException, IOException, Exception{
 	Log.info("****************kill Node Adb Player Starts****************");
-System.out.println("****************kill Node Adb Player Starts****************");
+	System.out.println("****************kill Node Adb Player Starts****************");
 	
 	CommandLine killNode = new CommandLine("kill -9 $(lsof -i | grep 6723 | awk '{print $2}')");
 	CommandLine killPlayer = new CommandLine("kill -9 $(lsof -i | grep 6724 | awk '{print $2}')");
@@ -1076,7 +917,7 @@ System.out.println("****************kill Node Adb Player Starts****************"
 	executor.execute(killPlayer,resultHandler);
 
 	Log.info("****************kill Node Adb Player Ends****************");
-System.out.println("****************kill Node Adb Player Ends****************");
+	System.out.println("****************kill Node Adb Player Ends****************");
 }
 
 
@@ -1084,7 +925,7 @@ public static void startAppium() {
     //start appium instance
     try {
     	Log.info("*************Start Appium*****************");
-System.out.println("*************Start Appium*****************");
+	System.out.println("*************Start Appium*****************");
         Thread.sleep((long)(Math.random() * 10000)); //wait from 0 to 10 sec for parallel process run
         ProcessBuilder builder = new ProcessBuilder(getCmd());
         
@@ -1093,13 +934,13 @@ System.out.println("*************Start Appium*****************");
         appium = builder.start();
         Thread.sleep(3000); //wait 3 sec until server started
         Log.info("Server Started");
-System.out.println("Server Started");
+	System.out.println("Server Started");
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
 
-public static void sendEmail(){
+public static void sendMail(){
 	
 	 // Recipient's email ID needs to be mentioned.
     String to = "praveen.m@mig.me";
@@ -1139,13 +980,14 @@ public static void sendEmail(){
           InternetAddress.parse(to));
 
        // Set Subject: header field
-       message.setSubject("test execution status");
+       message.setSubject(build_tag+" status");
 
        // Create the message part
        BodyPart messageBodyPart = new MimeBodyPart();
 
        // Now set the actual message
-       messageBodyPart.setText("Android automation execution status");
+
+       messageBodyPart.setText("Android automation execution status.\n The test "+build_tag+"run for "+runTimeInMinutes +" minutes");
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();
@@ -1175,89 +1017,61 @@ public static void sendEmail(){
   }
 
 
-private static List<String> getCmd(){
-//create cmd by adding each param
-List<String>  cmd = new ArrayList<String>();
-
-cmd.add("/Applications/Appium.app/Contents/Resources/node/bin/node");
-
-cmd.add("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js");
-cmd.add("--address");
-cmd.add("127.0.0.1");
-cmd.add("--port");
-cmd.add("6723");
-cmd.add("--bootstrap-port");
-cmd.add("6724 ");
-
-
-cmd.add(" --log");
-cmd.add(" /Users/Praveen/APPIUM/AppiumServer.log");
-//cmd.append("--webhook");
-//cmd.append("localhost:9876");
-cmd.add(" --log-timestamp");
-cmd.add(" --local-timezone");
-
-StringBuffer sb = new StringBuffer();
-
-sb.append("/Applications/Appium.app/Contents/Resources/node/bin/node ");
-
-sb.append("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js ");
-sb.append("--address ");
-sb.append("127.0.0.1 ");
-sb.append("--port ");
-sb.append("6723 ");
-sb.append("--bootstrap-port ");
-sb.append("6724 ");
-
-
-sb.append(" --log ");
-sb.append(" /Users/Praveen/APPIUM/AppiumServer.log ");
-//cmd.append("--webhook");
-//cmd.append("localhost:9876");
-sb.append(" --log-timestamp ");
-sb.append(" --local-timezone ");
-
-Log.info("Command : "+sb.toString());
-System.out.println("Command : "+sb.toString());
-
-return cmd;
-}
-
-public static void stopAppium(){
-	Log.info("****************Stop Appium****************");
-System.out.println("****************Stop Appium****************");
-//stop appium instance
-appium.destroy();
-}
-
-/*
-
-public static void main(String args[]){
-	
-	
-	try{
+	private static List<String> getCmd(){
+		//create cmd by adding each param
+		List<String>  cmd = new ArrayList<String>();
 		
-		Log.info("****************main Starts****************");
-System.out.println("****************main Starts****************");
-		killNodeAdbPlayer();
-	launchEmulator();
-//	Thread.sleep(20000);
-	setUp();
-	test01();
-	tearDown();
-	stopAppium();
-	Log.info("****************main Ends****************");
-System.out.println("****************main Ends****************");
+		cmd.add("/Applications/Appium.app/Contents/Resources/node/bin/node");
+		
+		cmd.add("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js");
+		cmd.add("--address");
+		cmd.add("127.0.0.1");
+		cmd.add("--port");
+		cmd.add("6723");
+		cmd.add("--bootstrap-port");
+		cmd.add("6724 ");
+		
+		
+		cmd.add(" --log");
+		cmd.add(" /Users/Praveen/APPIUM/AppiumServer.log");
+		//cmd.append("--webhook");
+		//cmd.append("localhost:9876");
+		cmd.add(" --log-timestamp");
+		cmd.add(" --local-timezone");
+		
+		StringBuffer sb = new StringBuffer();
+		
+		sb.append("/Applications/Appium.app/Contents/Resources/node/bin/node ");
+		
+		sb.append("/Applications/Appium.app/Contents/Resources/node_modules/appium/bin/appium.js ");
+		sb.append("--address ");
+		sb.append("127.0.0.1 ");
+		sb.append("--port ");
+		sb.append("6723 ");
+		sb.append("--bootstrap-port ");
+		sb.append("6724 ");
+		
+		
+		sb.append(" --log ");
+		sb.append(" /Users/Praveen/APPIUM/AppiumServer.log ");
+		//cmd.append("--webhook");
+		//cmd.append("localhost:9876");
+		sb.append(" --log-timestamp ");
+		sb.append(" --local-timezone ");
+		
+		Log.info("Command : "+sb.toString());
+		System.out.println("Command : "+sb.toString());
+		
+		return cmd;
 	}
-	catch(Exception e){
-		
-		Log.info(e);
-System.out.println(e);
+	
+	public static void stopAppium(){
+			Log.info("****************Stop Appium****************");
+		System.out.println("****************Stop Appium****************");
+		//stop appium instance
+		appium.destroy();
 	}
 
-	
-}
 
-*/
 	
 }
