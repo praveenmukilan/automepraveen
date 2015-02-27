@@ -195,7 +195,7 @@ public static void test01()  {
 		build_url=andauto.getProperty("BUILD_URL");
 		
 		String androidApkPath = andauto.getProperty("APKPATH");
-		System.out.println("build_tag : "+build_tag + "\n build_url :"+build_url);
+		System.out.println("build_tag : "+build_tag + "\nbuild_url :"+build_url);
 		
 		Log.info("androidApkPath : "+androidApkPath);
 		System.out.println("androidApkPath : "+androidApkPath);
@@ -949,13 +949,14 @@ public static void startAppium() {
 public static void sendMail(){
 	
 	 // Recipient's email ID needs to be mentioned.
-    String to = "praveen.m@mig.me";
+    String to = andauto.getProperty("emailTo");
 
     // Sender's email ID needs to be mentioned
     String from = "praveen.m@mig.me";
 
     final String username = "praveen.m@mig.me";//change accordingly
-    final String password = "Letmein01";//change accordingly
+    final String password =  new String(Base64.getDecoder().decode(andauto.getProperty("emailPwd")));
+    
 
     // Assuming you are sending email through relay.jangosmtp.net
     String host = "smtp.gmail.com";
