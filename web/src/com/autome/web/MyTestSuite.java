@@ -90,6 +90,7 @@ public class MyTestSuite {
 		driver.get(OR.getProperty("URL"));
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
+
         signIn();
 
 		//user logged in

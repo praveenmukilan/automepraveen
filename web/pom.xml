@@ -38,8 +38,7 @@
   </build>
   
   <dependencies>
-  
-  
+
   <dependency>
 	<groupId>org.seleniumhq.selenium</groupId>
 	<artifactId>selenium-java</artifactId>
@@ -87,6 +86,13 @@
 	<artifactId>java-client</artifactId>
 	<version>2.1.0</version>
 </dependency>
+
+<dependency>
+	<groupId>com.google.apis</groupId>
+	<artifactId>google-api-services-drive</artifactId>
+	<version>v2-rev161-1.19.1</version>
+</dependency>
+
 <!-- 
  <dependency>
     <groupId>org.imaginea</groupId>
