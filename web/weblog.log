@@ -1,0 +1,80 @@
+2015-03-02 14:43:52,042 INFO  [Log] ******************runTest******************** 
+2015-03-02 14:43:52,043 INFO  [Log] ******************runTest******************** 
+2015-03-02 14:43:55,072 INFO  [Log]              # signIn              
+2015-03-02 14:43:55,072 INFO  [Log]              # signIn              
+2015-03-02 14:44:04,360 INFO  [Log]              # postTextFriends              
+2015-03-02 14:44:08,967 INFO  [Log]              # Mentions Page              
+2015-03-02 14:44:08,967 INFO  [Log]              # Mentions Page              
+2015-03-02 14:44:09,576 INFO  [Log]              # Favourites Page              
+2015-03-02 14:44:10,898 INFO  [Log]              # postTextMyself              
+2015-03-02 14:44:24,402 INFO  [Log]              # Discover Page              
+2015-03-02 14:44:24,526 INFO  [Log]                   > Feature Page                    
+2015-03-02 14:44:36,437 INFO  [Log]                   > Stories Page                    
+2015-03-02 14:44:38,665 INFO  [Log]                   > People Page                    
+2015-03-02 14:44:43,129 INFO  [Log]                   > Updates Page                    
+2015-03-02 14:44:49,489 INFO  [Log]              # Play Page              
+2015-03-02 14:44:51,659 INFO  [Log]              # Store Page              
+2015-03-02 14:44:51,883 INFO  [Log]                   > Gifts Page                    
+2015-03-02 14:44:55,329 INFO  [Log]                   > Stickers Page                    
+2015-03-02 14:44:55,799 INFO  [Log]                   > Emoticons Page                    
+2015-03-02 14:44:55,993 INFO  [Log]                   > Avatar Page                    
+2015-03-02 14:44:56,226 INFO  [Log]                   > Recharge Page                    
+2015-03-02 14:44:56,495 INFO  [Log]              # signOut              
+2015-03-02 14:45:01,860 INFO  [Log] ******************End Test******************** 
+2015-03-02 14:45:01,860 INFO  [Log] ******************End Test******************** 
+2015-03-03 11:59:55,450 INFO  [Log] ******************runTest******************** 
+2015-03-03 12:00:06,232 INFO  [Log]              # signIn              
+2015-03-03 12:00:31,147 INFO  [Log]              # postTextFriends              
+2015-03-03 12:00:35,315 INFO  [Log]              # Mentions Page              
+2015-03-03 12:00:36,422 INFO  [Log]              # Favourites Page              
+2015-03-03 12:00:37,067 INFO  [Log]              # postTextMyself              
+2015-03-03 12:00:45,042 INFO  [Log]              # Discover Page              
+2015-03-03 12:00:45,195 INFO  [Log]                   > Feature Page                    
+2015-03-03 12:00:53,920 INFO  [Log]                   > Stories Page                    
+2015-03-03 12:00:55,703 INFO  [Log]                   > People Page                    
+2015-03-03 12:00:59,700 INFO  [Log]                   > Updates Page                    
+2015-03-03 12:01:05,841 INFO  [Log]              # Play Page              
+2015-03-03 12:01:07,590 INFO  [Log]              # Store Page              
+2015-03-03 12:01:07,810 INFO  [Log]                   > Gifts Page                    
+2015-03-03 12:01:08,610 INFO  [Log]                   > Stickers Page                    
+2015-03-03 12:01:08,957 INFO  [Log]                   > Emoticons Page                    
+2015-03-03 12:01:09,438 INFO  [Log]                   > Avatar Page                    
+2015-03-03 12:01:09,552 INFO  [Log]                   > Recharge Page                    
+2015-03-03 12:24:47,158 INFO  [Log] ******************runTest******************** 
+2015-03-03 12:24:51,998 INFO  [Log]              # signIn              
+2015-03-03 12:25:05,398 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_05_398.jpg 
+2015-03-03 12:25:06,030 INFO  [Log]              # postTextFriends              
+2015-03-03 12:25:13,640 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_13_639.jpg 
+2015-03-03 12:25:14,139 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_14_139.jpg 
+2015-03-03 12:25:14,314 INFO  [Log]              # Mentions Page              
+2015-03-03 12:25:15,762 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_15_762.jpg 
+2015-03-03 12:25:15,763 INFO  [Log]              # Favourites Page              
+2015-03-03 12:25:16,710 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_16_709.jpg 
+2015-03-03 12:25:16,712 INFO  [Log]              # postTextMyself              
+2015-03-03 12:25:22,771 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_22_771.jpg 
+2015-03-03 12:25:23,384 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_25_23_384.jpg 
+2015-03-03 12:25:23,385 INFO  [Log]              # Discover Page              
+2015-03-03 12:25:23,537 INFO  [Log]                   > Feature Page                    
+2015-03-03 12:27:36,844 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_27_36_844.jpg 
+2015-03-03 12:27:36,882 INFO  [Log]                   > Stories Page                    
+2015-03-03 12:28:36,902 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_28_36_902.jpg 
+2015-03-03 12:28:37,469 INFO  [Log]                   > People Page                    
+2015-03-03 12:29:35,862 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_35_862.jpg 
+2015-03-03 12:29:35,910 INFO  [Log]                   > Updates Page                    
+2015-03-03 12:29:40,417 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_40_417.jpg 
+2015-03-03 12:29:40,418 INFO  [Log]              # Play Page              
+2015-03-03 12:29:43,132 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_43_132.jpg 
+2015-03-03 12:29:43,133 INFO  [Log]              # Store Page              
+2015-03-03 12:29:43,364 INFO  [Log]                   > Gifts Page                    
+2015-03-03 12:29:44,186 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_44_185.jpg 
+2015-03-03 12:29:44,186 INFO  [Log]                   > Stickers Page                    
+2015-03-03 12:29:44,629 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_44_629.jpg 
+2015-03-03 12:29:44,630 INFO  [Log]                   > Emoticons Page                    
+2015-03-03 12:29:45,068 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_45_068.jpg 
+2015-03-03 12:29:45,069 INFO  [Log]                   > Avatar Page                    
+2015-03-03 12:29:45,504 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_45_503.jpg 
+2015-03-03 12:29:45,505 INFO  [Log]                   > Recharge Page                    
+2015-03-03 12:29:46,087 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_46_086.jpg 
+2015-03-03 12:29:46,088 INFO  [Log]              # signOut              
+2015-03-03 12:29:46,426 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_46_426.jpg 
+2015-03-03 12:29:51,427 INFO  [Log] ******************End Test******************** 
