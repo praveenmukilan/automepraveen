@@ -1,6 +1,6 @@
 package com.migme.util;
 
-public class Constants {
+public class Constants{
 	//System Variables
 	public static String URL;
 	public static String Path_TestData;

@@ -3,7 +3,10 @@ package com.migme.android;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 
-import com.migme.util.Constants;
+
+
+
+
 
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -49,6 +52,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import com.migme.util.Constants;
 import com.migme.util.Log;
 
 
@@ -80,7 +84,7 @@ public class AndroidDriverScript{
 	private static  String ssPath;
 	
 	@Test
-	public static void main(){
+	public static void main() throws ExecuteException, IOException, InterruptedException{
 		
 		
 		try{
@@ -88,12 +92,15 @@ public class AndroidDriverScript{
 			startTime=System.currentTimeMillis();
 			
 			DOMConfigurator.configure("log4j.xml");
-			Log.info("test run @ : "+getCurrentTimeStamp());
+			Log.info("test run @ : "+startTime);
 			System.out.println("test run @ : "+getCurrentTimeStamp());
 	        Log.info("****************main Starts****************");
 			System.out.println("****************main Starts****************");
+//			startAppium();
+//			launchEmulator();
 	//			killNodeAdbPlayer();
 	//		launchEmulator();
+   //       appium --address "127.0.0.1" --command-timeout "7200" --session-override --log "/tmp/appium.log" --log-timestamp --webhook "localhost:9876" --local-timezone --automation-name "Appium" --platform-name "Android" --platform-version "4.4" --full-reset --device-name "device"
 	//		Thread.sleep(20000);
 			setUp();
 			test01();
@@ -108,13 +115,18 @@ public class AndroidDriverScript{
 		    
 			Log.info("****************main Ends****************");
 			System.out.println("****************main Ends****************");
-			
+			retry=0;
 		}
 
 		catch(SessionNotCreatedException e){
 			//rerun the tests again. probably the server is not started.
 			System.out.println("Session not yet created..!!");
+
+			retry++;
+			if(retry<=2){
 			main();
+			}
+			
 		}
 		catch(Exception e){
 			
@@ -189,6 +201,7 @@ public static void test01()  {
 		Log.info("****************$$$ setUP Starts****************");
 		System.out.println("****************$$$ setUP Starts****************");
 		
+//		launchEmulator("");
       
 		build_tag=andauto.getProperty("BUILD_TAG");
 
@@ -381,6 +394,13 @@ System.out.println("*****postImage()****************");
 		if(isElementPresent(MobileBy.id(OR.getProperty("doneBtn")), 10))
 		    driver.findElementById(OR.getProperty("doneBtn")).click();
 		else{
+			//ToFix : Camera Error Alert should be clicked OK.
+				if(isElementPresent(By.id("android:id/alertTitle"),5)){
+					System.out.println("Camera Error");
+					driver.findElementById("android:id/button3").click();
+				}
+			//ToFix : Camera Error Alert should be clicked OK.
+			
 			Log.info("Camera is not working. Please check");
 System.out.println("Camera is not working. Please check");
 		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
@@ -770,7 +790,7 @@ public static void takeScreenShot(){
    
   if(screenShotIndx==0) {
 	  
-  File ssDir= new File(Constants.screenShotDir+"//"+getFileName());
+  File ssDir= new File(Constants.screenShotDir+"//"+build_tag.replace("jenkins-", "").replaceAll("[ ]", ""));
     ssDir.mkdirs();
    ssPath = ssDir.getAbsolutePath();
   }
@@ -886,7 +906,7 @@ public static void populateUserCredentialsUsingADB() throws ExecuteException, IO
  * Method to launch the emulator programmatically
  * */
 
-public static void launchEmulator() throws ExecuteException, IOException, InterruptedException{
+public static void launchEmulator(String vmName) throws ExecuteException, IOException, InterruptedException{
 	
 	
 	Log.info("****************launchEmulator Starts****************");
@@ -898,7 +918,7 @@ public static void launchEmulator() throws ExecuteException, IOException, Interr
 
 
 	launchEmul.addArgument("--vm-name", false);
-	launchEmul.addArgument("SamsungGalaxyS4");
+	launchEmul.addArgument(vmName);
 	
 	  
 
@@ -938,7 +958,7 @@ public static void startAppium() {
 //        builder.redirectOutput("path to log file"); //here you can find logs of appium
 //        builder.redirectErrorStream(true);
         appium = builder.start();
-        Thread.sleep(3000); //wait 3 sec until server started
+        Thread.sleep(20000); //wait 20 sec until server started
         Log.info("Server Started");
 	System.out.println("Server Started");
     } catch (Exception e) {
@@ -960,7 +980,6 @@ public static void sendMail(){
 
     // Assuming you are sending email through relay.jangosmtp.net
     String host = "smtp.gmail.com";
-
     Properties props = new Properties();
     props.put("mail.smtp.auth", "true");
     props.put("mail.smtp.starttls.enable", "true");
@@ -994,7 +1013,7 @@ public static void sendMail(){
 
        // Now set the actual message
 
-       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ "\nThe test "+build_tag+"run for "+runTimeInMinutes +" minutes");
+       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ ".\nThe test '"+build_tag+"' run for "+runTimeInMinutes +" minutes");
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();
@@ -1034,9 +1053,9 @@ public static void sendMail(){
 		cmd.add("--address");
 		cmd.add("127.0.0.1");
 		cmd.add("--port");
-		cmd.add("6723");
+		cmd.add("4723");
 		cmd.add("--bootstrap-port");
-		cmd.add("6724 ");
+		cmd.add("4724 ");
 		
 		
 		cmd.add(" --log");

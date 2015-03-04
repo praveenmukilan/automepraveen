@@ -9,7 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.apache.commons.io.FileUtils;
 
-	public class Log {
+	public class Log{
 
 		//Initialize Log4j logs
 		private static Logger Log = Logger.getLogger(Log.class.getName());//
