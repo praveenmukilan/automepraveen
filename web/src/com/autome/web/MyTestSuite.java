@@ -109,7 +109,14 @@ public class MyTestSuite {
 		//Store Page
 		navigateToStorePage();
 		
+		//Merchant Page
+		navigateMerchantPage();
 		
+		//notifications 
+		viewNotifications();
+		
+		//share post using inner editor
+		sharePostInnerEditor();
 		
 		signOut();
         
@@ -213,13 +220,13 @@ public static void takeScreenShot(){
 		takeScreenShot();
 	}
 	
-	private static void postTextInit(){
+	private static void postTextInit(String text){
 		
 		if(driver.findElement(By.cssSelector(OR.getProperty("txt_post"))).isDisplayed()){
 		driver.findElement(By.cssSelector(OR.getProperty("txt_post"))).click();
 		}
 		driver.findElement(By.cssSelector(OR.getProperty("txt_newPost"))).click();
-		driver.findElement(By.cssSelector(OR.getProperty("txt_newPost"))).sendKeys("Post Text @ "+getCurrentTimeStamp()+" : "+RandomStringUtils.randomAlphabetic(100));
+		driver.findElement(By.cssSelector(OR.getProperty("txt_newPost"))).sendKeys(text+" Post Text @ "+getCurrentTimeStamp()+" : "+RandomStringUtils.randomAlphabetic(100));
 		driver.findElement(By.cssSelector(OR.getProperty("drpdwnPostPrivacy"))).click();
 		}
 	
@@ -293,7 +300,7 @@ public static void takeScreenShot(){
 		Log.info("             # postTextMyself             ");
 //		goToHomePage();
 		driver.findElement(By.cssSelector(OR.getProperty("homePage"))).click();
-		postTextInit();
+		postTextInit("Myself");
 		postSelectMyself();
 		unSelectAllowReplies();
 		takeScreenShot();
@@ -305,7 +312,7 @@ public static void takeScreenShot(){
 	public static void postTextFriends(){
 		System.out.println("             # postTextFriends             ");
 		Log.info("             # postTextFriends             ");
-		postTextInit();
+		postTextInit("Friends");
 		postSelectFriends();
 		takeScreenShot();
 		sendPost();
@@ -438,6 +445,44 @@ public static void takeScreenShot(){
 		takeScreenShot();
 	}
 	
+	public static void navigateMerchantPage(){
+		System.out.println("             # Merchant Page             ");
+		Log.info("             # Merchant Page             ");
+		driver.findElement(By.cssSelector(OR.getProperty("migLogo"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("merchantDrpDwn"))).click();
+		Assert.assertEquals(driver.getTitle(), OR.getProperty("merchantPageTitle"));
+		takeScreenShot();
+	}
+	
+	public static void viewNotifications(){
+		
+		System.out.println("             # View Notifications             ");
+		Log.info("             # View Notifications             ");
+		driver.findElement(By.cssSelector(OR.getProperty("migLogo"))).click();
+		driver.findElement(By.cssSelector(OR.getProperty("notifications"))).click();
+		
+		
+	}
+	
+	public static void sharePostInnerEditor(){
+		System.out.println("             # SharePost - Inner Editor             ");
+		Log.info("             # SharePost - Inner Editor             ");
+		
+		driver.findElement(By.cssSelector(OR.getProperty("sharePost"))).click();
+		typeTextInnerEditor();
+//        driver.findElement(By.cssSelector(OR.getProperty("innerEditor"))).sendKeys("Inner Editor - Post Text @"+getCurrentTimeStamp()+RandomStringUtils.randomAlphabetic(200));
+		postSelectFriends();
+		takeScreenShot();
+		sendPost();
+		
+	}
+	
+	public static void typeTextInnerEditor(){
+		System.out.println("                  > Type text in Inner Editor                   ");
+		Log.info("                  > Type text in Inner Editor                   ");
+		driver.findElement(By.cssSelector(OR.getProperty("innerEditor"))).sendKeys("Inner Editor - Post Text @"+getCurrentTimeStamp()+RandomStringUtils.randomAlphabetic(200));
+		
+	}
 	
 	public static void waitForElementForSecs(By locator, int secs){
 		
