@@ -1,9 +1,17 @@
-2015-03-05 14:09:06,559 INFO  [Log] *****          test run @ : 2015-03-05 14:09:06.555 
-2015-03-05 14:09:06,560 INFO  [Log] *****          Test Suite Starts 
-2015-03-05 14:09:06,594 INFO  [Log] *****          Setup Starts 
-2015-03-05 14:09:06,594 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
-2015-03-05 14:09:06,594 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
-2015-03-05 14:09:06,594 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
-2015-03-05 14:09:21,500 INFO  [Log]                     > driver started 
-2015-03-05 14:09:21,500 INFO  [Log]                     > waiting for app to be lauched 
-2015-03-05 14:09:21,516 INFO  [Log] *****          Signin Starts 
+2015-03-05 14:26:18,625 INFO  [Log] *****          test run @ : 2015-03-05 14:26:18.621 
+2015-03-05 14:26:18,627 INFO  [Log] *****          Test Suite Starts 
+2015-03-05 14:26:18,664 INFO  [Log] *****          Setup Starts 
+2015-03-05 14:26:18,664 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
+2015-03-05 14:26:18,664 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
+2015-03-05 14:26:18,665 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
+2015-03-05 14:26:35,795 INFO  [Log]                     > driver started 
+2015-03-05 14:26:35,795 INFO  [Log]                     > waiting for app to be lauched 
+2015-03-05 14:26:35,807 INFO  [Log] *****          Signin Starts 
+2015-03-05 14:28:48,257 INFO  [Log]                     > job_build : MigAndroidAutoCI-01 
+2015-03-05 14:28:50,243 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_14_28_50_242.jpg 
+2015-03-05 14:28:50,547 INFO  [Log] *****          Signin Ends   --Pass 
+2015-03-05 14:28:54,053 INFO  [Log] *****          Setup Ends   --Pass 
+2015-03-05 14:28:54,236 INFO  [Log] *****          Test Starts 
+2015-03-05 14:28:54,243 INFO  [Log] *****          PrivateChat starts 
+2015-03-05 14:28:54,243 INFO  [Log]                     > start newchat 
+2015-03-05 14:28:59,140 INFO  [Log]                     > out of while -- -navigation button 

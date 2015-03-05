@@ -110,7 +110,7 @@ public class AndroidDriverScript{
 	// As the server start through code is having issues, commenting stopAppium()
 	//		stopAppium();
 		    
-			Log.infoTitle("Test Suite Ends");
+			Log.infoTitle("Test Suite Ends   --Pass");
 			retry=0;
 		}
 
@@ -122,6 +122,7 @@ public class AndroidDriverScript{
 			if(retry<=2){
 			main();
 			}
+			Log.infoTitle("Test Suite Ends   --Fail. Pls check the job : "+build_url);
 			
 		}
 		catch(Exception e){
@@ -157,11 +158,12 @@ public static void test01()  {
 		signOut();
 
 
-		Log.infoTitle("Test Ends");
+		Log.infoTitle("Test Ends   --Pass");
 
 		}
 		catch(NoSuchElementException e){
 			e.printStackTrace();
+			Log.infoTitle("Test Ends   --Fail. Pls check the job "+build_url);
 //			retry++;
 //			if(retry<=3)
 //				test01();
@@ -275,9 +277,9 @@ public static void test01()  {
 			Log.infoTitle("Signin Ends   --Pass");
 			
 		   }
-		   catch(NoSuchElementException e){
+		   catch(Exception e){
 		  
-			   
+			   Log.infoTitle("Signin Fails. Please check!");
 		   }
 					
 				}
@@ -363,7 +365,7 @@ public static void postText(){
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys("posttext @ "+RandomStringUtils.randomAlphabetic(100));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("posttext @ "+getCurrentTimeStamp()+" with random text : "+RandomStringUtils.randomAlphabetic(100));
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();		
 	takeScreenShot();
 	Log.infoTitle("PostText Ends   --Pass");
@@ -402,7 +404,7 @@ public static void postImage(){
 
 		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
 		    Log.info("image could not be taken using camera. pls check!");
-		    Log.infoTitle("PostImage Ends   --Fail");	
+		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");	
 			}
 	}
 	
@@ -478,15 +480,17 @@ public static void postTextEmoticons(){
 //	driver.findElementById(OR.getProperty("postTextField")).sendKeys(OR.getProperty("postTextLT300"));
 	
 	while(!isElementClickable(MobileBy.AccessibilityId("main_button"), 5)){
-		System.out.println("waiting for the post to be sent");
+		Log.info("waiting for the post to be sent");
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
 	Thread.sleep(2000);
 	}
 	takeScreenShot();
+	Log.infoTitle("PostTextEmoticons Ends   -Pass");
 	
 	}catch(Exception e){
 		
 		sendMail();
+		Log.infoTitle("PostTextEmoticons Ends   -Fail. Please check!");
 	}
 }
 
@@ -629,6 +633,8 @@ public static void privateChat() {
 		if(retry<=2){
 		privateChat();
 		}
+		
+		Log.infoTitle("PrivateChat --Fail. Please check!");
 	}
 }
 
@@ -772,9 +778,10 @@ public static void waitForSecs(int seconds){
 	
 	try {
 		Thread.sleep(seconds*1000);
-	} catch (InterruptedException e) {
+	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
+		Log.infoTitle("GroupChat -- Fail. Please check!");
 	}
 }
 
@@ -817,10 +824,10 @@ public static String getFileName(){
 }
 
 public static void signOut(){
-	
+	try{
 	
 	Log.infoTitle("SignOut Starts");
-	System.out.println("SignOut");
+
 	// to navigate to menu settings window
 	driver.findElement(By.id("com.projectgoth:id/button_icon")).click();
 
@@ -848,6 +855,10 @@ public static void signOut(){
 	driver.findElement(By.xpath("//android.widget.TextView[@text='Sign out']")).click();
 
 	Log.infoTitle("SignOut  --Pass");
+	}catch(Exception e){
+		
+		Log.infoTitle("SignOut   --Fail. Please check!");
+	}
 	
 }
 
@@ -965,7 +976,7 @@ public static void startAppium() {
 }
 
 public static void sendMail(){
-	Log.info("Send Mail");
+	Log.infoTitle("Send the results in mail");
 	 // Recipient's email ID needs to be mentioned.
     String to = andauto.getProperty("emailTo");
 
@@ -1041,7 +1052,9 @@ return new PasswordAuthentication(username, password);
        Log.info("Mail sent successfully....");
 
     } catch (MessagingException e) {
+        Log.infoTitle("Send mail   --Fail. Pls check!");
        throw new RuntimeException(e);
+
     }
   }
 
