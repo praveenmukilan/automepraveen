@@ -808,6 +808,7 @@ public static void takeScreenShot(){
 	try {
 		File newFile = new File(ssPath+"//"+getFileName()+".jpg");
 		Log.info("Screenshot at : "+newFile.getAbsolutePath());
+		System.out.println("Screenshot at : "+newFile.getAbsolutePath());
 		FileUtils.copyFile(scrFile,newFile );
 //		FileUtils.copyFile(scrFile, new File(Constants.screenShotDir+"//"+DriverScript.sTestCaseID+"_"+DriverScript.sTestStepName+".jpg"));
 	} catch (IOException e) {
@@ -1019,8 +1020,13 @@ public static void sendMail(){
        BodyPart messageBodyPart = new MimeBodyPart();
 
        // Now set the actual message
+       
+       java.io.File logF = new java.io.File("logfile.log");
+      
 
-       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ ".\nThe test '"+job_build+"' run for "+runTimeInMinutes +" minutes");
+       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ "\n\n\nThe test '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
+       
+       
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();
