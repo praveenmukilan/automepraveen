@@ -153,7 +153,7 @@ public static void test01()  {
 //		postText();
 		postImage();
 		postTextEmoticons();
-		newGroupChat();
+		groupChat();
 
 		signOut();
 
@@ -386,10 +386,15 @@ public static void postImage(){
 	
 	if(isElementClickable(By.id(OR.getProperty("shutterBtn")), 5)){
 		driver.findElementById(OR.getProperty("shutterBtn")).click();
+		takeScreenShot();
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if(isElementPresent(MobileBy.id(OR.getProperty("doneBtn")), 10)){
 		    driver.findElementById(OR.getProperty("doneBtn")).click();
-		    Log.infoTitle("PostImage Ends   --Pass");
+		    takeScreenShot();
+			driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image @ "+getCurrentTimeStamp()+" "+RandomStringUtils.randomAlphabetic(100));
+			driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
+			takeScreenShot();
+		    Log.info("Post Image   --Pass");
 		}
 		
 		else{
@@ -408,9 +413,7 @@ public static void postImage(){
 			}
 	}
 	
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image @ "+getCurrentTimeStamp()+" "+RandomStringUtils.randomAlphabetic(100));
-	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
-	takeScreenShot();
+
 	retry=0;
 	}
     catch(Exception e){
@@ -428,13 +431,13 @@ public static void postImage(){
     	retry++;
     	if(retry<=1){
     		Log.info("Retrying Post Image..");
-    		System.out.println("Retrying Post Image..");
+
     		postImage();
     	}
     	else
     	{
     		Log.info("Retried two times. Post Image has issues. Please check.!");
-    		System.out.println("Retried two times. Post Image has issues. Please check.!");
+
     		
     		return;
     	}
@@ -508,7 +511,7 @@ public static void chatToFeedPage() throws InterruptedException{
 	      driver.findElementByAccessibilityId(OR.getProperty("chatBackBtn")).click();
 	}
 	
-	System.out.println("navigated from the chat window to recent chats");
+	Log.info("navigated from the chat window to recent chats");
 
 	//to navigate back to feed screen, click main button & click on feed button
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
@@ -532,23 +535,23 @@ public static void startNewChat() throws InterruptedException{
 //	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("searchBtn")), 5) )){
-		Log.info("**inwhile -navigation button");
+		Log.info("**waiting for navigation button");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		Thread.sleep(3000);
 		}
-	    Log.info("out of while -- -navigation button");
+	    Log.info("outof -navigation button");
 
 
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 15).click();
 	driver.findElementByAccessibilityId(OR.getProperty("chatBtn")).click();
 
-	Log.info("clicked navigation button");
+	Log.info("clicked chat navigation btn");
 	Thread.sleep(5000);
 		
 	//main button click to view the new private group chat icon
 	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 	while(!(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 10) && isElementClickable(MobileBy.AccessibilityId(OR.getProperty("userInviteBtn")), 10))){
-		Log.info("**inwhile- ad chatadd white ");
+		Log.info("**waiting for ad chatadd white ");
 		driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
 		Thread.sleep(2000);
 		if(isElementClickable(MobileBy.AccessibilityId(OR.getProperty("chatBtn")), 5)){
@@ -557,7 +560,7 @@ public static void startNewChat() throws InterruptedException{
 		
 		}
 	
-	Log.info("out of while -- -ad_chatadd_white button");
+	Log.info("wait over for ad_chatadd_white button");
 
 	
 //	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("newChatBtn")), 15).click();
@@ -612,7 +615,7 @@ public static void privateChat() {
 	//
 	//	driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	
-
+    Log.info("users selected");
 // sendGiftInPrivateChat();
     
     postEmoticonInChat();
@@ -620,7 +623,7 @@ public static void privateChat() {
 	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ :"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
-	
+	takeScreenShot();
 	
 
 	chatToFeedPage();
@@ -733,7 +736,9 @@ public static void postEmoticonInChat(){
 	driver.findElementByAccessibilityId(OR.getProperty("chatEmoteItem")).click();
 }
 
-public static void newGroupChat() throws InterruptedException{
+public static void groupChat() throws InterruptedException{
+	
+	try{
 	Log.infoTitle("GroupChat starts");
 
 	startNewChat();
@@ -768,10 +773,14 @@ public static void newGroupChat() throws InterruptedException{
 	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("group chat - hi @ :"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
+	takeScreenShot();
 	
 	chatToFeedPage();
 	Log.infoTitle("GroupChat -- Pass");
-
+	}catch(Exception e){
+		
+		Log.infoTitle("GroupChat   --Fail. Pls check!");
+	}
 }
 
 public static void waitForSecs(int seconds){
@@ -851,7 +860,7 @@ public static void signOut(){
 	//List <WebElement> elmnts = driver.findElement("com.projectgoth:id/label");
 	//driver.findElement(By.name("setting")).click();
 	// Thread.sleep(500000);
-
+    takeScreenShot();
 	driver.findElement(By.xpath("//android.widget.TextView[@text='Sign out']")).click();
 
 	Log.infoTitle("SignOut  --Pass");
@@ -1015,7 +1024,7 @@ return new PasswordAuthentication(username, password);
           InternetAddress.parse(to));
 
        // Set Subject: header field
-       message.setSubject(build_tag+" status");
+       message.setSubject("Android Automation "+job_build+" status");
 
        // Create the message part
        BodyPart messageBodyPart = new MimeBodyPart();
@@ -1025,7 +1034,7 @@ return new PasswordAuthentication(username, password);
        java.io.File logF = new java.io.File("logfile.log");
       
 
-       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ "\n\n\nThe test '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
+       messageBodyPart.setText("\nHi,\n\nAndroid automation job execution status.\n\n Please check the below URL for details : \n"+build_url+ "\n\n\nThe job '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
        
        
 
