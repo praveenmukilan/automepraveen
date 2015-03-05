@@ -2,6 +2,7 @@ package com.migme.android;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
 import javax.activation.FileDataSource;
@@ -92,7 +93,7 @@ public class AndroidDriverScript{
 			
 			DOMConfigurator.configure("log4j.xml");
 			
-			Log.infoTitle("test run @ : "+getCurrentTimeStamp());
+			Log.infoTitle("test started @ : "+getCurrentTimeStamp());
 	        Log.infoTitle("Test Suite Starts");
 //			startAppium();
 //			launchEmulator();
@@ -151,7 +152,7 @@ public static void test01()  {
 
 		
 		privateChat();
-//		postText();
+
 		postImage();
 		postTextEmoticons();
 		groupChat();
@@ -211,8 +212,9 @@ public static void test01()  {
 		Log.info("build_tag : "+build_tag);
 		Log.info("build_url : "+build_url);
 		Log.info("Android Build APK URL : "+apkURL);
+		Log.info("job_build : "+job_build);
 		
-//		Log.info("androidApkPath : "+androidApkPath);
+		Log.info("androidApkPath : "+androidApkPath);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -313,7 +315,7 @@ public static void test01()  {
  public static Boolean isElementPresent(final By by, int timeOutInSeconds) {
 
         WebElement element; 
-//        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
+        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS); //nullify implicitlyWait() 
         try{
         	
             WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds); 
@@ -453,7 +455,12 @@ public static void postImage(){
 
 public static void goBack(){
 	Log.info("goBack()");
-	driver.navigate().back();
+	while(!isElementPresent(MobileBy.AccessibilityId("ab_title_icon"), 5)){
+		driver.navigate().back();
+		
+	}
+	Log.info("title page reached. hence going out of goBack()");
+	
 }
 
 public static void postTextEmoticons(){
@@ -494,14 +501,48 @@ public static void postTextEmoticons(){
 	Log.infoTitle("PostTextEmoticons Ends   -Pass");
 	
 	}catch(Exception e){
-		
-		sendMail();
 		Log.infoTitle("PostTextEmoticons Ends   -Fail. Please check!");
+		goToFeedPage();	
 	}
 }
 
+public static void goToFeedPage(){
+	try {
+	Log.info("go to feed page");
+	while(!isElementPresent(MobileBy.xpath("//android.widget.TextView[@text='Feed']"),5)){
+	
+		
+	    goBack();
+//    	driver.findElementByAccessibilityId("main_button").click();
+//    	waitForElementPresent(MobileBy.AccessibilityId("ad_feed_orange"), 5);
+	   
+	    	driver.findElementByAccessibilityId("main_button").click();
+			Thread.sleep(2000);
+         	driver.findElementByAccessibilityId("ad_feed_orange").click();
+         	
+	}
+	    }
+	catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		Log.info("failed to navigate to feed page. Launching the app again");
+	    launchApp();
+		
+	}
+	    
+}
+	
 
-
+public static void launchApp(){
+	try{
+	driver.launchApp();
+	Thread.sleep(10000);
+	}catch(Exception e){
+		
+		Log.info("failed to lauch the app. Please check the app!");
+		
+	}
+}
 
 public static void chatToFeedPage() throws InterruptedException{
 	Log.info("chatToFeedPage");
@@ -804,7 +845,7 @@ public static void takeScreenShot(){
    
   if(screenShotIndx==0) {
 	  job_build = build_tag.replace("jenkins-", "").replaceAll("[ ]", "");
-	  Log.info("job_build : "+job_build);
+//	  Log.info("job_build : "+job_build);
 	  
   File ssDir= new File(Constants.screenShotDir+"//"+job_build);
     ssDir.mkdirs();
