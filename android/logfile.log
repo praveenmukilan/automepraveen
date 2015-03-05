@@ -1,36 +1,9 @@
-2015-03-05 11:09:45,551 INFO  [Log] test run @ : 1425524985297 
-2015-03-05 11:09:45,553 INFO  [Log] ****************main Starts**************** 
-2015-03-05 11:09:45,554 INFO  [Log] ****************$$$ setUP Starts**************** 
-2015-03-05 11:09:45,555 INFO  [Log] androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
-2015-03-05 11:10:01,113 INFO  [Log] **** 
-2015-03-05 11:10:01,113 INFO  [Log] waiting for app to be lauched 
-2015-03-05 11:13:24,961 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_11_13_24_961.jpg 
-2015-03-05 11:13:27,621 INFO  [Log] ****************setUp Ends**************** 
-2015-03-05 11:13:27,629 INFO  [Log] ****************test01 Starts**************** 
-2015-03-05 11:13:27,636 INFO  [Log] *****privateChat starts********************* 
-2015-03-05 11:13:27,636 INFO  [Log] *****************startNewChat********************* 
-2015-03-05 11:13:32,863 INFO  [Log] out of while -- -navigation button 
-2015-03-05 11:13:36,213 INFO  [Log] clicked navigation button 
-2015-03-05 11:13:45,143 INFO  [Log] out of while -- -ad_chatadd_white button 
-2015-03-05 11:13:45,144 INFO  [Log] clicked ad_chatadd_white button 
-2015-03-05 11:13:48,626 INFO  [Log] *****************startNewChat ends********************* 
-2015-03-05 11:15:09,939 INFO  [Log] *****************chatToFeedPage********************* 
-2015-03-05 11:15:31,572 INFO  [Log] *****privateChat ends********************* 
-2015-03-05 11:15:31,592 INFO  [Log] *****postImage()**************** 
-2015-03-05 11:16:11,051 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_11_16_11_05.jpg 
-2015-03-05 11:16:11,195 INFO  [Log] *****postTextEmoticons()**************** 
-2015-03-05 11:17:19,180 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_11_17_19_179.jpg 
-2015-03-05 11:17:19,255 INFO  [Log] *****newGroupChat starts********************* 
-2015-03-05 11:17:19,255 INFO  [Log] *****************startNewChat********************* 
-2015-03-05 11:17:21,354 INFO  [Log] out of while -- -navigation button 
-2015-03-05 11:17:22,144 INFO  [Log] clicked navigation button 
-2015-03-05 11:17:28,840 INFO  [Log] out of while -- -ad_chatadd_white button 
-2015-03-05 11:17:28,840 INFO  [Log] clicked ad_chatadd_white button 
-2015-03-05 11:17:31,070 INFO  [Log] *****************startNewChat ends********************* 
-2015-03-05 11:17:51,964 INFO  [Log] *****************chatToFeedPage********************* 
-2015-03-05 11:18:11,542 INFO  [Log] *****newGroupChat ends********************* 
-2015-03-05 11:18:11,557 INFO  [Log] *****SignOut********************* 
-2015-03-05 11:18:16,584 INFO  [Log] ****************test01 Ends**************** 
-2015-03-05 11:18:24,803 INFO  [Log] ****************main Ends**************** 
-2015-03-05 11:18:24,839 INFO  [Log] ****************tearDown Starts**************** 
-2015-03-05 11:18:24,839 INFO  [Log] ****************tearDown Ends**************** 
+2015-03-05 14:09:06,559 INFO  [Log] *****          test run @ : 2015-03-05 14:09:06.555 
+2015-03-05 14:09:06,560 INFO  [Log] *****          Test Suite Starts 
+2015-03-05 14:09:06,594 INFO  [Log] *****          Setup Starts 
+2015-03-05 14:09:06,594 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
+2015-03-05 14:09:06,594 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
+2015-03-05 14:09:06,594 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
+2015-03-05 14:09:21,500 INFO  [Log]                     > driver started 
+2015-03-05 14:09:21,500 INFO  [Log]                     > waiting for app to be lauched 
+2015-03-05 14:09:21,516 INFO  [Log] *****          Signin Starts 

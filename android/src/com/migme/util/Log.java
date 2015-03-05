@@ -13,7 +13,7 @@ import org.apache.commons.io.FileUtils;
 
 		//Initialize Log4j logs
 		private static Logger Log = Logger.getLogger(Log.class.getName());//
-		private static String output;
+		private static String output="";
 
 	// This is to print log for the beginning of the test case, as we usually run so many test cases as a test suite
 	public static void startTestCase(String sTestCaseName){
@@ -38,9 +38,17 @@ import org.apache.commons.io.FileUtils;
 
     // Need to create these methods, so that they can be called  
 	public static void info(String message) {
-		   Log.info(message);
-		   output=output+"\n"+message;
+		String prefix="                    > ";
+		Log.info(prefix+message);
+		System.out.println(prefix+message);
+		   output=output+"\n"+prefix+message;
 		   }
+	
+	public static void infoTitle(String message){
+		Log.info("*****          "+message);
+		System.out.println("*****          "+message);
+		output=output+"\n"+"*****          "+message;
+	}
 
 	public static void warn(String message) {
 	   Log.warn(message);
