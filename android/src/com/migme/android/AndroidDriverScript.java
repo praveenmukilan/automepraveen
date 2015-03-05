@@ -77,7 +77,7 @@ public class AndroidDriverScript{
 	public static long startTime;
 	public static long endTime;
 	public static long runTimeInMinutes;
-
+    public static String job_build;
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
@@ -90,8 +90,13 @@ public class AndroidDriverScript{
 		try{
 			
 			startTime=System.currentTimeMillis();
+			//Delete the existing logfile and create a new one 
+			File logFile = new File("logfile.log");
+			logFile.delete();
+			logFile.createNewFile();
 			
 			DOMConfigurator.configure("log4j.xml");
+			
 			Log.info("test run @ : "+startTime);
 			System.out.println("test run @ : "+getCurrentTimeStamp());
 	        Log.info("****************main Starts****************");
@@ -409,7 +414,7 @@ System.out.println("image could not be taken using camera. pls check!");
 			}
 	}
 	
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys(RandomStringUtils.randomAlphabetic(100));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image @ "+getCurrentTimeStamp()+" "+RandomStringUtils.randomAlphabetic(100));
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
 	takeScreenShot();
 	retry=0;
@@ -789,8 +794,10 @@ public static void takeScreenShot(){
   
    
   if(screenShotIndx==0) {
+	  job_build = build_tag.replace("jenkins-", "").replaceAll("[ ]", "");
+	  System.out.println("job_build : "+job_build);
 	  
-  File ssDir= new File(Constants.screenShotDir+"//"+build_tag.replace("jenkins-", "").replaceAll("[ ]", ""));
+  File ssDir= new File(Constants.screenShotDir+"//"+job_build);
     ssDir.mkdirs();
    ssPath = ssDir.getAbsolutePath();
   }
@@ -1013,7 +1020,7 @@ public static void sendMail(){
 
        // Now set the actual message
 
-       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ ".\nThe test '"+build_tag+"' run for "+runTimeInMinutes +" minutes");
+       messageBodyPart.setText("Android automation execution status.\n Please check the below URL : \n"+build_url+ ".\nThe test '"+job_build+"' run for "+runTimeInMinutes +" minutes");
 
        // Create a multipar message
        Multipart multipart = new MimeMultipart();

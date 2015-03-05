@@ -78,3 +78,65 @@
 2015-03-03 12:29:46,088 INFO  [Log]              # signOut              
 2015-03-03 12:29:46,426 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_12_25_00_586/2015_03_03_12_29_46_426.jpg 
 2015-03-03 12:29:51,427 INFO  [Log] ******************End Test******************** 
+2015-03-03 14:30:08,621 INFO  [Log] ******************runTest******************** 
+2015-03-03 14:30:13,774 INFO  [Log]              # signIn              
+2015-03-03 14:31:27,819 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_27_819.jpg 
+2015-03-03 14:31:28,533 INFO  [Log]              # postTextFriends              
+2015-03-03 14:31:32,425 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_32_425.jpg 
+2015-03-03 14:31:32,729 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_32_729.jpg 
+2015-03-03 14:31:32,730 INFO  [Log]              # Mentions Page              
+2015-03-03 14:31:33,670 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_33_67.jpg 
+2015-03-03 14:31:33,671 INFO  [Log]              # Favourites Page              
+2015-03-03 14:31:35,110 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_35_11.jpg 
+2015-03-03 14:31:35,111 INFO  [Log]              # postTextMyself              
+2015-03-03 14:31:39,264 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_39_264.jpg 
+2015-03-03 14:31:39,619 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_39_619.jpg 
+2015-03-03 14:31:39,620 INFO  [Log]              # Discover Page              
+2015-03-03 14:31:39,723 INFO  [Log]                   > Feature Page                    
+2015-03-03 14:31:46,461 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_46_461.jpg 
+2015-03-03 14:31:46,485 INFO  [Log]                   > Stories Page                    
+2015-03-03 14:31:53,222 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_31_53_222.jpg 
+2015-03-03 14:31:53,223 INFO  [Log]                   > People Page                    
+2015-03-03 14:32:04,451 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_04_451.jpg 
+2015-03-03 14:32:04,587 INFO  [Log]                   > Updates Page                    
+2015-03-03 14:32:11,144 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_11_144.jpg 
+2015-03-03 14:32:11,168 INFO  [Log]              # Play Page              
+2015-03-03 14:32:14,866 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_14_866.jpg 
+2015-03-03 14:32:14,867 INFO  [Log]              # Store Page              
+2015-03-03 14:32:15,376 INFO  [Log]                   > Gifts Page                    
+2015-03-03 14:32:21,599 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_21_599.jpg 
+2015-03-03 14:32:21,600 INFO  [Log]                   > Stickers Page                    
+2015-03-03 14:32:22,244 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_22_244.jpg 
+2015-03-03 14:32:22,245 INFO  [Log]                   > Emoticons Page                    
+2015-03-03 14:32:22,590 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_22_59.jpg 
+2015-03-03 14:32:22,591 INFO  [Log]                   > Avatar Page                    
+2015-03-03 14:32:23,037 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_23_037.jpg 
+2015-03-03 14:32:23,039 INFO  [Log]                   > Recharge Page                    
+2015-03-03 14:32:23,476 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_23_476.jpg 
+2015-03-03 14:32:23,477 INFO  [Log]              # signOut              
+2015-03-03 14:32:24,041 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_03_14_30_21_938/2015_03_03_14_32_24_041.jpg 
+2015-03-03 14:32:29,080 INFO  [Log] ******************End Test******************** 
+2015-03-04 13:43:04,986 INFO  [Log] ******************runTest******************** 
+2015-03-04 13:43:16,930 INFO  [Log]              # signIn              
+2015-03-04 13:43:33,499 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_43_32_123/2015_03_04_13_43_33_499.jpg 
+2015-03-04 13:43:34,083 INFO  [Log]              # Merchant Page              
+2015-03-04 13:45:05,498 INFO  [Log] ******************runTest******************** 
+2015-03-04 13:45:16,722 INFO  [Log]              # signIn              
+2015-03-04 13:45:26,926 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_45_26_271/2015_03_04_13_45_26_926.jpg 
+2015-03-04 13:45:26,974 INFO  [Log]              # Merchant Page              
+2015-03-04 13:45:37,096 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_45_26_271/2015_03_04_13_45_37_096.jpg 
+2015-03-04 13:45:37,113 INFO  [Log]              # View Notifications              
+2015-03-04 13:48:02,688 INFO  [Log] ******************runTest******************** 
+2015-03-04 13:48:10,062 INFO  [Log]              # signIn              
+2015-03-04 13:48:22,368 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_48_21_314/2015_03_04_13_48_22_367.jpg 
+2015-03-04 13:48:22,993 INFO  [Log]              # Merchant Page              
+2015-03-04 13:48:36,703 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_48_21_314/2015_03_04_13_48_36_703.jpg 
+2015-03-04 13:48:36,724 INFO  [Log]              # View Notifications              
+2015-03-04 13:48:56,638 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_13_48_21_314/2015_03_04_13_48_56_638.jpg 
+2015-03-04 14:01:24,077 INFO  [Log] ******************runTest******************** 
+2015-03-04 14:01:29,093 INFO  [Log]              # signIn              
+2015-03-04 14:01:41,944 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_14_01_36_627/2015_03_04_14_01_41_943.jpg 
+2015-03-04 14:01:42,006 INFO  [Log]              # Merchant Page              
+2015-03-04 14:01:46,120 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_14_01_36_627/2015_03_04_14_01_46_12.jpg 
+2015-03-04 14:01:46,121 INFO  [Log]              # View Notifications              
+2015-03-04 14:02:16,316 INFO  [Log] Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/2015_03_04_14_01_36_627/2015_03_04_14_02_16_316.jpg 

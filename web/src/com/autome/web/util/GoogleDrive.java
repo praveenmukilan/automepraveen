@@ -18,9 +18,15 @@ import com.google.api.services.drive.model.ParentReference;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 
 public class GoogleDrive {
@@ -31,15 +37,22 @@ public class GoogleDrive {
   private static String REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob";
   public static  Drive service;
   public static final String migautoFolderId = "0B5Oonp8LMi-0fmRfX2dQdm1ESzBJTXE2eGgxVW53RzM4cHFXY1Z5b2paXzBTRlU0Q3ZwYW8";
+  public static WebDriver driverGD;
   
-  public static void main(String args[]){
-	  //folderTitle : migauto | folderID : 0B5Oonp8LMi-0fmRfX2dQdm1ESzBJTXE2eGgxVW53RzM4cHFXY1Z5b2paXzBTRlU0Q3ZwYW8
-//	  folderTitle : Screenshots | folderID : 0B5Oonp8LMi-0fm9abFF4VjMzb0U0T0JDZDBrQlBQOHlaYlU3VEZNeDNxei1oRWJuZXVHekE
+  public static void main(String args[]) throws InterruptedException{
+//	  folderTitle : Screenshots | folderID : 0B0JDYkvkPzcRfllwSVZYd0Y5VEYtSmVLSU9hLVJOeVVLRjdzYlhKUGhpLVJ1UEJSTmQzdWs
+//	  folderTitle : web | folderID : 0B0JDYkvkPzcRflVWRUM2U1FwcDJvVUNNZ21KNFJBYnBNLW9fdzREemhWUmY2N080dF9tMDQ
 	  try {
-	getConnection();
+			System.setProperty("webdriver.chrome.driver", "src//resources//chromedriver");
+		  driverGD= new ChromeDriver();
+		  
+	getConnectionCode();
+//	getConnection();
 //	findScreenShotFolder();
-	
-	createFolder("newPraveenSoundService",migautoFolderId );
+	uploadImageFile("testfile.jpeg","0B0JDYkvkPzcRfllwSVZYd0Y5VEYtSmVLSU9hLVJOeVVLRjdzYlhKUGhpLVJ1UEJSTmQzdWs" );
+	driverGD.quit();
+//	
+//	createFolder("newPraveenSoundService",migautoFolderId );
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
@@ -59,7 +72,7 @@ public class GoogleDrive {
 			       "mimeType='application/vnd.google-apps.folder' and trashed=false");
 		FileList files = request.execute();
 		List<File> fileList =  files.getItems();
-		
+		System.out.println("Find Screen Shot Folder");
 		
 		for(File folder : fileList){
 			
@@ -82,6 +95,7 @@ public class GoogleDrive {
 	  body.setTitle(folderName);
 	  body.setMimeType("application/vnd.google-apps.folder");
 	  body.setParents(Arrays.asList(new ParentReference().setId(parentFolderID)));
+	  
 
 
 	  File file = service.files().insert(body).execute();
@@ -96,35 +110,36 @@ public class GoogleDrive {
 		
   }
   
-  public static void getConnection() throws IOException {
+  public static void getNewConnection() throws IOException {
     HttpTransport httpTransport = new NetHttpTransport();
     JsonFactory jsonFactory = new JacksonFactory();
     
-//
+////
+////   
+    GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+        httpTransport, jsonFactory, CLIENT_ID, CLIENT_SECRET, Arrays.asList(DriveScopes.DRIVE))
+        .setAccessType("online")
+        .setApprovalPrompt("auto").build();
+    
+
+    String url = flow.newAuthorizationUrl().setRedirectUri(REDIRECT_URI).build();
+    System.out.println("Please open the following URL in your browser then type the authorization code:");
+    System.out.println("  " + url);
+
+
+    
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    String code = br.readLine();
+
+    
+    GoogleTokenResponse response = flow.newTokenRequest(code).setRedirectUri(REDIRECT_URI).execute();
+  
+    GoogleCredential credential = new GoogleCredential().setFromTokenResponse(response);
+    String accessToken = credential.getAccessToken();
+    System.out.println("accessToken : "+accessToken);
+    String refreshToken = credential.getRefreshToken();
+    System.out.println("refreshToken : "+refreshToken);
 //   
-//    GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
-//        httpTransport, jsonFactory, CLIENT_ID, CLIENT_SECRET, Arrays.asList(DriveScopes.DRIVE))
-//        .setAccessType("online")
-//        .setApprovalPrompt("auto").build();
-//    
-//
-//    String url = flow.newAuthorizationUrl().setRedirectUri(REDIRECT_URI).build();
-//    System.out.println("Please open the following URL in your browser then type the authorization code:");
-//    System.out.println("  " + url);
-//    
-//    
-//    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//    String code = br.readLine();
-//
-//    
-//    GoogleTokenResponse response = flow.newTokenRequest(code).setRedirectUri(REDIRECT_URI).execute();
-//  
-//    GoogleCredential credential = new GoogleCredential().setFromTokenResponse(response);
-//    String accessToken = credential.getAccessToken();
-//    System.out.println("accessToken : "+accessToken);
-//    String refreshToken = credential.getRefreshToken();
-//    System.out.println("refreshToken : "+refreshToken);
-   
     
     /* 
 
@@ -140,11 +155,11 @@ File ID: 0B5Oonp8LMi-0eFVPYWRhV2xGdzA
     */
 
 
-
-     GoogleCredential credential = new GoogleCredential.Builder().setJsonFactory(jsonFactory)
-    		 .setTransport(httpTransport).setClientSecrets(CLIENT_ID, CLIENT_SECRET).build();
-     credential.setAccessToken("ya29.KgEkzUtVVZn4jYqnceKRCRWEGyzLTgFUh1u6s7EmaPJLxoRnO0MDFm-Y93_Yt1eNiQ_7C0-YzglFUQ");
-     credential.setRefreshToken("");
+//
+//     GoogleCredential credential = new GoogleCredential.Builder().setJsonFactory(jsonFactory)
+//    		 .setTransport(httpTransport).setClientSecrets(CLIENT_ID, CLIENT_SECRET).build();
+//     credential.setAccessToken("ya29.KgEkzUtVVZn4jYqnceKRCRWEGyzLTgFUh1u6s7EmaPJLxoRnO0MDFm-Y93_Yt1eNiQ_7C0-YzglFUQ");
+//     credential.setRefreshToken("");
 
 
 
@@ -155,7 +170,10 @@ File ID: 0B5Oonp8LMi-0eFVPYWRhV2xGdzA
     //Create a new authorized API client
      service = new Drive.Builder(httpTransport, jsonFactory, credential).build();
     
-     Drive.Files.List lst = service.files().list();
+
+     
+     driverGD.quit();
+ 
 //     http://stackoverflow.com/questions/18150073/how-to-create-folders-in-google-drive-without-duplicate
 /*
     //Insert a file  
@@ -174,6 +192,125 @@ File ID: 0B5Oonp8LMi-0eFVPYWRhV2xGdzA
     */
   }
   
+  public static void uploadImageFile(String filePath, String parentFolderId){
+		try {
+	  File body = new File();
+	  body.setMimeType("image/jpeg");
+	  body.setParents(Arrays.asList(new ParentReference().setId(parentFolderId)));
+
+	  
+	  java.io.File fileContent = new java.io.File(filePath);
+	    FileContent mediaContent = new FileContent("image/jpeg", fileContent);
+	//4/OgdJ9bAOcTzouCdxLkCr9cPelAjtV4Coi7cmSaogewQ.Ihsc984K8G0Rcp7tdiljKKbxwuyylwI
+//	    4/U_SoaXECL5DXhqgXdQm_9yFjfc-KRV83pxJMWIzAWlM.Ijth0FelxG4Scp7tdiljKKbnkO-ylwI
+	    File file = service.files().insert(body, mediaContent).execute();
+	    System.out.println("File ID: " + file.getId());
+	   
+	    System.out.println("getWebContentLink() :"+ file.getWebContentLink() +"| getAlternateLink : "+     file.getAlternateLink() + " | iconlink :"+file.getIconLink()+" | selfLink :"+file.getSelfLink());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	  
+  }
   
+  public static void uploadScreenshotsFolder(String localFolderPath, String parentFolderId){
+	  
+	  java.io.File dir = new java.io.File(localFolderPath);
+	  
+	  if(dir.isDirectory()){
+		  String[] files = dir.list();
+		  
+		  for(String filePath : files){
+			  uploadImageFile(filePath, parentFolderId);
+		  }
+	  }
+  }
+  
+  public static String getCode(String url) {
+	  
+	  try{
+	  
+	  System.out.println("       getCode      ");
+	  
+	  driverGD.get(url);
+	  driverGD.findElement(By.cssSelector("input#Email")).sendKeys("automatemig");
+	  driverGD.findElement(By.cssSelector("input#Passwd")).sendKeys("Letmein01");
+	  driverGD.findElement(By.cssSelector("input#signIn")).click();
+	  
+	  Thread.sleep(3000);
+
+	  
+	  driverGD.findElement(By.cssSelector("button#submit_approve_access")).click();
+	  
+	 String code = driverGD.findElement(By.cssSelector("input#code")).getAttribute("value");
+	 
+	 System.out.println("code : "+code);
+	  return code;
+	  }
+	  catch(Exception e){
+		  
+		 e.printStackTrace();
+		 return null;
+	  }
+  }
+  
+  public static void getConnectionCode() throws IOException, InterruptedException {
+	    HttpTransport httpTransport = new NetHttpTransport();
+	    JsonFactory jsonFactory = new JacksonFactory();
+	    
+	////
+	////   
+	    GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
+	        httpTransport, jsonFactory, CLIENT_ID, CLIENT_SECRET, Arrays.asList(DriveScopes.DRIVE))
+	        .setAccessType("online")
+	        .setApprovalPrompt("auto").build();
+	    
+
+	    String url = flow.newAuthorizationUrl().setRedirectUri(REDIRECT_URI).build();
+	    System.out.println("Please open the following URL in your browser then type the authorization code:");
+	    System.out.println("  " + url);
+	    
+	    
+	    
+//	    driverGD.get(url);
+//	    driverGD.findElement(By.cssSelector("button#submit_approve_access")).click();
+//	    String code = driverGD.findElement(By.cssSelector("div#inner-editor")).getText();
+//	    
+//	    
+//	    URL urlO = new URL(url);
+//	    
+//	    BufferedReader br = new BufferedReader(new InputStreamReader(urlO.openStream()));
+//	    String tempstr="";
+//	    while(null!=(tempstr=br.readLine())){
+//	    	System.out.println("tempstr : "+tempstr);
+//	    	
+//	    }
+	  
+//	    
+//	   String code="";
+	    String code = getCode(url);
+	    
+
+//	    
+	    GoogleTokenResponse response = flow.newTokenRequest(code).setRedirectUri(REDIRECT_URI).execute();
+	  
+	    GoogleCredential credential = new GoogleCredential().setFromTokenResponse(response);
+	    String accessToken = credential.getAccessToken();
+	    System.out.println("accessToken : "+accessToken);
+	    String refreshToken = credential.getRefreshToken();
+	    System.out.println("refreshToken : "+refreshToken);
+//	//   
+//	    
+//	 
+	     service = new Drive.Builder(httpTransport, jsonFactory, credential).build();
+	    
+	     Drive.Files.List lst = service.files().list();
+//	     
+  
+  
+  
+}
   
 }

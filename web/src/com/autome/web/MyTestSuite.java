@@ -118,6 +118,8 @@ public class MyTestSuite {
 		//share post using inner editor
 		sharePostInnerEditor();
 		
+		
+		
 		signOut();
         
 			Thread.sleep(5000);
@@ -171,7 +173,7 @@ public static void takeScreenShot(){
 	public static void uploadScreenShotToGoogleDrive(){
 		
 		try {
-		   GoogleDrive.getConnection();
+
 		  if(screenShotIndx==0) {
 			  ssFolderId =  GoogleDrive.createFolder(getFileName(), GoogleDrive.migautoFolderId);
 		  }
@@ -481,6 +483,15 @@ public static void takeScreenShot(){
 		System.out.println("                  > Type text in Inner Editor                   ");
 		Log.info("                  > Type text in Inner Editor                   ");
 		driver.findElement(By.cssSelector(OR.getProperty("innerEditor"))).sendKeys("Inner Editor - Post Text @"+getCurrentTimeStamp()+RandomStringUtils.randomAlphabetic(200));
+		
+	}
+	
+	public static void userProfile(){
+		
+		System.out.println("             # User Profile             ");
+		Log.info("             # User Profile             ");
+		
+		
 		
 	}
 	
