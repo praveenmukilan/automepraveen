@@ -991,6 +991,7 @@ public static void sendMail(){
 	Log.infoTitle("Send the results in mail");
 	 // Recipient's email ID needs to be mentioned.
     String to = andauto.getProperty("emailTo");
+    String cc = andauto.getProperty("emailCC");
 
     // Sender's email ID needs to be mentioned
     String from = "praveen.m@mig.me";
@@ -1025,6 +1026,9 @@ return new PasswordAuthentication(username, password);
        // Set To: header field of the header.
        message.setRecipients(Message.RecipientType.TO,
           InternetAddress.parse(to));
+       
+       message.setRecipients(Message.RecipientType.CC,
+    	          InternetAddress.parse(cc));
 
        // Set Subject: header field
        message.setSubject("Android Automation "+job_build+" status");
