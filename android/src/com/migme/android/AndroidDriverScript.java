@@ -72,6 +72,7 @@ public class AndroidDriverScript{
 	public static long endTime;
 	public static long runTimeInMinutes;
     public static String job_build;
+    public static String apkURL;
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
@@ -204,12 +205,14 @@ public static void test01()  {
 		build_tag=andauto.getProperty("BUILD_TAG");
 
 		build_url=andauto.getProperty("BUILD_URL");
+		apkURL=andauto.getProperty("APKURL");
 		
 		String androidApkPath = andauto.getProperty("APKPATH");
 		Log.info("build_tag : "+build_tag);
 		Log.info("build_url : "+build_url);
+		Log.info("Android Build APK URL : "+apkURL);
 		
-		Log.info("androidApkPath : "+androidApkPath);
+//		Log.info("androidApkPath : "+androidApkPath);
 
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 
@@ -1034,7 +1037,7 @@ return new PasswordAuthentication(username, password);
        java.io.File logF = new java.io.File("logfile.log");
       
 
-       messageBodyPart.setText("\nHi,\n\nAndroid automation job execution status.\n\n Please check the below URL for details : \n"+build_url+ "\n\n\nThe job '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
+       messageBodyPart.setText("\nHi,\n\nAndroid automation job is triggered by the Android build job and is run for the apk at "+apkURL+"\n\nPlease check the below URL for details : \n"+build_url+ "\n\n\nThe job '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
        
        
 
