@@ -1,38 +1,13 @@
-2015-03-05 17:57:49,970 INFO  [Log] *****          test started @ : 2015-03-05 17:57:49.907 
-2015-03-05 17:57:49,971 INFO  [Log] *****          Test Suite Starts 
-2015-03-05 17:57:49,995 INFO  [Log] *****          Setup Starts 
-2015-03-05 17:57:49,995 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
-2015-03-05 17:57:49,996 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
-2015-03-05 17:57:49,996 INFO  [Log]                     > Android Build APK URL : https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/lastSuccessfulBuild/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk 
-2015-03-05 17:57:49,996 INFO  [Log]                     > job_build : null 
-2015-03-05 17:57:49,996 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
-2015-03-05 17:57:56,004 INFO  [Log]                     > driver started 
-2015-03-05 17:57:56,005 INFO  [Log]                     > waiting for app to be lauched 
-2015-03-05 17:58:04,667 INFO  [Log] *****          Setup Ends   --Pass 
-2015-03-05 17:58:04,667 INFO  [Log] *****          Test Starts 
-2015-03-05 17:58:04,679 INFO  [Log] *****          PostTextEmoticons Starts 
-2015-03-05 17:58:43,610 INFO  [Log] *****          PostTextEmoticons Ends   -Fail. Please check! 
-2015-03-05 17:58:43,611 INFO  [Log]                     > go to feed page 
-2015-03-05 17:58:49,803 INFO  [Log]                     > goBack() 
-2015-03-05 17:58:50,136 INFO  [Log]                     > title page reached. hence going out of goBack() 
-2015-03-05 17:59:05,626 INFO  [Log] *****          GroupChat starts 
-2015-03-05 17:59:05,639 INFO  [Log]                     > start newchat 
-2015-03-05 17:59:09,730 INFO  [Log]                     > outof -navigation button 
-2015-03-05 17:59:13,081 INFO  [Log]                     > clicked chat navigation btn 
-2015-03-05 17:59:19,800 INFO  [Log]                     > wait over for ad_chatadd_white button 
-2015-03-05 17:59:19,800 INFO  [Log]                     > clicked ad_chatadd_white button 
-2015-03-05 17:59:22,514 INFO  [Log]                     > startNewChat ends 
-2015-03-05 17:59:46,192 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_17_59_46_192.jpg 
-2015-03-05 17:59:46,680 INFO  [Log]                     > chatToFeedPage 
-2015-03-05 17:59:57,815 INFO  [Log]                     > navigated from the chat window to recent chats 
-2015-03-05 18:00:06,478 INFO  [Log] *****          GroupChat -- Pass 
-2015-03-05 18:00:06,478 INFO  [Log] *****          SignOut Starts 
-2015-03-05 18:00:10,274 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_18_00_10_274.jpg 
-2015-03-05 18:00:13,767 INFO  [Log] *****          SignOut  --Pass 
-2015-03-05 18:00:13,767 INFO  [Log] *****          Test Ends   --Pass 
-2015-03-05 18:00:13,767 INFO  [Log] *****          The tests run for 2 minutes 
-2015-03-05 18:00:13,767 INFO  [Log] *****          Send the results in mail 
-2015-03-05 18:00:22,332 INFO  [Log]                     > Mail sent successfully.... 
-2015-03-05 18:00:22,332 INFO  [Log] *****          Test Suite Ends   --Pass 
-2015-03-05 18:00:22,357 INFO  [Log] *****          tearDown Starts 
-2015-03-05 18:00:22,357 INFO  [Log] *****          tearDown ends 
+2015-03-05 18:18:02,744 INFO  [Log] *****          test started @ : 2015-03-05 18:18:02.642 
+2015-03-05 18:18:02,774 INFO  [Log] *****          Test Suite Starts 
+2015-03-05 18:18:02,810 INFO  [Log] *****          Setup Starts 
+2015-03-05 18:18:02,810 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
+2015-03-05 18:18:02,810 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
+2015-03-05 18:18:02,810 INFO  [Log]                     > Android Build APK URL : https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/lastSuccessfulBuild/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk 
+2015-03-05 18:18:02,810 INFO  [Log]                     > job_build : null 
+2015-03-05 18:18:02,810 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
+2015-03-05 18:18:42,110 INFO  [Log]                     > driver started 
+2015-03-05 18:18:42,110 INFO  [Log]                     > waiting for app to be lauched 
+2015-03-05 18:18:42,219 INFO  [Log] *****          Signin Starts 
+2015-03-05 18:22:40,683 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_05_18_22_40_682.jpg 
+2015-03-05 18:22:41,160 INFO  [Log] *****          Signin Ends   --Pass 
