@@ -403,12 +403,7 @@ public static void postImage(){
 		}
 		
 		else{
-			//ToFix : Camera Error Alert should be clicked OK.
-				if(isElementPresent(By.id("android:id/alertTitle"),5)){
-					System.out.println("Camera Error");
-					driver.findElementById("android:id/button3").click();
-				}
-			//ToFix : Camera Error Alert should be clicked OK.
+
 			
 			Log.info("Camera is not working. Please check");
 
@@ -418,12 +413,25 @@ public static void postImage(){
 			}
 	}
 	
+	else{
+		//ToFix : Camera Error Alert should be clicked OK.
+		if(isElementPresent(By.id("android:id/alertTitle"),5)){
+			System.out.println("Camera Error");
+			driver.findElementById("android:id/button3").click();
+		}
+	//ToFix : Camera Error Alert should be clicked OK.
+		
+		 driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
+		    Log.info("image could not be taken using camera. pls check!");
+		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");	
+	}
+	
 
 	retry=0;
 	}
     catch(Exception e){
     	//==this code makes the driver come out of the migme app. need to fix. infinite loop
-    	
+        
     	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
 //        	driver.launchApp(); 
         	goBack();
@@ -442,9 +450,8 @@ public static void postImage(){
     	else
     	{
     		Log.info("Retried two times. Post Image has issues. Please check.!");
-
-    		
-    		return;
+    		launchApp();
+      		return;
     	}
     	
  
@@ -501,6 +508,7 @@ public static void postTextEmoticons(){
 	Log.infoTitle("PostTextEmoticons Ends   -Pass");
 	
 	}catch(Exception e){
+		takeScreenShot();
 		Log.infoTitle("PostTextEmoticons Ends   -Fail. Please check!");
 		goToFeedPage();	
 	}
@@ -1089,7 +1097,7 @@ return new PasswordAuthentication(username, password);
        sb.append("\nHi,\n\nAndroid automation job is triggered by the below Android build job.\n");
 //       https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/907/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk
        
-       String androidJobURL = apkURL.replaceAll("^(.*)/artifact/.*", "");
+       String androidJobURL = apkURL.replaceAll("^/artifact/.*", "");
        String apk = apkURL.replaceAll("^.*/target/", "");
        sb.append("\tAndroid Build Job : "+androidJobURL);
        sb.append("\n");
