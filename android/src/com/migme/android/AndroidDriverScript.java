@@ -74,6 +74,7 @@ public class AndroidDriverScript{
 	public static long runTimeInMinutes;
     public static String job_build;
     public static String apkURL;
+    public static String githubChangesetURL;
 	
 	static DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
 	static DefaultExecutor executor = new DefaultExecutor();
@@ -147,8 +148,8 @@ public static void test01()  {
 		
 //
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
 //		wait.until(ExpectedConditions.elementToBeClickable(By.id("com.projectgoth:id/main_button")));
+
 
 		
 		privateChat();
@@ -207,6 +208,7 @@ public static void test01()  {
 
 		build_url=andauto.getProperty("BUILD_URL");
 		apkURL=andauto.getProperty("APKURL");
+		githubChangesetURL=andauto.getProperty("GITHUB_CHANGESET_URL");
 		
 		String androidApkPath = andauto.getProperty("APKPATH");
 		Log.info("build_tag : "+build_tag);
@@ -409,7 +411,8 @@ public static void postImage(){
 
 		    driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
 		    Log.info("image could not be taken using camera. pls check!");
-		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");	
+//		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");	
+		 	goToFeedPage();
 			}
 	}
 	
@@ -423,20 +426,23 @@ public static void postImage(){
 		
 		 driver.findElementById(OR.getProperty("cameraBtnCancel")).click();
 		    Log.info("image could not be taken using camera. pls check!");
-		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");	
-	}
+		    Log.infoTitle("PostImage Ends   --Fail. Pls check!");
+		 	goToFeedPage();
+	    }
 	
 
 	retry=0;
 	}
     catch(Exception e){
     	//==this code makes the driver come out of the migme app. need to fix. infinite loop
-        
-    	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
-//        	driver.launchApp(); 
-        	goBack();
-    	}
-    	
+    	Log.infoTitle("PostImage Ends   --Fail. Pls check!");
+    	Log.info(e.getMessage());
+     	goToFeedPage();
+//    	while(!isElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 10)){
+////        	driver.launchApp(); 
+//        	goBack();
+//    	}
+//    	
 
     	
     
@@ -450,8 +456,8 @@ public static void postImage(){
     	else
     	{
     		Log.info("Retried two times. Post Image has issues. Please check.!");
-    		launchApp();
-      		return;
+    	 	goToFeedPage();
+
     	}
     	
  
@@ -548,6 +554,7 @@ public static void launchApp(){
 	}catch(Exception e){
 		
 		Log.info("failed to lauch the app. Please check the app!");
+		Log.info(e.getMessage());
 		
 	}
 }
@@ -1100,8 +1107,9 @@ return new PasswordAuthentication(username, password);
        String androidJobURL = apkURL.replaceAll("^/artifact/.*", "");
        String apk = apkURL.replaceAll("^.*/target/", "");
        sb.append("\tAndroid Build Job : "+androidJobURL);
+       sb.append("\tGithub Changeset URL : "+githubChangesetURL);
        sb.append("\n");
-       sb.append("APK : "+apk);
+       sb.append("\tAPK : "+apk);
        sb.append("\n\n");
        sb.append("Please check the below Automation job url for details : \n\tAutomation Job URL : "+build_url);
        sb.append("\n\t");
