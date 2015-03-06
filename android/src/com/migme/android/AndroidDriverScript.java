@@ -1084,13 +1084,28 @@ return new PasswordAuthentication(username, password);
        // Now set the actual message
        
        java.io.File logF = new java.io.File("logfile.log");
-      
-
-       messageBodyPart.setText("\nHi,\n\nAndroid automation job is triggered by the Android build job and is run for the apk at "+apkURL+"\n\nPlease check the below URL for details : \n"+build_url+ "\n\n\nThe job '"+job_build+"' run for "+runTimeInMinutes +" minutes.\n\n\n Result : \n\n"+Log.getLogOutput());
        
+       StringBuffer sb = new StringBuffer();
+       sb.append("\nHi,\n\nAndroid automation job is triggered by the below Android build job.\n");
+//       https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/907/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk
        
+       String androidJobURL = apkURL.replaceAll("^(.*)/artifact/.*", "");
+       String apk = apkURL.replaceAll("^.*/target/", "");
+       sb.append("\tAndroid Build Job : "+androidJobURL);
+       sb.append("\n");
+       sb.append("APK : "+apk);
+       sb.append("\n\n");
+       sb.append("Please check the below Automation job url for details : \n\tAutomation Job URL : "+build_url);
+       sb.append("\n\t");
+       sb.append("Run time(mins) : "+runTimeInMinutes);
+       sb.append("\n\n\n Result : \n\n"+Log.getLogOutput());
+       
+    	  
 
-       // Create a multipar message
+       
+       messageBodyPart.setText(sb.toString());
+
+       // Create a multipart message
        Multipart multipart = new MimeMultipart();
 
        // Set text message part
@@ -1114,6 +1129,7 @@ return new PasswordAuthentication(username, password);
 
     } catch (MessagingException e) {
         Log.infoTitle("Send mail   --Fail. Pls check!");
+        Log.info(e.getMessage());
        throw new RuntimeException(e);
 
     }
