@@ -1091,7 +1091,7 @@ return new PasswordAuthentication(username, password);
     	          InternetAddress.parse(cc));
 
        // Set Subject: header field
-       message.setSubject("Android Automation "+job_build+" status");
+       message.setSubject("Android Automation Job '"+job_build.replace("-", "-Build#")+"' status");
 
        // Create the message part
        BodyPart messageBodyPart = new MimeBodyPart();
@@ -1107,7 +1107,7 @@ return new PasswordAuthentication(username, password);
        String androidJobURL = apkURL.replaceAll("^/artifact/.*", "");
        String apk = apkURL.replaceAll("^.*/target/", "");
        sb.append("\tAndroid Build Job : "+androidJobURL);
-       sb.append("\tGithub Changeset URL : "+githubChangesetURL);
+       sb.append("\n\tGithub Changeset URL : "+githubChangesetURL);
        sb.append("\n");
        sb.append("\tAPK : "+apk);
        sb.append("\n\n");
