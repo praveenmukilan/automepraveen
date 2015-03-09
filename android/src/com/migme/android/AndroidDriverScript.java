@@ -497,7 +497,7 @@ public static void postTextEmoticons(){
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 		Thread.sleep(2000);
 	}
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys("postTextEmoticons @ "+getCurrentTimeStamp()+" with some random text"+RandomStringUtils.randomAlphabetic(150));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("postTextEmoticons @ "+getCurrentTimeStamp()+" with some random text : "+RandomStringUtils.randomAlphabetic(150));
 	driver.findElementByAccessibilityId(OR.getProperty("emoticonBtn")).click();	
 	
 	driver.findElementByXPath(OR.getProperty("emoticonItem")).click();
