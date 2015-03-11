@@ -28,6 +28,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import org.testng.Assert;
+
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
@@ -39,7 +41,9 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.SessionNotCreatedException;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.UnreachableBrowserException;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -56,11 +60,12 @@ import com.migme.util.Log;
 public class AndroidDriverScript{
 
 	public static AppiumDriver driver;
+	public static WebDriver webdriver;
 	public static Process appium;
 	public static Properties OR;
 	public static Properties andauto;
 	public static WebDriverWait wait;
-	public static String username;
+	public static String androidusername;
 	public static String password;
 	public static int screenShotIndx=0;
 	public static int retry=0;
@@ -154,6 +159,7 @@ public static void test01()  {
 		
 		privateChat();
 
+
 		postImage();
 		postTextEmoticons();
 		groupChat();
@@ -173,6 +179,7 @@ public static void test01()  {
 		}
 		
 		catch(Exception e){
+			Log.info(e.getMessage());
 			retry++;
 			if(retry<=3)
 				test01();
@@ -268,17 +275,17 @@ public static void test01()  {
 		
 		   try{
 
-				 username = new String(Base64.getDecoder().decode(OR.getProperty("username")));
+				 androidusername = new String(Base64.getDecoder().decode(OR.getProperty("username")));
 				 password = new String(Base64.getDecoder().decode(OR.getProperty("password")));
 
 
-				waitForElementPresent(MobileBy.AccessibilityId("txt_username"),5).sendKeys(username);
+				waitForElementPresent(MobileBy.AccessibilityId("txt_username"),5).sendKeys(androidusername);
 				waitForElementPresent(MobileBy.AccessibilityId("txt_password"),5).sendKeys(password);
 
 
 				
 				driver.findElement(By.xpath(OR.getProperty("signinBtn_xpath"))).click();
-				takeScreenShot();
+				takeScreenShot(driver);
 				
 				Thread.sleep(Long.parseLong(OR.getProperty("mainBtnWaitSecs")));
 			Log.infoTitle("Signin Ends   --Pass");
@@ -374,7 +381,7 @@ public static void postText(){
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
 	driver.findElementById(OR.getProperty("postTextField")).sendKeys("posttext from android @ "+getCurrentTimeStamp()+" with random text : \n"+RandomStringUtils.randomAlphabetic(100));
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();		
-	takeScreenShot();
+	takeScreenShot(driver);
 	Log.infoTitle("PostText Ends   --Pass");
 }
 
@@ -393,14 +400,14 @@ public static void postImage(){
 	
 	if(isElementClickable(By.id(OR.getProperty("shutterBtn")), 5)){
 		driver.findElementById(OR.getProperty("shutterBtn")).click();
-		takeScreenShot();
+		takeScreenShot(driver);
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		if(isElementPresent(MobileBy.id(OR.getProperty("doneBtn")), 10)){
 		    driver.findElementById(OR.getProperty("doneBtn")).click();
-		    takeScreenShot();
+		    takeScreenShot(driver);
 			driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image-text from android @ "+getCurrentTimeStamp()+" : \n"+RandomStringUtils.randomAlphabetic(100));
 			driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
-			takeScreenShot();
+			takeScreenShot(driver);
 		    Log.info("Post Image   --Pass");
 		}
 		
@@ -510,11 +517,11 @@ public static void postTextEmoticons(){
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
 	Thread.sleep(2000);
 	}
-	takeScreenShot();
+	takeScreenShot(driver);
 	Log.infoTitle("PostTextEmoticons Ends   -Pass");
 	
 	}catch(Exception e){
-		takeScreenShot();
+		takeScreenShot(driver);
 		Log.infoTitle("PostTextEmoticons Ends   -Fail. Please check!");
 		goToFeedPage();	
 	}
@@ -588,7 +595,7 @@ public static void startNewChat() throws InterruptedException{
 	
 	try{
 	Log.info("start newchat");
-
+    driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("mainBtn")), 20).click();
 //	driver.findElementByAccessibilityId(OR.getProperty("mainBtn")).click();
@@ -639,6 +646,7 @@ public static void startNewChat() throws InterruptedException{
 
 	}
 	 retry=0;
+	 driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	 Log.info("startNewChat ends");
 
 	//driver.findElementByAccessibilityId("chat_list_tab").click();
@@ -667,7 +675,10 @@ public static void privateChat() {
 	//    Thread.sleep(10000);
 	 startNewChat();
 	
-	 driver.findElementById(OR.getProperty("chatUserNamesList")).click();
+	WebElement username =  driver.findElementById(OR.getProperty("chatUserNamesList"));
+	String usern = username.getText();
+	username.click();
+	
 	//	//chat list
 	//	driver.findElementById("com.projectgoth:id/label").click();
 	//	//driver.findElementById("com.projectgoth:id/container").click();
@@ -677,13 +688,15 @@ public static void privateChat() {
     Log.info("users selected");
 // sendGiftInPrivateChat();
     
-    postEmoticonInChat();
+//    postEmoticonInChat();
+    
     driver.findElementById(OR.getProperty("chatTextField")).click();
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat from android- hi @ : \n"+getCurrentTimeStamp());
+    String chatText="private chat from android- hi @ : "+getCurrentTimeStamp();
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys(chatText);
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
-	takeScreenShot();
-	
+	takeScreenShot(driver);
+	verifyChatInWebClient(usern,chatText);
 
 	chatToFeedPage();
 	retry=0;
@@ -702,6 +715,109 @@ public static void privateChat() {
 		Log.infoTitle("PrivateChat --Fail. Please check!");
 		}
 	}
+}
+
+public static void verifyChatInWebClient(String username, String chatText){
+	   Log.info("Verify Chat in Web");
+	   System.setProperty("webdriver.chrome.driver","src//resources//chromedriver");
+	   webdriver = new ChromeDriver();
+	   webdriver.manage().window().maximize();
+	   webdriver.get("http://www.mig.me");
+//	   waitForSecs(10);
+	   webSignIn(username);
+	   waitForSecs(8);
+	   openSideBar();
+	   openChatWindow(androidusername);
+	   verifyChatText(chatText);
+//	   getLastMessageStatus(chatText);
+       webdriver.quit();
+}
+
+private static void webSignIn(String username){
+	
+	
+	Log.info("Web signIn");
+	
+	webdriver.findElement(By.cssSelector("a[href='https://login.mig.me/web']")).click();
+
+	String password=new String(Base64.getDecoder().decode("NjBzZSFpbk1T"));
+	
+	webdriver.findElement(By.cssSelector("input[name='mig33-username']")).sendKeys(username);
+	webdriver.findElement(By.cssSelector("input[name='mig33-password']")).sendKeys(password);		
+	webdriver.findElement(By.cssSelector("input[type='submit'][value='sign in']")).click();
+	takeScreenShot(driver);
+}
+
+private static void openSideBar(){
+	Log.info("Open Side bar");
+	webdriver.findElement(By.cssSelector("span.icon-wb_arrowLeft")).click();
+}
+
+
+
+private static void openChatWindow(String androidUserName){
+	
+	try{
+	Log.info("Open Web Chat Window");
+	List<WebElement> chats = webdriver.findElements(By.cssSelector("div.text-truncate.chat-list-title"));
+	
+	for(WebElement e :chats){
+		
+//		Log.info("e.getText() : "+e.getText());
+		
+//		Log.info("androidusername : "+androidusername);
+		
+		if(e.getText().matches("^"+androidUserName+"$")){
+			Log.info("Opening Chat window of user : "+androidusername);
+			e.click();
+			waitForSecs(5);
+			return;
+		}
+		
+		
+		}//for
+	}catch(Exception e){
+		Log.info("Exception in openChatWindow() :");
+		Log.info(e.getMessage());
+	}
+	
+}
+
+public static void verifyChatText(String chatText){
+	
+	Log.info("Verify Chat Text");
+	String actualText = webdriver.findElement(By.cssSelector("div.chat-window-messages ul>li:nth-last-child(2)>div.row.chat-message>div.chat-msg-content>div.chat-msg-msg>span.message.normal")).getText();
+	Log.info("expected : '"+chatText+"'"+"\nactual : '"+actualText+"'");
+	Assert.assertEquals(chatText, actualText);
+	takeScreenShot(webdriver);
+
+}
+
+
+public static void getLastMessageStatus(String chatText){
+	
+	Log.info("Get Message Status");
+	waitForSecs(10);
+	//li[id] > div.row.chat-message > .chat-msg-content > div.chat-msg-msg > span.message.normal getText()
+	//li[id] > div.row.chat-message > .chat-msg-content getclass
+	List<WebElement> chatMsgStatus = webdriver.findElements(By.cssSelector("li[id] > div.row.chat-message > .chat-msg-content.self-msg"));
+	Log.info("chatMsgStatus.size() : "+chatMsgStatus.size());
+	String msgStat = chatMsgStatus.get(chatMsgStatus.size()-1).getAttribute("class");
+	Log.info(msgStat);
+	takeScreenShot(driver);
+	
+	
+	if(msgStat.matches("^.* msg-received.*")){
+		Log.info("chat message received successfully");
+	}
+	else if(msgStat.matches("^.* msg-sent-ok.*")){
+    
+	    Log.info("chat message is not received yet and is only in sent status. Pls check!");
+	}
+	else{
+		Log.info("chat message is not in received or sent state. Pls check! "+msgStat);
+	}
+	
 }
 
 public static void chooseGiftInChat(){
@@ -752,7 +868,7 @@ public static void sendGiftInChat(){
 
 	driver.findElementById(OR.getProperty("chatGiftSend")).click();
 	waitForSecs(3);
-	takeScreenShot();
+	takeScreenShot(driver);
 	
 	if(isElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatGiftSentCloseBtn")),5))
 	     waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatGiftSentCloseBtn")), 5).click();
@@ -836,7 +952,7 @@ public static void groupChat() throws InterruptedException{
 	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("group chat from android - hi @ : \n"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
-	takeScreenShot();
+	takeScreenShot(driver);
 	
 	chatToFeedPage();
 	Log.infoTitle("GroupChat -- Pass");
@@ -853,13 +969,13 @@ public static void waitForSecs(int seconds){
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		Log.infoTitle("GroupChat -- Fail. Please check!");
+		Log.infoTitle("Wait -- Fail. Please check!");
 	}
 }
 
 
 
-public static void takeScreenShot(){
+public static void takeScreenShot(WebDriver driver){
   
    
   if(screenShotIndx==0) {
@@ -923,7 +1039,7 @@ public static void signOut(){
 	//List <WebElement> elmnts = driver.findElement("com.projectgoth:id/label");
 	//driver.findElement(By.name("setting")).click();
 	// Thread.sleep(500000);
-    takeScreenShot();
+    takeScreenShot(driver);
 	driver.findElement(By.xpath("//android.widget.TextView[@text='Sign out']")).click();
 
 	Log.infoTitle("SignOut  --Pass");
@@ -978,7 +1094,7 @@ public static void sendKeysUsingADB(String textString) throws ExecuteException, 
 public static void populateUserCredentialsUsingADB() throws ExecuteException, IOException, InterruptedException{
 	
 	driver.findElementById("com.projectgoth:id/txt_username").click();
-	sendKeysUsingADB(username);
+	sendKeysUsingADB(androidusername);
 	driver.findElementById("com.projectgoth:id/txt_password").click();
 	sendKeysUsingADB(password);
 }

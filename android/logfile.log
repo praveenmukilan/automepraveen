@@ -1,57 +1,66 @@
-2015-03-10 17:35:19,971 INFO  [Log] *****          test started @ : 2015-03-10 17:35:19.957 
-2015-03-10 17:35:19,973 INFO  [Log] *****          Test Suite Starts 
-2015-03-10 17:35:19,995 INFO  [Log] *****          Setup Starts 
-2015-03-10 17:35:19,995 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
-2015-03-10 17:35:19,995 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
-2015-03-10 17:35:19,995 INFO  [Log]                     > Android Build APK URL : https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/lastSuccessfulBuild/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk 
-2015-03-10 17:35:19,995 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
-2015-03-10 17:35:34,523 INFO  [Log]                     > driver started 
-2015-03-10 17:35:34,523 INFO  [Log]                     > waiting for app to be lauched 
-2015-03-10 17:35:34,536 INFO  [Log] *****          Signin Starts 
-2015-03-10 17:39:30,941 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_39_30_941.jpg 
-2015-03-10 17:39:31,105 INFO  [Log] *****          Signin Ends   --Pass 
-2015-03-10 17:39:34,767 INFO  [Log] *****          Setup Ends   --Pass 
-2015-03-10 17:39:34,767 INFO  [Log] *****          Test Starts 
-2015-03-10 17:39:34,777 INFO  [Log] *****          PrivateChat starts 
-2015-03-10 17:39:34,777 INFO  [Log]                     > start newchat 
-2015-03-10 17:39:39,501 INFO  [Log]                     > outof -navigation button 
-2015-03-10 17:39:42,774 INFO  [Log]                     > clicked chat navigation btn 
-2015-03-10 17:39:51,324 INFO  [Log]                     > wait over for ad_chatadd_white button 
-2015-03-10 17:39:51,324 INFO  [Log]                     > clicked ad_chatadd_white button 
-2015-03-10 17:39:54,750 INFO  [Log]                     > startNewChat ends 
-2015-03-10 17:39:57,964 INFO  [Log]                     > users selected 
-2015-03-10 17:40:37,410 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_40_37_409.jpg 
-2015-03-10 17:40:37,436 INFO  [Log]                     > chatToFeedPage 
-2015-03-10 17:40:49,182 INFO  [Log]                     > navigated from the chat window to recent chats 
-2015-03-10 17:40:57,286 INFO  [Log] *****          PrivateChat --Pass 
-2015-03-10 17:40:57,286 INFO  [Log] *****          PostImage Starts 
-2015-03-10 17:41:06,105 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_41_06_105.jpg 
-2015-03-10 17:41:08,326 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_41_08_326.jpg 
-2015-03-10 17:41:20,974 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_41_20_974.jpg 
-2015-03-10 17:41:20,976 INFO  [Log]                     > Post Image   --Pass 
-2015-03-10 17:41:20,976 INFO  [Log] *****          PostTextEmoticons Starts 
-2015-03-10 17:42:04,912 INFO  [Log]                     > waiting for the post to be sent 
-2015-03-10 17:42:10,464 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_42_10_464.jpg 
-2015-03-10 17:42:10,466 INFO  [Log] *****          PostTextEmoticons Ends   -Pass 
-2015-03-10 17:42:10,466 INFO  [Log] *****          GroupChat starts 
-2015-03-10 17:42:10,466 INFO  [Log]                     > start newchat 
-2015-03-10 17:42:12,152 INFO  [Log]                     > outof -navigation button 
-2015-03-10 17:42:12,412 INFO  [Log]                     > clicked chat navigation btn 
-2015-03-10 17:42:19,121 INFO  [Log]                     > wait over for ad_chatadd_white button 
-2015-03-10 17:42:19,121 INFO  [Log]                     > clicked ad_chatadd_white button 
-2015-03-10 17:42:21,094 INFO  [Log]                     > startNewChat ends 
-2015-03-10 17:42:41,640 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_42_41_64.jpg 
-2015-03-10 17:42:41,642 INFO  [Log]                     > chatToFeedPage 
-2015-03-10 17:42:52,273 INFO  [Log]                     > navigated from the chat window to recent chats 
-2015-03-10 17:43:00,122 INFO  [Log] *****          GroupChat -- Pass 
-2015-03-10 17:43:00,122 INFO  [Log] *****          SignOut Starts 
-2015-03-10 17:43:02,927 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_10_17_43_02_926.jpg 
-2015-03-10 17:43:04,197 INFO  [Log] *****          SignOut  --Pass 
-2015-03-10 17:43:04,197 INFO  [Log] *****          Test Ends   --Pass 
-2015-03-10 17:43:04,197 INFO  [Log] *****          The tests run for 7 minutes 
-2015-03-10 17:43:04,197 INFO  [Log] *****          Send the results in mail 
-2015-03-10 17:43:08,840 INFO  [Log] *****          Send mail   --Fail. Pls check! 
-2015-03-10 17:43:08,840 INFO  [Log]                     > [EOF] 
-2015-03-10 17:43:08,841 INFO  [Log]                     > java.lang.RuntimeException: javax.mail.MessagingException: [EOF] 
-2015-03-10 17:43:08,967 INFO  [Log] *****          tearDown Starts 
-2015-03-10 17:43:08,968 INFO  [Log] *****          tearDown ends 
+2015-03-11 16:02:30,700 INFO  [Log] *****          test started @ : 2015-03-11 16:02:30.67 
+2015-03-11 16:02:30,700 INFO  [Log] *****          Test Suite Starts 
+2015-03-11 16:02:30,727 INFO  [Log] *****          Setup Starts 
+2015-03-11 16:02:30,727 INFO  [Log]                     > build_tag : jenkins-Mig Android Auto CI-01 
+2015-03-11 16:02:30,727 INFO  [Log]                     > build_url : http://localhost/Mig Android CI/01 
+2015-03-11 16:02:30,727 INFO  [Log]                     > Android Build APK URL : https://tools.projectgoth.com/jenkins/job/QA-CI%20androidV5/lastSuccessfulBuild/artifact/target/mig33Droid-5.01.005-SNAPSHOT.apk 
+2015-03-11 16:02:30,727 INFO  [Log]                     > androidApkPath : /Users/Praveen/APPIUM/APK/mig33Droid-5.01.004.apk 
+2015-03-11 16:02:43,912 INFO  [Log]                     > driver started 
+2015-03-11 16:02:43,912 INFO  [Log]                     > waiting for app to be lauched 
+2015-03-11 16:02:43,930 INFO  [Log] *****          Signin Starts 
+2015-03-11 16:06:16,753 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_06_16_753.jpg 
+2015-03-11 16:06:16,982 INFO  [Log] *****          Signin Ends   --Pass 
+2015-03-11 16:06:18,897 INFO  [Log] *****          Setup Ends   --Pass 
+2015-03-11 16:06:18,898 INFO  [Log] *****          Test Starts 
+2015-03-11 16:06:18,906 INFO  [Log] *****          PrivateChat starts 
+2015-03-11 16:06:18,906 INFO  [Log]                     > start newchat 
+2015-03-11 16:06:23,061 INFO  [Log]                     > outof -navigation button 
+2015-03-11 16:06:26,274 INFO  [Log]                     > clicked chat navigation btn 
+2015-03-11 16:06:35,792 INFO  [Log]                     > wait over for ad_chatadd_white button 
+2015-03-11 16:06:35,792 INFO  [Log]                     > clicked ad_chatadd_white button 
+2015-03-11 16:06:39,398 INFO  [Log]                     > startNewChat ends 
+2015-03-11 16:06:42,709 INFO  [Log]                     > users selected 
+2015-03-11 16:06:57,106 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_06_57_106.jpg 
+2015-03-11 16:06:57,108 INFO  [Log]                     > Verify Chat in Web 
+2015-03-11 16:07:11,479 INFO  [Log]                     > Web signIn 
+2015-03-11 16:07:22,078 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_07_22_078.jpg 
+2015-03-11 16:07:30,158 INFO  [Log]                     > Open Side bar 
+2015-03-11 16:07:30,390 INFO  [Log]                     > Open Web Chat Window 
+2015-03-11 16:07:30,709 INFO  [Log]                     > Opening Chat window of user : mig1praveen 
+2015-03-11 16:07:35,913 INFO  [Log]                     > Verify Chat Text 
+2015-03-11 16:07:36,724 INFO  [Log]                     > expected : 'private chat from android- hi @ : 2015-03-11 16:06:45.916'
+actual : 'private chat from android- hi @ : 2015-03-11 16:06:45.916' 
+2015-03-11 16:07:37,371 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_07_37_371.jpg 
+2015-03-11 16:07:38,178 INFO  [Log]                     > chatToFeedPage 
+2015-03-11 16:07:48,715 INFO  [Log]                     > navigated from the chat window to recent chats 
+2015-03-11 16:07:57,875 INFO  [Log] *****          PrivateChat --Pass 
+2015-03-11 16:07:57,875 INFO  [Log] *****          PostImage Starts 
+2015-03-11 16:08:07,187 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_08_07_187.jpg 
+2015-03-11 16:08:08,946 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_08_08_946.jpg 
+2015-03-11 16:08:25,669 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_08_25_669.jpg 
+2015-03-11 16:08:25,671 INFO  [Log]                     > Post Image   --Pass 
+2015-03-11 16:08:25,671 INFO  [Log] *****          PostTextEmoticons Starts 
+2015-03-11 16:09:15,377 INFO  [Log]                     > waiting for the post to be sent 
+2015-03-11 16:09:20,749 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_09_20_749.jpg 
+2015-03-11 16:09:20,750 INFO  [Log] *****          PostTextEmoticons Ends   -Pass 
+2015-03-11 16:09:20,750 INFO  [Log] *****          GroupChat starts 
+2015-03-11 16:09:20,750 INFO  [Log]                     > start newchat 
+2015-03-11 16:09:23,103 INFO  [Log]                     > outof -navigation button 
+2015-03-11 16:09:23,589 INFO  [Log]                     > clicked chat navigation btn 
+2015-03-11 16:09:30,651 INFO  [Log]                     > wait over for ad_chatadd_white button 
+2015-03-11 16:09:30,652 INFO  [Log]                     > clicked ad_chatadd_white button 
+2015-03-11 16:09:32,896 INFO  [Log]                     > startNewChat ends 
+2015-03-11 16:09:53,044 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_09_53_043.jpg 
+2015-03-11 16:09:53,085 INFO  [Log]                     > chatToFeedPage 
+2015-03-11 16:10:03,667 INFO  [Log]                     > navigated from the chat window to recent chats 
+2015-03-11 16:10:11,652 INFO  [Log] *****          GroupChat -- Pass 
+2015-03-11 16:10:11,652 INFO  [Log] *****          SignOut Starts 
+2015-03-11 16:10:14,604 INFO  [Log]                     > Screenshot at : /Users/Praveen/Desktop/Dropbox/workspace/autome/android/ScreenShots/MigAndroidAutoCI-01/2015_03_11_16_10_14_604.jpg 
+2015-03-11 16:10:15,912 INFO  [Log] *****          SignOut  --Pass 
+2015-03-11 16:10:15,912 INFO  [Log] *****          Test Ends   --Pass 
+2015-03-11 16:10:15,913 INFO  [Log] *****          The tests run for 7 minutes 
+2015-03-11 16:10:15,913 INFO  [Log] *****          Send the results in mail 
+2015-03-11 16:10:23,431 INFO  [Log]                     > Mail sent successfully.... 
+2015-03-11 16:10:23,431 INFO  [Log] *****          Test Suite Ends   --Pass 
+2015-03-11 16:10:23,435 INFO  [Log] *****          tearDown Starts 
+2015-03-11 16:10:23,435 INFO  [Log] *****          tearDown ends 
