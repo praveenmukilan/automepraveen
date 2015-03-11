@@ -451,8 +451,8 @@ public static void postImage(){
 //    	}
 //    	
 
-    	
-    
+    	//postimage retry commented - starts
+    /*
     	//add camera cancel button, so that the next function postemoticons can work
     	retry++;
     	if(retry<=1){
@@ -466,8 +466,8 @@ public static void postImage(){
     	 	goToFeedPage();
 
     	}
-    	
- 
+    	*/
+    	//postimage retry commented - starts
     }
 	
 	
