@@ -214,7 +214,7 @@ public static void test01()  {
 		Log.info("build_tag : "+build_tag);
 		Log.info("build_url : "+build_url);
 		Log.info("Android Build APK URL : "+apkURL);
-		Log.info("job_build : "+job_build);
+//		Log.info("job_build : "+job_build);
 		
 		Log.info("androidApkPath : "+androidApkPath);
 
@@ -372,7 +372,7 @@ public static void postText(){
 	}
 	
 	driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();		
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys("posttext @ "+getCurrentTimeStamp()+" with random text : "+RandomStringUtils.randomAlphabetic(100));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("posttext from android @ "+getCurrentTimeStamp()+" with random text : \n"+RandomStringUtils.randomAlphabetic(100));
 	driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();		
 	takeScreenShot();
 	Log.infoTitle("PostText Ends   --Pass");
@@ -398,7 +398,7 @@ public static void postImage(){
 		if(isElementPresent(MobileBy.id(OR.getProperty("doneBtn")), 10)){
 		    driver.findElementById(OR.getProperty("doneBtn")).click();
 		    takeScreenShot();
-			driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image @ "+getCurrentTimeStamp()+" "+RandomStringUtils.randomAlphabetic(100));
+			driver.findElementById(OR.getProperty("postTextField")).sendKeys("Post Image-text from android @ "+getCurrentTimeStamp()+" : \n"+RandomStringUtils.randomAlphabetic(100));
 			driver.findElementByAccessibilityId(OR.getProperty("postSendBtn")).click();
 			takeScreenShot();
 		    Log.info("Post Image   --Pass");
@@ -497,7 +497,7 @@ public static void postTextEmoticons(){
 		driver.findElementByAccessibilityId(OR.getProperty("postBtn")).click();
 		Thread.sleep(2000);
 	}
-	driver.findElementById(OR.getProperty("postTextField")).sendKeys("postTextEmoticons @ "+getCurrentTimeStamp()+" with some random text : "+RandomStringUtils.randomAlphabetic(150));
+	driver.findElementById(OR.getProperty("postTextField")).sendKeys("postTextEmoticons from android @ "+getCurrentTimeStamp()+" with some random text : \n"+RandomStringUtils.randomAlphabetic(150));
 	driver.findElementByAccessibilityId(OR.getProperty("emoticonBtn")).click();	
 	
 	driver.findElementByXPath(OR.getProperty("emoticonItem")).click();
@@ -679,7 +679,7 @@ public static void privateChat() {
     
     postEmoticonInChat();
     driver.findElementById(OR.getProperty("chatTextField")).click();
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat - hi @ :"+getCurrentTimeStamp());
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("private chat from android- hi @ : \n"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	takeScreenShot();
@@ -833,7 +833,7 @@ public static void groupChat() throws InterruptedException{
 
     postEmoticonInChat();
     driver.findElementById(OR.getProperty("chatTextField")).click();
-	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("group chat - hi @ :"+getCurrentTimeStamp());
+	driver.findElementById(OR.getProperty("chatTextField")).sendKeys("group chat from android - hi @ : \n"+getCurrentTimeStamp());
 	
 	waitForElementPresent(MobileBy.AccessibilityId(OR.getProperty("chatSend")),5).click();
 	takeScreenShot();
@@ -1146,7 +1146,7 @@ return new PasswordAuthentication(username, password);
     } catch (MessagingException e) {
         Log.infoTitle("Send mail   --Fail. Pls check!");
         Log.info(e.getMessage());
-       throw new RuntimeException(e);
+//       throw new RuntimeException(e);
 
     }
   }
