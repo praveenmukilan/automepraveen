@@ -102,9 +102,9 @@ public class AndroidDriverScript{
 			Log.infoTitle("test started @ : "+getCurrentTimeStamp());
 	        Log.infoTitle("Test Suite Starts");
 //			startAppium();
-//			launchEmulator();
+		
 	//			killNodeAdbPlayer();
-	//		launchEmulator();
+
    //       appium --address "127.0.0.1" --command-timeout "7200" --session-override --log "/tmp/appium.log" --log-timestamp --webhook "localhost:9876" --local-timezone --automation-name "Appium" --platform-name "Android" --platform-version "4.4" --full-reset --device-name "device"
 	//		Thread.sleep(20000);
 			setUp();
@@ -130,7 +130,9 @@ public class AndroidDriverScript{
 			if(retry<=2){
 			main();
 			}
+			else{
 			Log.infoTitle("Test Suite Ends   --Fail. Pls check the job : "+build_url);
+			}
 			
 		}
 		catch(Exception e){
@@ -187,6 +189,7 @@ public static void test01()  {
 		}
 		 }
 
+
 	
 	public static void setUp() throws Exception {
 		
@@ -209,7 +212,9 @@ public static void test01()  {
 		Log.infoTitle("Setup Starts");
 
 		
-//		launchEmulator("");
+		launchEmulator(andauto.getProperty("vmName"));
+		
+		Thread.sleep(30000);
       
 		build_tag=andauto.getProperty("BUILD_TAG");
 
@@ -237,8 +242,8 @@ public static void test01()  {
 		#udid real device
 		#udid=a214daff
 		*/
-	
-		driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+	    
+		driver = new AndroidDriver(new URL("http://127.0.0.1:"+andauto.getProperty("appiumPort")+"/wd/hub"),capabilities);
 		
 		Log.info("driver started");
 		Log.info("waiting for app to be lauched");
@@ -533,13 +538,17 @@ public static void goToFeedPage(){
 	while(!isElementPresent(MobileBy.xpath("//android.widget.TextView[@text='Feed']"),5)){
 	
 		
-	    goBack();
-//    	driver.findElementByAccessibilityId("main_button").click();
-//    	waitForElementPresent(MobileBy.AccessibilityId("ad_feed_orange"), 5);
-	   
-	    	driver.findElementByAccessibilityId("main_button").click();
-			Thread.sleep(2000);
-         	driver.findElementByAccessibilityId("ad_feed_orange").click();
+		goBack();
+
+	   if(isElementPresent(MobileBy.xpath("//android.widget.TextView[@text='Feed']"),5)){
+	    	return;
+         	}
+	   else{
+		   driver.findElementByAccessibilityId("main_button").click();
+			Thread.sleep(5000);
+        	driver.findElementByAccessibilityId("ad_feed_orange").click();
+	   }
+    	    
          	
 	}
 	    }
@@ -787,7 +796,7 @@ public static void verifyChatText(String chatText){
 	
 	Log.info("Verify Chat Text");
 	String actualText = webdriver.findElement(By.cssSelector("div.chat-window-messages ul>li:nth-last-child(2)>div.row.chat-message>div.chat-msg-content>div.chat-msg-msg>span.message.normal")).getText();
-	Log.info("expected : '"+chatText+"'"+"\nactual : '"+actualText+"'");
+	Log.info("expected : '"+chatText+"'"+" | actual : '"+actualText+"'");
 	Assert.assertEquals(chatText, actualText);
 	takeScreenShot(webdriver);
 
@@ -1107,20 +1116,10 @@ public static void launchEmulator(String vmName) throws ExecuteException, IOExce
 	
 	
 	Log.infoTitle("launchEmulator Starts");
-
-	
-	CommandLine launchEmul = new CommandLine("/Applications/Genymotion.app/Contents/MacOS/player");
-
-	
-
-
+ 	CommandLine launchEmul = new CommandLine("/Applications/Genymotion.app/Contents/MacOS/player");
 	launchEmul.addArgument("--vm-name", false);
 	launchEmul.addArgument(vmName);
-	
-	  
-
 	executor.setExitValue(1);
-	
 	executor.execute(launchEmul, resultHandler);
 	Thread.sleep(20000);
 	
@@ -1132,11 +1131,12 @@ private static void killNodeAdbPlayer() throws ExecuteException, IOException, Ex
 	Log.info("kill Node Adb Player Starts");
 
 	
-	CommandLine killNode = new CommandLine("kill -9 $(lsof -i | grep 6723 | awk '{print $2}')");
-	CommandLine killPlayer = new CommandLine("kill -9 $(lsof -i | grep 6724 | awk '{print $2}')");
-
+//	CommandLine killNode = new CommandLine("kill -9 $(lsof -i | grep 6723 | awk '{print $2}')");
+//	CommandLine killPlayer = new CommandLine("kill -9 $(lsof -i | grep 4724 | awk '{print $2}')");
+	CommandLine killPlayer = new CommandLine("kill -9 $(ps aux | grep 'player --vm-name SamsungGalaxyS4-4.4.4-API19' | awk '{print $2}')");
+//ps aux | grep 'player --vm-name SamsungGalaxyS4-4.4.4-API19' | awk '{print $2}'
 	executor.setExitValue(1);
-	executor.execute(killNode,resultHandler);
+//	executor.execute(killNode,resultHandler);
 	executor.execute(killPlayer,resultHandler);
 
 	Log.info("kill Node Adb Player Ends");
