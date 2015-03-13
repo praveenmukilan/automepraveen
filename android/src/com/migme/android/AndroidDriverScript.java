@@ -713,16 +713,11 @@ public static void privateChat() {
 
 	
 	}catch(Exception e){
-		retry++;
-		if(retry<=2){
 		Log.info(e.getMessage());
-		Log.info("Retrying Private Chat again!");
-		privateChat();
-		}
-		else{
-		//skip this if the private chat is passed.
+		
 		Log.infoTitle("PrivateChat --Fail. Please check!");
-		}
+
+
 	}
 }
 
