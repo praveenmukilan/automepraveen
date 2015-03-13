@@ -3,32 +3,14 @@
 
 <suite name="Web_Automation_Suite" parallel="false" preserve-order="true">
 
-    <!-- 
-	<listeners>
-		<listener class-name="com.test.listners.CustomReporter" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-		<listener class-name="com.test.listners.SuiteRun" />
-		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-	</listeners>
-	-->
 
-
-
-<!-- <listeners> -->
-<!--     <listener class-name="org.migme.test.automation.framework.testng.listener.MethodInvokerListener" /> -->
- 
-    
-  
-<!--   </listeners> -->
-  
 	
-	<test name="web automation">
-
+	<test name="webautomation">
+	
 	<classes>
 	<class name="com.autome.web.MyTestSuite"></class>
 	</classes>
 	</test>
-
-
+	
 
 </suite>

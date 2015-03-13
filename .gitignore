@@ -4,3 +4,4 @@ web/target/
 android/test-output/
 android/ScreenShots/
 android/target/
+android/logfile.log

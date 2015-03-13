@@ -212,9 +212,9 @@ public static void test01()  {
 		Log.infoTitle("Setup Starts");
 
 		
-		launchEmulator(andauto.getProperty("vmName"));
+//		launchEmulator(andauto.getProperty("vmName"));
 		
-		Thread.sleep(30000);
+//		Thread.sleep(30000);
       
 		build_tag=andauto.getProperty("BUILD_TAG");
 
@@ -753,8 +753,8 @@ private static void webSignIn(String username){
 	
 	webdriver.findElement(By.cssSelector("input[name='mig33-username']")).sendKeys(username);
 	webdriver.findElement(By.cssSelector("input[name='mig33-password']")).sendKeys(password);		
-	webdriver.findElement(By.cssSelector("input[type='submit'][value='sign in']")).click();
-	takeScreenShot(driver);
+	webdriver.findElement(By.cssSelector("input.up.orange-button")).click();
+	takeScreenShot(webdriver);
 }
 
 private static void openSideBar(){

@@ -1,4 +1,4 @@
-package com.autome.web.util;
+package com.autome.web.utilities;
 
 public class Constants {
 	//System Variables

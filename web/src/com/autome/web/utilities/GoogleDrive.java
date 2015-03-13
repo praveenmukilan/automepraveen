@@ -1,4 +1,4 @@
-package com.autome.web.util;
+package com.autome.web.utilities;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
@@ -37,10 +37,11 @@ public class GoogleDrive {
   private static String REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob";
   public static  Drive service;
   public static final String migautoFolderId = "0B5Oonp8LMi-0fmRfX2dQdm1ESzBJTXE2eGgxVW53RzM4cHFXY1Z5b2paXzBTRlU0Q3ZwYW8";
+  public static final String migwebScreenShotsFolderID = "0B0JDYkvkPzcRfllwSVZYd0Y5VEYtSmVLSU9hLVJOeVVLRjdzYlhKUGhpLVJ1UEJSTmQzdWs";
   public static WebDriver driverGD;
   
   public static void main(String args[]) throws InterruptedException{
-//	  folderTitle : Screenshots | folderID : 0B0JDYkvkPzcRfllwSVZYd0Y5VEYtSmVLSU9hLVJOeVVLRjdzYlhKUGhpLVJ1UEJSTmQzdWs
+//	  folderTitle : Screenshots | folderID : 
 //	  folderTitle : web | folderID : 0B0JDYkvkPzcRflVWRUM2U1FwcDJvVUNNZ21KNFJBYnBNLW9fdzREemhWUmY2N080dF9tMDQ
 	  try {
 			System.setProperty("webdriver.chrome.driver", "src//resources//chromedriver");
@@ -96,7 +97,7 @@ public class GoogleDrive {
 	  body.setMimeType("application/vnd.google-apps.folder");
 	  body.setParents(Arrays.asList(new ParentReference().setId(parentFolderID)));
 	  
-
+	  
 
 	  File file = service.files().insert(body).execute();
 		return file.getId();
