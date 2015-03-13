@@ -185,11 +185,10 @@ public class MyTestSuite {
         signIn();
         Thread.sleep(5000);
 //        skipTour();
-////		//user logged in
-//		postTextFriends();
-//		goToMentionsPage();
-//		goToFavouritesPage();
-//		postTextMyself();	
+		postTextFriends();
+		goToMentionsPage();
+		goToFavouritesPage();
+		postTextMyself();	
 		//Discover Page
 		navigateDiscoverPage();		
 		//Play Page
@@ -227,7 +226,6 @@ public class MyTestSuite {
 			Log.infoTitle("End Test");
 			 runTimeInMinutes = (endTime-startTime)/(1000*60.0);
 			
-
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -670,6 +668,7 @@ public static void takeScreenShot(){
 		takeScreenShot();
 		//send post. There are two Share buttons similar. Top Post Share button is the second element.
 		driver.findElements(By.cssSelector(OR.getProperty("btnpostboxShare"))).get(1).click();
+		waitForSecs(3);
 	}catch(Exception e){
 		Log.info(e.getMessage());
 	}
@@ -690,6 +689,7 @@ public static void takeScreenShot(){
 		Log.infoTitle("User Profile");
 		
 		goToHomePage();
+		waitForSecs(5);
 		driver.findElement(By.cssSelector(OR.getProperty("profileDrpDwn"))).click();
 		driver.findElement(By.cssSelector(OR.getProperty("profileSettings"))).click();
 		

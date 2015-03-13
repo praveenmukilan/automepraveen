@@ -292,3 +292,464 @@ Driver info: org.openqa.selenium.chrome.ChromeDriver
 Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.IF0tXs}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
 Session ID: 0987f07a26adaed656f43be30ded335e 
 2015-03-13 15:24:32,317 INFO  [Log] *****          End Test 
+2015-03-13 15:50:33,223 INFO  [Log] *****          Tests run in Chrome 
+2015-03-13 15:50:43,116 INFO  [Log] *****          runTest 
+2015-03-13 15:50:43,137 INFO  [Log]                     > Test started at : 2015-03-13 15:50:43.137 
+2015-03-13 15:51:05,440 INFO  [Log] *****          signIn 
+2015-03-13 15:51:17,890 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_17_89.jpg 
+2015-03-13 15:51:23,150 INFO  [Log] *****          Discover Page 
+2015-03-13 15:51:23,405 INFO  [Log]                     > Feature Page 
+2015-03-13 15:51:29,609 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_29_609.jpg 
+2015-03-13 15:51:29,631 INFO  [Log]                     > Stories Page 
+2015-03-13 15:51:36,042 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_36_042.jpg 
+2015-03-13 15:51:36,075 INFO  [Log]                     > People Page 
+2015-03-13 15:51:42,444 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_42_443.jpg 
+2015-03-13 15:51:42,445 INFO  [Log]                     > Updates Page 
+2015-03-13 15:51:48,353 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_48_353.jpg 
+2015-03-13 15:51:48,354 INFO  [Log] *****          Play Page 
+2015-03-13 15:51:50,663 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_50_662.jpg 
+2015-03-13 15:51:50,664 INFO  [Log] *****          Store Page 
+2015-03-13 15:51:50,932 INFO  [Log]                     > Gifts Page 
+2015-03-13 15:51:57,910 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_57_91.jpg 
+2015-03-13 15:51:57,954 INFO  [Log]                     > Stickers Page 
+2015-03-13 15:51:58,607 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_58_607.jpg 
+2015-03-13 15:51:58,609 INFO  [Log]                     > Emoticons Page 
+2015-03-13 15:51:58,962 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_58_962.jpg 
+2015-03-13 15:51:58,963 INFO  [Log]                     > Avatar Page 
+2015-03-13 15:51:59,340 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_59_34.jpg 
+2015-03-13 15:51:59,341 INFO  [Log]                     > Recharge Page 
+2015-03-13 15:51:59,712 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_51_59_712.jpg 
+2015-03-13 15:51:59,713 INFO  [Log] *****          Merchant Page 
+2015-03-13 15:52:03,370 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_52_03_37.jpg 
+2015-03-13 15:52:04,592 INFO  [Log] *****          View Notifications 
+2015-03-13 15:52:05,865 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_52_05_865.jpg 
+2015-03-13 15:52:06,174 INFO  [Log] *****          SharePost - Inner Editor 
+2015-03-13 15:52:06,237 INFO  [Log]                     > Type text in Inner Editor 
+2015-03-13 15:52:14,527 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_52_14_527.jpg 
+2015-03-13 15:52:14,896 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_52_14_895.jpg 
+2015-03-13 15:52:14,968 INFO  [Log] *****          User Profile 
+2015-03-13 15:52:14,968 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:52:15,026 INFO  [Log]                     > unknown error: Element is not clickable at point (133, 25). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 33 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,199 INFO  [Log]                     > unknown error: Element is not clickable at point (1033, 25). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 134 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,200 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 15:52:15,298 INFO  [Log]                     > unknown error: Element is not clickable at point (582, 74). Other element would receive the click: <div class="modal-header">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 26 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,298 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:52:15,338 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 26 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,338 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 15:52:15,338 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:52:15,490 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade" aria-hidden="true" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 144 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,491 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 15:52:15,491 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:52:15,523 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade" aria-hidden="true" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 20 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:15,523 INFO  [Log] *****          signOut 
+2015-03-13 15:52:15,596 INFO  [Log]                     > unknown error: Element is not clickable at point (1033, 25). Other element would receive the click: <div id="sharebox-modal" class="modal fade" aria-hidden="true" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 57 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.PjjeQl}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: b222ad8d85e6b6a9edf9242a34f1133a 
+2015-03-13 15:52:20,597 INFO  [Log] *****          End Test 
+2015-03-13 15:55:37,135 INFO  [Log] *****          Tests run in Chrome 
+2015-03-13 15:55:42,552 INFO  [Log] *****          runTest 
+2015-03-13 15:55:42,553 INFO  [Log]                     > Test started at : 2015-03-13 15:55:42.553 
+2015-03-13 15:55:48,255 INFO  [Log] *****          signIn 
+2015-03-13 15:55:58,013 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_55_58_013.jpg 
+2015-03-13 15:55:58,081 INFO  [Log] *****          User Profile 
+2015-03-13 15:55:58,081 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:56:00,856 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:56:01,114 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 15:56:03,830 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:56:04,029 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 15:56:10,032 INFO  [Log] *****          Click Chat User Avatar 
+2015-03-13 15:56:10,750 INFO  [Log]                     > username : mig1praveen 
+2015-03-13 15:56:10,750 INFO  [Log]                     > Close Side bar 
+2015-03-13 15:56:10,914 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 15:56:10,914 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:56:11,004 INFO  [Log]                     > Click Start New Private Chat 
+2015-03-13 15:56:11,004 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 15:56:17,192 INFO  [Log]                     > Selecting a user 
+2015-03-13 15:56:17,248 INFO  [Log]                     > 1. praveenmukilan 
+2015-03-13 15:56:18,599 INFO  [Log] *****          Tests run in Firefox 
+2015-03-13 15:56:20,605 INFO  [Log]                     > Get Message Status 
+2015-03-13 15:56:20,605 INFO  [Log]                     > Wait for 10 secs 
+2015-03-13 15:56:31,636 INFO  [Log]                     > chatMsgStatus.size() : 31 
+2015-03-13 15:56:31,667 INFO  [Log]                     > col-xs-8 no-padding chat-msg-content self-msg msg-received 
+2015-03-13 15:56:32,126 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_56_32_126.jpg 
+2015-03-13 15:56:32,141 INFO  [Log]                     > chat message received successfully 
+2015-03-13 15:56:32,142 INFO  [Log]                     > closed the chat window.! 
+2015-03-13 15:56:32,362 INFO  [Log]                     > Close Side bar 
+2015-03-13 15:56:32,597 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 15:56:32,597 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:56:32,694 INFO  [Log]                     > Click Start New Group Chat 
+2015-03-13 15:56:32,694 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 15:56:36,468 INFO  [Log] *****          runTest 
+2015-03-13 15:56:36,468 INFO  [Log]                     > Test started at : 2015-03-13 15:56:36.468 
+2015-03-13 15:56:41,680 INFO  [Log] *****          signIn 
+2015-03-13 15:56:43,522 INFO  [Log] *****          Tests run in Firefox 
+2015-03-13 15:56:53,520 INFO  [Log] *****          runTest 
+2015-03-13 15:56:53,535 INFO  [Log]                     > Test started at : 2015-03-13 15:56:53.535 
+2015-03-13 15:56:59,000 INFO  [Log] *****          signIn 
+2015-03-13 15:57:13,582 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,582 INFO  [Log] *****          User Profile 
+2015-03-13 15:57:13,582 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:57:13,584 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,587 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,587 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 15:57:13,590 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,590 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:57:13,592 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,592 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 15:57:13,592 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:57:13,595 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,595 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 15:57:13,595 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:57:13,597 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:13,597 INFO  [Log] *****          signOut 
+2015-03-13 15:57:13,600 INFO  [Log]                     > Error communicating with the remote browser. It may have died.
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: driver.version: RemoteWebDriver 
+2015-03-13 15:57:18,600 INFO  [Log] *****          End Test 
+2015-03-13 15:57:36,359 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_57_36_359.jpg 
+2015-03-13 15:57:36,690 INFO  [Log] *****          User Profile 
+2015-03-13 15:57:36,690 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:57:38,587 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 15:57:39,026 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 15:57:41,000 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:57:41,175 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 15:57:47,178 INFO  [Log] *****          Click Chat User Avatar 
+2015-03-13 15:57:51,813 INFO  [Log]                     > username : mig1praveen 
+2015-03-13 15:57:51,813 INFO  [Log]                     > Close Side bar 
+2015-03-13 15:57:51,945 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 15:57:51,945 INFO  [Log]                     > Open Side bar 
+2015-03-13 15:57:52,049 INFO  [Log]                     > Click Start New Private Chat 
+2015-03-13 15:57:52,049 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 15:58:46,152 INFO  [Log] *****          Tests run in Firefox 
+2015-03-13 15:58:52,043 INFO  [Log] *****          runTest 
+2015-03-13 15:58:52,043 INFO  [Log]                     > Test started at : 2015-03-13 15:58:52.043 
+2015-03-13 15:58:56,743 INFO  [Log] *****          signIn 
+2015-03-13 15:59:23,022 INFO  [Log] *****          Tests run in Chrome 
+2015-03-13 15:59:35,676 INFO  [Log] *****          runTest 
+2015-03-13 15:59:35,676 INFO  [Log]                     > Test started at : 2015-03-13 15:59:35.676 
+2015-03-13 15:59:42,454 INFO  [Log] *****          signIn 
+2015-03-13 15:59:50,030 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_59_50_03.jpg 
+2015-03-13 15:59:55,179 INFO  [Log] *****          postTextFriends 
+2015-03-13 15:59:58,627 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_59_58_627.jpg 
+2015-03-13 15:59:59,139 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_15_59_59_139.jpg 
+2015-03-13 15:59:59,140 INFO  [Log] *****          Mentions Page 
+2015-03-13 16:00:01,900 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_01_9.jpg 
+2015-03-13 16:00:01,901 INFO  [Log] *****          Favourites Page 
+2015-03-13 16:00:02,956 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_02_956.jpg 
+2015-03-13 16:00:02,958 INFO  [Log] *****          postTextMyself 
+2015-03-13 16:00:08,305 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_08_305.jpg 
+2015-03-13 16:00:08,769 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_08_769.jpg 
+2015-03-13 16:00:08,770 INFO  [Log] *****          Discover Page 
+2015-03-13 16:00:08,849 INFO  [Log]                     > Feature Page 
+2015-03-13 16:00:14,356 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_14_356.jpg 
+2015-03-13 16:00:14,358 INFO  [Log]                     > Stories Page 
+2015-03-13 16:00:20,816 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_20_816.jpg 
+2015-03-13 16:00:20,818 INFO  [Log]                     > People Page 
+2015-03-13 16:00:30,859 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_30_859.jpg 
+2015-03-13 16:00:30,881 INFO  [Log]                     > Updates Page 
+2015-03-13 16:00:37,042 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_37_042.jpg 
+2015-03-13 16:00:37,043 INFO  [Log] *****          Play Page 
+2015-03-13 16:00:39,481 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_39_481.jpg 
+2015-03-13 16:00:39,482 INFO  [Log] *****          Store Page 
+2015-03-13 16:00:39,628 INFO  [Log]                     > Gifts Page 
+2015-03-13 16:00:43,113 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_43_113.jpg 
+2015-03-13 16:00:43,126 INFO  [Log]                     > Stickers Page 
+2015-03-13 16:00:43,815 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_43_815.jpg 
+2015-03-13 16:00:43,816 INFO  [Log]                     > Emoticons Page 
+2015-03-13 16:00:44,146 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_44_146.jpg 
+2015-03-13 16:00:44,170 INFO  [Log]                     > Avatar Page 
+2015-03-13 16:00:44,467 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_44_467.jpg 
+2015-03-13 16:00:44,468 INFO  [Log]                     > Recharge Page 
+2015-03-13 16:00:44,858 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_44_858.jpg 
+2015-03-13 16:00:44,859 INFO  [Log] *****          Merchant Page 
+2015-03-13 16:00:50,205 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_50_205.jpg 
+2015-03-13 16:00:52,264 INFO  [Log] *****          View Notifications 
+2015-03-13 16:00:52,635 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_00_52_635.jpg 
+2015-03-13 16:00:54,476 INFO  [Log] *****          SharePost - Inner Editor 
+2015-03-13 16:00:55,203 INFO  [Log]                     > Type text in Inner Editor 
+2015-03-13 16:01:00,011 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_01_00_011.jpg 
+2015-03-13 16:01:00,404 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_01_00_403.jpg 
+2015-03-13 16:01:00,476 INFO  [Log] *****          User Profile 
+2015-03-13 16:01:00,476 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 16:01:00,615 INFO  [Log]                     > unknown error: Element is not clickable at point (133, 25). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 100 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,699 INFO  [Log]                     > unknown error: Element is not clickable at point (1033, 26). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 60 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,699 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 16:01:00,767 INFO  [Log]                     > unknown error: Element is not clickable at point (582, 74). Other element would receive the click: <div class="modal-header">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 37 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,768 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:01:00,815 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 32 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,815 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 16:01:00,815 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:01:00,855 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 32 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,855 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 16:01:00,855 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:01:00,880 INFO  [Log]                     > unknown error: Element is not clickable at point (1068, 66). Other element would receive the click: <div id="sharebox-modal" class="modal fade in" aria-hidden="false" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 16 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:00,883 INFO  [Log] *****          signOut 
+2015-03-13 16:01:01,100 INFO  [Log]                     > unknown error: Element is not clickable at point (1033, 25). Other element would receive the click: <div id="sharebox-modal" class="modal fade" aria-hidden="true" style="display: block;">...</div>
+  (Session info: chrome=41.0.2272.89)
+  (Driver info: chromedriver=2.13.307650 (feffe1dd547ee7b5c16d38784cd0cd679dfd7850),platform=Mac OS X 10.9.5 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 170 milliseconds
+Build info: version: '2.44.0', revision: '76d78cf323ce037c5f92db6c1bba601c2ac43ad8', time: '2014-10-23 13:11:40'
+System info: host: 'PraveenMS', ip: '192.168.2.188', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.9.5', java.version: '1.8.0_25'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, chrome={userDataDir=/var/folders/t1/y09xqq894t31wyd4s5nrsj_00000gq/T/.org.chromium.Chromium.D40kWp}, takesHeapSnapshot=true, databaseEnabled=false, handlesAlerts=true, version=41.0.2272.89, platform=MAC, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true}]
+Session ID: 6240168d0babfeafb027022179153277 
+2015-03-13 16:01:06,100 INFO  [Log] *****          End Test 
+2015-03-13 16:07:31,187 INFO  [Log] *****          Tests run in Chrome 
+2015-03-13 16:07:35,403 INFO  [Log] *****          runTest 
+2015-03-13 16:07:35,405 INFO  [Log]                     > Test started at : 2015-03-13 16:07:35.404 
+2015-03-13 16:07:44,617 INFO  [Log] *****          signIn 
+2015-03-13 16:07:53,341 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_07_53_341.jpg 
+2015-03-13 16:07:58,409 INFO  [Log] *****          View Notifications 
+2015-03-13 16:07:59,046 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_07_59_046.jpg 
+2015-03-13 16:07:59,150 INFO  [Log] *****          SharePost - Inner Editor 
+2015-03-13 16:07:59,234 INFO  [Log]                     > Type text in Inner Editor 
+2015-03-13 16:08:04,285 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_08_04_285.jpg 
+2015-03-13 16:08:04,724 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_08_04_724.jpg 
+2015-03-13 16:08:04,909 INFO  [Log]                     > Wait for 3 secs 
+2015-03-13 16:08:08,911 INFO  [Log] *****          User Profile 
+2015-03-13 16:08:08,911 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 16:08:09,009 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:08:16,809 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 16:08:18,154 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 16:08:18,537 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:08:20,180 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:08:26,183 INFO  [Log] *****          Click Chat User Avatar 
+2015-03-13 16:08:26,996 INFO  [Log]                     > username : mig1praveen 
+2015-03-13 16:08:26,996 INFO  [Log]                     > Close Side bar 
+2015-03-13 16:08:27,169 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 16:08:27,169 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:08:27,276 INFO  [Log]                     > Click Start New Private Chat 
+2015-03-13 16:08:27,276 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:08:33,569 INFO  [Log]                     > Selecting a user 
+2015-03-13 16:08:33,626 INFO  [Log]                     > 1. praveenmukilan 
+2015-03-13 16:08:35,869 INFO  [Log]                     > Get Message Status 
+2015-03-13 16:08:35,869 INFO  [Log]                     > Wait for 10 secs 
+2015-03-13 16:08:46,892 INFO  [Log]                     > chatMsgStatus.size() : 31 
+2015-03-13 16:08:46,940 INFO  [Log]                     > col-xs-8 no-padding chat-msg-content self-msg msg-received 
+2015-03-13 16:08:47,278 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_08_47_278.jpg 
+2015-03-13 16:08:47,279 INFO  [Log]                     > chat message received successfully 
+2015-03-13 16:08:47,279 INFO  [Log]                     > closed the chat window.! 
+2015-03-13 16:08:47,413 INFO  [Log]                     > Close Side bar 
+2015-03-13 16:08:47,564 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 16:08:47,564 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:08:47,729 INFO  [Log]                     > Click Start New Group Chat 
+2015-03-13 16:08:47,730 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:08:53,885 INFO  [Log]                     > Selecting two users 
+2015-03-13 16:08:53,960 INFO  [Log]                     > 1. praveenmukilan 
+2015-03-13 16:08:54,398 INFO  [Log]                     > 2. mig3praveen 
+2015-03-13 16:08:54,759 INFO  [Log]                     > Open Recent Chat 
+2015-03-13 16:08:54,759 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:09:01,654 INFO  [Log] *****          Tests run in Chrome 
+2015-03-13 16:09:06,210 INFO  [Log] *****          runTest 
+2015-03-13 16:09:06,211 INFO  [Log]                     > Test started at : 2015-03-13 16:09:06.21 
+2015-03-13 16:09:11,507 INFO  [Log] *****          signIn 
+2015-03-13 16:09:18,428 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_18_428.jpg 
+2015-03-13 16:09:23,449 INFO  [Log] *****          postTextFriends 
+2015-03-13 16:09:26,725 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_26_725.jpg 
+2015-03-13 16:09:27,182 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_27_182.jpg 
+2015-03-13 16:09:27,184 INFO  [Log] *****          Mentions Page 
+2015-03-13 16:09:28,184 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_28_184.jpg 
+2015-03-13 16:09:28,185 INFO  [Log] *****          Favourites Page 
+2015-03-13 16:09:29,725 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_29_725.jpg 
+2015-03-13 16:09:29,726 INFO  [Log] *****          postTextMyself 
+2015-03-13 16:09:37,800 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_37_8.jpg 
+2015-03-13 16:09:38,180 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_38_18.jpg 
+2015-03-13 16:09:38,181 INFO  [Log] *****          Discover Page 
+2015-03-13 16:09:38,255 INFO  [Log]                     > Feature Page 
+2015-03-13 16:09:44,111 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_44_111.jpg 
+2015-03-13 16:09:44,135 INFO  [Log]                     > Stories Page 
+2015-03-13 16:09:46,066 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_46_066.jpg 
+2015-03-13 16:09:46,067 INFO  [Log]                     > People Page 
+2015-03-13 16:09:59,850 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_09_59_85.jpg 
+2015-03-13 16:09:59,879 INFO  [Log]                     > Updates Page 
+2015-03-13 16:10:01,711 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_01_711.jpg 
+2015-03-13 16:10:01,712 INFO  [Log] *****          Play Page 
+2015-03-13 16:10:04,425 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_04_425.jpg 
+2015-03-13 16:10:04,426 INFO  [Log] *****          Store Page 
+2015-03-13 16:10:04,616 INFO  [Log]                     > Gifts Page 
+2015-03-13 16:10:07,349 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_07_349.jpg 
+2015-03-13 16:10:07,352 INFO  [Log]                     > Stickers Page 
+2015-03-13 16:10:08,122 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_08_122.jpg 
+2015-03-13 16:10:08,123 INFO  [Log]                     > Emoticons Page 
+2015-03-13 16:10:08,442 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_08_442.jpg 
+2015-03-13 16:10:08,469 INFO  [Log]                     > Avatar Page 
+2015-03-13 16:10:08,873 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_08_873.jpg 
+2015-03-13 16:10:08,874 INFO  [Log]                     > Recharge Page 
+2015-03-13 16:10:09,221 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_09_221.jpg 
+2015-03-13 16:10:09,222 INFO  [Log] *****          Merchant Page 
+2015-03-13 16:10:14,092 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_14_092.jpg 
+2015-03-13 16:10:19,730 INFO  [Log] *****          View Notifications 
+2015-03-13 16:10:20,098 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_20_098.jpg 
+2015-03-13 16:10:22,784 INFO  [Log] *****          SharePost - Inner Editor 
+2015-03-13 16:10:22,855 INFO  [Log]                     > Type text in Inner Editor 
+2015-03-13 16:10:28,220 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_28_219.jpg 
+2015-03-13 16:10:28,628 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_10_28_628.jpg 
+2015-03-13 16:10:28,695 INFO  [Log]                     > Wait for 3 secs 
+2015-03-13 16:10:32,697 INFO  [Log] *****          User Profile 
+2015-03-13 16:10:32,725 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 16:10:32,820 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:10:40,718 INFO  [Log]                     > HomePage #mig logo 
+2015-03-13 16:10:41,038 INFO  [Log] *****          postTextWithZeroChars 
+2015-03-13 16:10:44,266 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:10:44,449 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:10:50,453 INFO  [Log] *****          Click Chat User Avatar 
+2015-03-13 16:10:51,232 INFO  [Log]                     > username : mig1praveen 
+2015-03-13 16:10:51,232 INFO  [Log]                     > Close Side bar 
+2015-03-13 16:10:51,388 INFO  [Log] *****          Start Private Chat from Side Bar 
+2015-03-13 16:10:51,388 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:10:51,551 INFO  [Log]                     > Click Start New Private Chat 
+2015-03-13 16:10:51,551 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:10:57,690 INFO  [Log]                     > Selecting a user 
+2015-03-13 16:10:57,722 INFO  [Log]                     > 1. praveenmukilan 
+2015-03-13 16:10:59,933 INFO  [Log]                     > Get Message Status 
+2015-03-13 16:10:59,933 INFO  [Log]                     > Wait for 10 secs 
+2015-03-13 16:11:10,960 INFO  [Log]                     > chatMsgStatus.size() : 31 
+2015-03-13 16:11:10,968 INFO  [Log]                     > col-xs-8 no-padding chat-msg-content self-msg msg-received 
+2015-03-13 16:11:11,261 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_11_11_261.jpg 
+2015-03-13 16:11:11,293 INFO  [Log]                     > chat message received successfully 
+2015-03-13 16:11:11,293 INFO  [Log]                     > closed the chat window.! 
+2015-03-13 16:11:11,488 INFO  [Log]                     > Close Side bar 
+2015-03-13 16:11:11,602 INFO  [Log] *****          Start Group Chat from Side Bar 
+2015-03-13 16:11:11,602 INFO  [Log]                     > Open Side bar 
+2015-03-13 16:11:11,693 INFO  [Log]                     > Click Start New Group Chat 
+2015-03-13 16:11:11,693 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:11:17,848 INFO  [Log]                     > Selecting two users 
+2015-03-13 16:11:17,944 INFO  [Log]                     > 1. praveenmukilan 
+2015-03-13 16:11:18,396 INFO  [Log]                     > 2. mig3praveen 
+2015-03-13 16:11:18,850 INFO  [Log]                     > Open Recent Chat 
+2015-03-13 16:11:18,851 INFO  [Log]                     > Wait for 5 secs 
+2015-03-13 16:11:27,160 INFO  [Log]                     > Get Message Status 
+2015-03-13 16:11:27,161 INFO  [Log]                     > Wait for 10 secs 
+2015-03-13 16:11:38,180 INFO  [Log]                     > chatMsgStatus.size() : 32 
+2015-03-13 16:11:38,188 INFO  [Log]                     > col-xs-8 no-padding chat-msg-content self-msg msg-received 
+2015-03-13 16:11:38,457 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_11_38_456.jpg 
+2015-03-13 16:11:38,458 INFO  [Log]                     > chat message received successfully 
+2015-03-13 16:11:38,458 INFO  [Log]                     > closed the chat window.! 
+2015-03-13 16:11:38,608 INFO  [Log]                     > Close Side bar 
+2015-03-13 16:11:38,749 INFO  [Log] *****          signOut 
+2015-03-13 16:11:39,081 INFO  [Log]                     > Screenshot at :/Users/Praveen/Desktop/Dropbox/workspace/autome/web/ScreenShots/MigWebAutoCI-01/2015_03_13_16_11_39_081.jpg 
+2015-03-13 16:11:44,083 INFO  [Log] *****          End Test 
